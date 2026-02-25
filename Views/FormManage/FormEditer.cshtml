@@ -101,15 +101,21 @@
             <div class="tb-single-rwd">
                 <div class="td hd">狀態：</div>
                 <div class="td">
-                    <table id="ctl00_ContentPlaceHolder1_rbtnListProjectStatus" border="0">
+                    <div class="pmds-radio-group">
+                        <span class="radio radio-inline"><input id="ctl00_ContentPlaceHolder1_rbtnListProjectStatus_0" type="radio" name="ctl00$ContentPlaceHolder1$rbtnListProjectStatus" value=""><label for="ctl00_ContentPlaceHolder1_rbtnListProjectStatus_0">全部</label></span>
+                        <span class="radio radio-inline"><input id="ctl00_ContentPlaceHolder1_rbtnListProjectStatus_1" type="radio" name="ctl00$ContentPlaceHolder1$rbtnListProjectStatus" value="Y" checked="checked"><label for="ctl00_ContentPlaceHolder1_rbtnListProjectStatus_1">啟用</label></span>
+                        <span class="radio radio-inline"><input id="ctl00_ContentPlaceHolder1_rbtnListProjectStatus_2" type="radio" name="ctl00$ContentPlaceHolder1$rbtnListProjectStatus" value="N"><label for="ctl00_ContentPlaceHolder1_rbtnListProjectStatus_2">停用</label></span>
+                    </div>
+                    
+                    @* <table border="0">
                         <tbody>
                             <tr>
-                                <td><span class="radio radio-inline"><input id="ctl00_ContentPlaceHolder1_rbtnListProjectStatus_0" type="radio" name="ctl00$ContentPlaceHolder1$rbtnListProjectStatus" value=""><label for="ctl00_ContentPlaceHolder1_rbtnListProjectStatus_0">全部</label></span></td>
-                                <td><span class="radio radio-inline"><input id="ctl00_ContentPlaceHolder1_rbtnListProjectStatus_1" type="radio" name="ctl00$ContentPlaceHolder1$rbtnListProjectStatus" value="Y" checked="checked"><label for="ctl00_ContentPlaceHolder1_rbtnListProjectStatus_1">啟用</label></span></td>
-                                <td><span class="radio radio-inline"><input id="ctl00_ContentPlaceHolder1_rbtnListProjectStatus_2" type="radio" name="ctl00$ContentPlaceHolder1$rbtnListProjectStatus" value="N"><label for="ctl00_ContentPlaceHolder1_rbtnListProjectStatus_2">停用</label></span></td>
+                                <td style="text-align:left;"><span class="radio radio-inline"><input id="ctl00_ContentPlaceHolder1_rbtnListProjectStatus_0" type="radio" name="ctl00$ContentPlaceHolder1$rbtnListProjectStatus" value=""><label for="ctl00_ContentPlaceHolder1_rbtnListProjectStatus_0">全部</label></span></td>
+                                <td style="text-align:left;"><span class="radio radio-inline"><input id="ctl00_ContentPlaceHolder1_rbtnListProjectStatus_1" type="radio" name="ctl00$ContentPlaceHolder1$rbtnListProjectStatus" value="Y" checked="checked"><label for="ctl00_ContentPlaceHolder1_rbtnListProjectStatus_1">啟用</label></span></td>
+                                <td style="text-align:left;"><span class="radio radio-inline"><input id="ctl00_ContentPlaceHolder1_rbtnListProjectStatus_2" type="radio" name="ctl00$ContentPlaceHolder1$rbtnListProjectStatus" value="N"><label for="ctl00_ContentPlaceHolder1_rbtnListProjectStatus_2">停用</label></span></td>
                             </tr>
                         </tbody>
-                    </table>
+                    </table> *@
                 </div>
             </div>
             <div class="collapse in" id="sub_search">
@@ -217,7 +223,7 @@
                 修改稽查記錄專案
             </a> *@
         </div>
-    
+
     </h2>
 
 
@@ -307,7 +313,7 @@
                                 <td class="table_list_info" style="width:20px;">
                                     4
                                 </td>
-                               @*  <td class="table_list_info" style="width:30px;">
+                                @*  <td class="table_list_info" style="width:30px;">
                                 </td> *@
                                 <td style="width:30%;">HACCP專案(FDA)</td>
                                 <td style="width:30%;">GHP、HACCP</td>
@@ -324,7 +330,7 @@
                                 <td class="table_list_info" style="width:20px;">
                                     5
                                 </td>
-                               @*  <td class="table_list_info" style="width:30px;">
+                                @*  <td class="table_list_info" style="width:30px;">
                                 </td> *@
                                 <td style="width:30%;">查驗登記產品專案(FDA)</td>
                                 <td style="width:30%;">查驗登記產品(健康食品)</td>
@@ -341,7 +347,7 @@
                                 <td class="table_list_info" style="width:20px;">
                                     6
                                 </td>
-                               @*  <td class="table_list_info" style="width:30px;">
+                                @*  <td class="table_list_info" style="width:30px;">
                                 </td> *@
                                 <td style="width:30%;">查驗登記工廠專案(FDA)</td>
                                 <td style="width:30%;">查驗登記工廠查核(健康食品工廠)、來源文件保存、逾期食品</td>

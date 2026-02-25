@@ -55,6 +55,15 @@ namespace CoreWebApp.Controllers
             return View();
         }
 
+        public IActionResult PReview()
+        {
+            //return View();
+            if (Request.Headers["X-Requested-With"] == "XMLHttpRequest")
+                return PartialView("PReview");
+
+            return View();
+        }
+
         public IActionResult ReviewPerform()
         {
             if (Request.Headers["X-Requested-With"] == "XMLHttpRequest")

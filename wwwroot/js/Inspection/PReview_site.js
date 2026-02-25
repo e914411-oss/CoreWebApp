@@ -1,7 +1,11 @@
 ﻿function openModal() {
     document.getElementById("modal").style.display = "flex";
-    var response = " 不夠詳細 ";
-    $("#modal div.modal-content").html(response);
+    var response = " 不夠詳細. ";
+    //$("#modal div.modal-content").html(response);
+    document.querySelector("#modal .modal-content").innerHTML = response;
+
+    //var myModal = new bootstrap.Modal(document.getElementById('modal'));
+    //myModal.show();
 }
 
 function closeModal() {
@@ -11,7 +15,7 @@ function closeModal() {
 function openModalRec() {
     document.getElementById("modalRec").style.display = "flex";
     // var response = " 不夠詳細 ";
-    // $("#modal div.modal-content").html(response);
+    // $("#modalRec div.modal-content").html(response);
 }
 
 function closeModalRec() {

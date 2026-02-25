@@ -1,0 +1,82 @@
+﻿@{
+    ViewData["Title"] = "待審核案件";
+}
+
+<h1 class="main-title">
+    <span id="ctl00_ContentPlaceHolder1_UC_NodeName_lblNodeName">@ViewData["Title"]</span>
+</h1>
+
+<div class="content" style="min-height: 561px;">
+
+
+<div id="ctl00_ContentPlaceHolder1_div查詢成功">
+    <span class="text-left text-success"><i class="icon-checkmark-circle"></i>查詢共<span id="ctl00_ContentPlaceHolder1_lb_SearchCount">2</span>筆</span>
+</div>
+<!--查詢結果-->
+<div class="table-responsive rim has-foot">
+    <div id="ctl00_ContentPlaceHolder1_Panel_MarketCheck">
+        <span id="ctl00_ContentPlaceHolder1_UpdatePanel1">
+            </span>
+        <div>
+            <table class="table tb-multi" cellspacing="0" border="0" id="ctl00_ContentPlaceHolder1_gvMarketCheck" style="font-size:Small;width:100%;border-collapse:collapse;">
+                <tbody>
+                    <tr>
+                        <th scope="col">操作</th>
+                        <th scope="col">項目</th>
+                        <th scope="col">稽查單號</th>
+                        <th scope="col">
+                            稽查表單
+                        </th>
+                        <th scope="col">業者名稱</th>
+                        <th scope="col">稽查結果</th>
+                        <th scope="col">稽查人員</th>
+                        <th scope="col">稽查日期</th>
+
+                        <th scope="col">&nbsp;</th>
+                    </tr>
+                    <tr>
+                        <td style="white-space:nowrap;">
+
+                            <a class="nav-link text-black ajax-link" asp-controller="Inspection" asp-action="ReviewPerform"><i class="icon-news"></i></a>
+                        </td>
+                        <td>
+                            1
+                        </td>
+                        <td style="white-space:nowrap;">QP2025071100001</td>
+                        <td>
+                            114年度食品業稽查專案紀錄表
+                        </td>
+                        <td>立蜂實業有限公司</td>
+                        <td>辣椒粉有蘇丹紅-裁罰</td>
+                        
+                        <td style="white-space:nowrap;">稽查員A</td>
+                        <td>2025-07-21</td>
+
+
+                    </tr>
+                    <tr class="altrow">
+                        <td style="white-space:nowrap;">
+
+                            <a class="nav-link text-black ajax-link" asp-controller="Inspection" asp-action="ReviewPerform"><i class="icon-news"></i></a>
+                        </td>
+                        <td>
+                            2
+                        </td>
+                        <td style="white-space:nowrap;">QP2025071100001</td>
+                        <td>
+                            114年度食品業稽查專案紀錄表
+                        </td>
+                        <td>立強實業有限公司</td>
+                        <td>辣椒粉有蘇丹紅-裁罰</td>
+
+                        <td style="white-space:nowrap;">稽查員B</td>
+                        <td>2025-07-21</td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+</div>
