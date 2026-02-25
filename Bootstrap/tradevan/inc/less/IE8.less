@@ -1,0 +1,233 @@
+@import "function.less";
+/*\0*/
+@ie8: \0screen;
+
+@media @ie8 {
+    body{
+        /*font-size: 14px;*/
+    }
+    .login-warp{
+        display: block;
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        padding-top: 70px;
+    }
+   /* .login-warp .login-content .login-logo{
+        top: 0;
+    }*/
+    .login-warp .login-content .login-logo{
+        background: url(../img/global/login-logo-ie8.png) no-repeat;
+    }
+    .login-warp .login-content .left-form{
+        background: url(../img/global/login-left-form-bg.png) repeat;
+    }
+    .login-warp .login-content .right-info{
+        background: url(../img/global/login-right-info-bg.png) repeat;
+    }
+    .container, .main-container{
+        width: 1280px;
+    }
+     .header .logo{
+            background: url(../img/global/logo-ie8.png);
+        }
+    .container.for-login{
+        width: 950px !important;
+    }
+    .header{background-position: center top;}
+    .header .btn-reload{height: 38px; border-left: 1px solid @line;}
+    .login-content form .form-group .input-group .input-group-addon i{color:#fff;}
+    .login-area .log-content{
+        background: url(../img/global/IE8-login-bg-left.png) repeat;
+        width: 40%;
+    }
+    .login-area .announce-right{
+        background: url(../img/global/IE8-login-bg-right.png) repeat;
+        width: 60%;
+    }
+    .login-area .announce-right h2 .more{background: url(../img/global/IE8-login-bg-left.png) repeat;}
+    .input-group-btn{
+        font-size: 14px;
+    }
+    .row{
+        display: table;
+        table-layout: fixed;
+        width: 100%;
+        .col,.col-md-6,.col-md-3{
+            display: table-cell;
+            vertical-align: top;
+        }
+        .col-md-2{width:15%;}
+        .col-sm-12{width:100%;}
+        .col-md-3{width: 25%;}
+        .col-sm-4,.col-sm-4.col-xs-6{width: 33.33%;}
+        .col-sm-6,.col-md-6,.col-xs-6{width: 50%;}
+    }
+    .tb-single-rwd > .hd.td{width: 14%;}
+    .wellcome{
+        min-height: 180px;
+    }
+    .ct .btn-group.mb20{
+        width: 170px;
+    }
+    .wellcome .info .btn.btn-password{
+        background: url(../img/global/opacity-b-2.png) repeat;
+        border:1px solid @main-color-th;
+    }
+    .wellcome .info small{
+        margin-left: 30px;
+    }
+    .main-container .side-menu-hold{
+        padding-bottom: 10px;
+        .tab-pane{
+            margin-bottom: 10px;
+        }
+    }
+    a.table-tit:before{
+        background: transparent;
+        border-bottom: 1px solid @line;
+    }
+    a.table-tit span:after{
+        margin-top: 0;
+        position: relative;
+        top: 1px;
+    }
+    .bootstrap-select.btn-group .btn .filter-option,.bootstrap-select.btn-group .dropdown-menu li a{font-size: 15px;}
+    .btn.dropdown-toggle.selectpicker.btn-default{height: 38px;}
+    .edit-form{
+        background: url(../img/global/login-right-info-bg.png) repeat;
+    }
+    /*.table-responsive.rim .tb-multi th{background: #e6eff6;border-bottom: 1px solid #c1d9eb;}*/
+    .table-responsive.rim{background: #c1d9eb;}
+    .row.btn-table-list{
+       /* display: table;
+        table-layout: fixed;*/
+        .col-md-15,.col-sm-3{
+           /* display: table-cell;*/
+           float: left;
+        }
+        li{
+            a{
+                padding: 0;
+                min-width: 160px;
+                    height: 160px;
+                display: table;
+                span{
+                    height: 160px;
+                    display: table-cell;
+                    vertical-align: middle;
+                    background: transparent;
+                    position: relative;
+                    &:before,&:after{display:none;}
+                }
+                &:hover{
+                    background: @blue-dark;
+                }
+            }
+        }
+    }
+    .checkbox label{
+        white-space: nowrap;
+    }
+    .checkbox label:before{
+        display: none;
+    }
+    .checkbox label:after{
+        display: none;
+    }
+
+    .checkbox input[type="checkbox"] {
+        opacity: 1;
+    }
+    .radio label{
+        white-space: nowrap;
+    }
+    .radio label:before{
+        display: none;
+    }
+    .radio label:after{
+        display: none;
+    }
+
+    .radio input[type="radio"] {
+        opacity: 1;
+    }
+    .modal{
+        filter:~"progid:DXImageTransform.Microsoft.gradient(startColorstr=#88000000,endColorstr=#88000000)";
+    }
+    .modal-dialog
+    {
+        width: 500px;
+        margin:20px auto;
+    }
+    .wizard-steps li:before{
+        border-top: 2px solid #c2d9eb;
+    }
+    .wizard-steps li .step{
+        border: 2px solid #c2d9eb;
+        color: #c2d9eb;
+    }
+    .wizard-steps li .step::after{
+        background: #c2d9eb;
+    }
+    .wizard-steps li.active .step:before{
+        left: 60px;
+    }
+
+    .breadcrumb {
+        display: table;
+        > li{
+            display: table-cell;
+        }
+    }
+    .modal-dialog{
+        width: 990px;
+    }
+    .link_owl {
+             display: table;
+                width: 100%;
+                /*table-layout: fixed;*/
+            .item{
+                display: table-cell;
+                padding: 10px;
+            a{
+                width: 200px;
+                height: 200px;
+                .owl-info{
+                        img{
+                            margin-top: 25px !important;
+                            height: auto;
+                        }
+                }
+                span{
+                    font-size: 20px;
+                }
+            }
+        }
+        }
+        .login-content{
+            .row{
+                display: table;
+                width: 110%;
+                table-layout: fixed;
+            .col-xs-6{
+                width: 50%;
+                display: table-cell;
+            }
+            }
+        }
+        ul.progress-step li::before{
+            content: url(../img/global/progress-arrow.png);
+            background: none;
+            top: -50%;
+            margin-top: -68px;
+        }
+        ul.progress-step li.active span.step:before{
+            left: 58px;
+        }
+        .hummingbird-treeview ul{
+            margin-left: 40px;
+        }
+}
+/*@media @ie8*/
+

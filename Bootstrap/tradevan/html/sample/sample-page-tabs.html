@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="zh-Hant">
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+<head>
+    <meta charset="utf-8">
+    <title>FDA-PMDS 產品通路管理資訊系統</title>
+    <!--SEO Meta Tags-->
+    <meta name="description" content="FDA-PMDS 產品通路管理資訊系統" />
+    <meta name="keywords" content="FDA-PMDS 產品通路管理資訊系統" />
+    <meta name="author" content="FDA-PMDS 產品通路管理資訊系統" />
+    <!--Mobile Specific Meta Tag-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <!--Favicon-->
+    <link href="../../inc/img/favicon.ico" rel="icon" />
+    <!--Master Slider Styles-->
+    <!-- menu -->
+    <link href="../../inc/plugin/bootstrap/bootstrap.css" rel="stylesheet">
+    <link href="../../inc/css/icomoon/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../inc/plugin/CopyToClipboard/css/code-box-copy.css">
+    <link rel="stylesheet" href="../../inc/plugin/bootstrap-select/css/bootstrap-select.css">
+    <link rel="stylesheet" href="../../inc/plugin/datepicker/datepicker3.css">
+    
+    <link href="../../inc/css/cf-layout.css" rel="stylesheet">
+</head>
+<!--Body-->
+
+<body>
+    <div class="main-container">
+        <div id="cframe">
+            <!-- load-nav -->
+        </div>
+        <div id="right-content">
+                <div class="breadcrumb-hold">
+                    <ul class="page-tabs nav add-tab ui-droppable">
+                        <li class="active current"><span></span><a href="#" data-toggle="tab">分頁 Page tabs</a><close></close></li>
+                        
+                        <li><span></span><a href="#" data-toggle="tab">使用者維護 </a><close></close></li><li class="add-new"><a href="javascript:;" data-toggle="tooltip" title="" data-container="body" data-placement="bottom" data-original-title="以拖拉方式側選單拉至TAB區"><i class="icon-plus"></i></a></li>
+                    </ul>
+                    
+                </div>
+            <div class="content">
+               <h4>額外需js引入</h4>
+               <pre class="lt"> &lt;script src="../../inc/plugin/jquery-ui-drag-drop/jquery-ui.min.js">&lt;/script> </pre>
+
+               <h3>拖拉左側選單至page tab區</h3>
+                
+            
+                
+            </div>
+        </div>
+    </div>
+    <!-- main-container -->
+    <div id="footer">
+        <!-- load-float-bar -->
+    </div>
+    <script src="../../inc/js/jquery.min.js"></script>
+    <script src="../../inc/plugin/bootstrap/bootstrap.min.js"></script>
+    <script src="../../inc/plugin/CopyToClipboard/js/prism.min.js"></script>
+    <script src="../../inc/plugin/CopyToClipboard/js/clipboard.min.js"></script>
+    <script src="../../inc/plugin/CopyToClipboard/js/code-box-copy.js"></script>
+    <script src="../../inc/plugin/jquery-ui-drag-drop/jquery-ui.min.js"></script>
+    <script src="../../inc/js/base.js"></script>
+    <script>
+    // very simple to use!
+    $(document).ready(function() {
+        setTimeout(function() {
+            $(".sample-page-tabs").addClass("active").removeClass("collapsed").next(".panel-collapse").addClass("in");
+            $("#side-menu-10").siblings().removeClass("active in");
+            $("#side-menu-10").addClass("active in");
+        }, 500);
+        codeBoxCopy_fun();
+        date_picker_fun();
+
+
+    });
+    </script>
+</body>
+
+</html>

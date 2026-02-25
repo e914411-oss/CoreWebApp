@@ -1,0 +1,191 @@
+﻿.table_setting
+{
+    font-size: 13px;
+    border-collapse: collapse;
+    padding-top: 0px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    width: 719px;
+}
+
+.table_setting th
+{
+    border-collapse: collapse;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    vertical-align: top;
+    padding-top: 7px;
+    padding-right: 3px;
+    padding-bottom: 7px;
+    padding-left: 3px;
+    font-weight: normal;
+    text-align: right;
+    border-bottom-width: 1px;
+    /*border-bottom-style: solid;*/
+    /*border-bottom-color: rgb(224, 224, 224);*/
+    white-space: nowrap;
+    color: rgb(103, 103, 103);
+    line-height: 1.5em;
+}
+
+
+.table_setting td
+{
+    border-bottom: 1px solid rgb(224, 224, 224);
+    margin: 0px;
+    border-collapse: collapse;
+    vertical-align: top;
+    padding-top: 7px;
+    padding-right: 3px;
+    padding-bottom: 7px;
+    padding-left: 0px;
+    line-height: 1.5em;
+    /*width: 70%;*/
+}
+
+
+.table_setting input
+{
+    border-left: 1px solid rgb(128, 128, 128);
+    border-right: 1px solid rgb(185, 185, 185);
+    border-top: 1px solid rgb(128, 128, 128);
+    border-bottom: 1px solid rgb(185, 185, 185);
+    padding: 3px;
+    vertical-align: middle;
+    font-size: 13px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(80, 80, 80);
+    background-color: rgb(250, 250, 250);
+    }
+
+.table_setting DateText
+{
+    Width: 100px;    
+    }
+
+.requiredHighLight
+{
+    color: rgb(181, 0, 46);
+    padding-right: 2px;
+    padding-left: 2px;
+}
+.ps
+{
+    font-weight: normal;
+}
+.requiredHighLight
+{
+    color: rgb(181, 0, 46);
+    padding-right: 2px;
+    padding-left: 2px;
+}
+
+.fieldsetBox
+{
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    border-top-style: solid;
+    border-right-style: solid;
+    border-bottom-style: solid;
+    border-left-style: solid;
+    border-top-color: rgb(209, 209, 209);
+    border-right-color: rgb(209, 209, 209);
+    border-bottom-color: rgb(209, 209, 209);
+    border-left-color: rgb(209, 209, 209);
+    /*background-color: rgb(244, 244, 244);*/
+    padding-top: 0px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+    margin-bottom: 10px;
+    background-position: 0% -10px;
+    background-repeat: repeat no-repeat;
+}
+
+.fieldsetBox_data
+{
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+}
+
+.btn
+{
+    vertical-align: middle;
+    font-size: 13px;
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: url(http://faq.fda.gov.tw/images/bg_submit_btn.gif);
+    background-color: rgb(218, 218, 218);
+    color: rgb(82, 82, 82);
+    padding-top: 1px;
+    padding-right: 5px;
+    padding-bottom: 3px;
+    padding-left: 5px;
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    border-top-style: solid;
+    border-right-style: solid;
+    border-bottom-style: solid;
+    border-left-style: solid;
+    border-top-color: rgb(185, 185, 185);
+    border-right-color: rgb(108, 108, 108);
+    border-bottom-color: rgb(108, 108, 108);
+    border-left-color: rgb(185, 185, 185);
+    min-height: 21px;
+    min-width: 50px;
+    height: auto !important;
+    background-repeat: repeat no-repeat;
+}
+
+.submitbtn
+{
+    width:200px;
+    height:50px;
+}
+
+.fieldLegend
+{
+    color: rgb(27, 90, 152);
+    padding-left: 15px;
+    padding-right: 5px;
+    margin-left: 5px;
+    font-weight: bold;
+    background-position: 2px 4px;
+    background-repeat: no-repeat no-repeat;
+}
+
+.submitBox
+{
+    text-align: center;
+    margin-top: 10px;
+}
+
+.radiobtn
+{
+    vertical-align: middle;
+}
+
+.manageBox_title
+{
+    /*text-align:center;*/
+    vertical-align:bottom;    
+	font-weight: bold;
+	color: #696969;
+	height: 50px;
+	line-height:50px;
+	font-size:large;
+    }
+    
+

@@ -1,0 +1,327 @@
+﻿@{
+    ViewData["Title"] = "待審核案件-審核作業";
+}
+
+<style>
+#modal {
+    position: fixed;          /* 固定在畫面 */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+
+    display: none;            /* 使用 flex 置中 */
+    justify-content: center;  /* 水平置中 */
+    align-items: center;      /* 垂直置中 */
+
+    background-color: rgba(0, 0, 0, 0.3); /* 半透明背景(可選) */
+}
+
+    #modalRec {
+        position: fixed; /* 固定在畫面 */
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        display: none; /* 使用 flex 置中 */
+        justify-content: center; /* 水平置中 */
+        align-items: center; /* 垂直置中 */
+
+        background-color: rgba(0, 0, 0, 0.3); /* 半透明背景(可選) */
+    }
+
+.modal-content1 {
+        position: relative; /* 關鍵 */
+
+        width: 400px;
+        height: 400px;
+        background: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column; /* 直向排列 */
+    }
+
+    /* 標題列 */
+    .modal-header {
+        display: flex;
+        position: relative;
+        width: 100%; /* 填滿 */
+        background: #f0f0f0;
+        padding: 12px 0;
+        text-align: center; /* 文字置中 */
+        font-weight: bold;
+        border-bottom: 1px solid #ddd;
+    }
+
+    /* 標題文字 */
+    .modal-title {
+        width: 100%; /* 填滿 */
+        text-align: left; /* 文字置中 */
+        font-size: 16px;
+    }
+
+    /* 內容區 */
+    .modal-contentb {
+        width: 100%; /* 填滿 */
+        height: 100%;
+        flex: 1; /* ⭐ 自動撐滿剩餘空間 */
+
+        padding: 10px;
+    }
+    .modal-content {
+        width: 100%; /* 填滿 */
+        height: 100%;
+        padding: 10px;
+        border: 1px solid #ccc; /* 灰色邊框 */
+    }
+
+    /* 右上角按鈕 */
+    .close-btn {
+        position: absolute; /* 關鍵 */
+        top: 5px;
+        right: 5px;
+        background: transparent;
+        color: black;
+        border: none;
+        cursor: pointer;
+        width: 55px;
+        height: 25px;
+    }
+
+        .close-btn:hover {
+            color: red;
+        }
+
+    /* Footer */
+    .modal-footer {
+        flex-direction: column;
+        justify-content: flex-end; /* 右對齊 */
+        align-items: flex-end;
+        gap: 20px; /* 按鈕間距 */
+        border-top: 1px solid #ddd;
+    }
+
+    /* 按鈕樣式 */
+    .close-btnC {
+        background: #ccc;
+        border: none;
+        cursor: pointer;
+    }
+
+    .close-btnS {
+
+        background: #007bff;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+
+        .close-btnS:hover {
+            background: #0056b3;
+        }
+
+</style>
+
+<h1 class="main-title">
+    <span id="ctl00_ContentPlaceHolder1_UC_NodeName_lblNodeName">@ViewData["Title"]</span>
+</h1>
+<div id="ctl00_ContentPlaceHolder1_Panel1">
+    <button class="btn btn-default btn-light" onclick="openModal()">退回案件</button>
+    <button class="btn btn-default btn-light" onclick="closeModal(); alert('案件已核准');">核准案件</button>
+
+    <h2 class="table-tit mb0 inline-block"><span>稽查單內容 </span></h2>
+    <div class="visible-xs mb5"></div>
+    <div class="tab" id="tab-1">
+        <div class="tb-single-rwd">
+            <div class="td hd">表單編號</div>
+            <div class="td">
+                <div class="form-group">
+                    <label class="form-control input-sm" style="width:100%;">QP2025071100001</label>
+                </div>
+            </div>
+            <div class="td hd">稽查日期</div>
+            <div class="td">
+                <div class="form-group">
+                    <label class="form-control input-sm" style="width:100%;">2025-07-21</label>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="tb-single-rwd">
+            <div class="td hd">稽查員</div>
+            <div class="td col-6">
+                <div class="form-group">
+                    <label class="form-control input-sm" style="width:100%;">稽查員A</label>
+                </div>
+
+            </div>
+            <div class="td hd">機構代碼</div>
+            <div class="td col-6">
+                <div class="form-group">
+                    <label class="form-control input-sm" style="width:100%;">AB123</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="tb-single-rwd">
+            <div class="td hd">業者名稱</div>
+            <div class="td col-6">
+                <div class="form-group">
+                    <label class="form-control input-sm" style="width:100%;">立蜂實業有限公司</label>
+                </div>
+
+            </div>
+            <div class="td hd">業者電子信箱</div>
+            <div class="td col-6">
+                <div class="form-group">
+                    <label class="form-control input-sm" style="width:100%;">AB123@gmail.com</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="tb-single-rwd">
+            <div class="td hd">負責人</div>
+            <div class="td col-6">
+                <div class="form-group">
+                    <label class="form-control input-sm" style="width:100%;">立蜂</label>
+                </div>
+
+            </div>
+            <div class="td hd">業者電話</div>
+            <div class="td col-6">
+                <div class="form-group">
+                    <label class="form-control input-sm" style="width:100%;">12345678</label>
+                </div>
+            </div>
+        </div>
+        <div class="tb-single-rwd">
+            <div class="td hd">業者地址</div>
+            <div class="td col-3">
+                <div class="form-group">
+                    <label class="form-control input-sm" style="width:100%;">台北市南港區三重路100號</label>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <h2 class="table-tit mb0 inline-block"><span>稽查紀錄 </span></h2>
+    <div class="visible-xs mb5"></div>
+    <!-- END pull-right -->
+    <div class="data-list">
+
+        <div class="table-responsive mt15">
+            <table class="table table-bordered table-striped tb-multi">
+                <thead>
+                    <tr>
+                        <th>操作</th>
+                        <th>稽查表單</th>
+                        <th>稽查人員</th>
+                        <th>稽查日期</th>
+                        <th>稽查結果</th>
+                        <th>限改日期</th>
+                        <th>執行狀態</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr>
+                        <td>
+                            <a href="javascript:void(0);" onclick=" openModalRec(); return false;" class="btn btn-icon view" title="檢視"><i class="icon-eye-2"></i></a>
+
+                        </td>
+                        <td class="lt">114年度食品業稽查專案紀錄表</td>
+                        <td class="lt">稽查員A</td>
+                        <td class="lt">2025-07-21</td>
+                        <td>辣椒粉有蘇丹紅-裁罰</td>
+                        <td class="lt"></td>
+                        <td class="lt">待審核</td>
+
+
+
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+        <!-- table-responsive -->
+
+        <div class="paginator div-tb">
+            <div class="td wid_80px">
+                <div class="btn-group">
+                    <button id="FirstPage" type="button" name="firstPage" class="btn btn-sm" disabled="disabled" data-page="1"><i class="icon-first-page"></i></button>
+                    <button id="PrevPage" type="button" name="prevPage" class="btn btn-sm" disabled="disabled" data-page="1"><i class=" icon-chevron-left"></i></button>
+                </div>
+            </div>
+            <div class="td ct">
+                <div id="Params" style="display:none">{"LogNo":"M-200000001-00000-2","Busin":"0","AName":"拿鐵","Affix":"0"}</div>
+                <span class="hidden-xs">第</span>
+                <select id="PageNum" name="Page" class="form-control" data-width="auto" data-container="body" style="display:inline-block;width:auto;vertical-align:middle"><option value="1" selected="selected">1</option></select>
+                <span class="hidden-xs">/</span> <span class="p-info hidden-xs">1</span>
+                <span class="hidden-xs">頁，每頁</span>
+                <select id="PageSize" name="Size" class="form-control hidden-xs" data-width="auto" data-container="body" style="display:inline-block;width:auto;vertical-align:middle"><option value="10" selected="selected">10</option><option value="20">20</option><option value="30">30</option><option value="40">40</option></select>
+                <span class="hidden-xs">筆，共 1 筆</span>
+            </div>
+            <div class="td rt wid_80px">
+                <div class="btn-group">
+                    <button id="NextPage" type="button" name="nextPage" class="btn btn-sm" disabled="disabled" data-page="1"><i class="icon-chevron-right"></i></button>
+                    <button id="LastPage" type="button" name="lastPage" class="btn btn-sm" disabled="disabled" data-page="1"><i class="icon-last-page"></i></button>
+                </div>
+            </div>
+        </div>
+
+
+</div>
+
+    <div id="modal" style="display:none" >
+        <div class="modal-content1">
+
+            <!-- 標題列 -->
+            <div class="modal-header">
+                <span class="modal-title">　退回案件-簽核意見</span>
+            </div>
+            <div class="modal-contentb">
+                <div class="modal-content">
+                A
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="close-btnC" onclick="closeModal()">取消</button>
+                <button class="close-btnS" onclick="closeModal()">確定</button>
+            </div>
+            <button class="close-btn" onclick="closeModal()">✕</button>
+        </div>
+
+    </div>
+
+    <div id="modalRec" style="display:none">
+        <div class="modal-content1">
+
+            <!-- 標題列 -->
+            <div class="modal-header">
+                <span class="modal-title">　稽查內容</span>
+            </div>
+            <div class="modal-contentb">
+                <div class="modal-content">
+                    辣椒粉有蘇丹紅-裁罰
+                </div>
+            </div>
+            <button class="close-btn" onclick="closeModalRec()">✕</button>
+        </div>
+
+    </div>
+</div>
+
+
+@section Scripts {
+    <script>
+        function openModalx() {
+            alert('鍋');
+        }
+    </script>
+}
+
+

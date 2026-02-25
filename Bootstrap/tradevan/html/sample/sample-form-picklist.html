@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="zh-Hant">
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+<head>
+    <meta charset="utf-8">
+    <title>FDA-PMDS 產品通路管理資訊系統</title>
+    <!--SEO Meta Tags-->
+    <meta name="description" content="FDA-PMDS 產品通路管理資訊系統" />
+    <meta name="keywords" content="FDA-PMDS 產品通路管理資訊系統" />
+    <meta name="author" content="FDA-PMDS 產品通路管理資訊系統" />
+    <!--Mobile Specific Meta Tag-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <!--Favicon-->
+    <link href="../../inc/img/favicon.ico" rel="icon" />
+    <!--Master Slider Styles-->
+    <!-- menu -->
+    <link href="../../inc/plugin/bootstrap/bootstrap.css" rel="stylesheet">
+    <link href="../../inc/css/icomoon/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../inc/plugin/CopyToClipboard/css/code-box-copy.css">
+    <link rel="stylesheet" href="../../inc/plugin/bootstrap-select/css/bootstrap-select.css">
+    <link rel="stylesheet" href="../../inc/plugin/datepicker/datepicker3.css">
+    
+    <link href="../../inc/css/cf-layout.css" rel="stylesheet">
+</head>
+<!--Body-->
+
+<body>
+    <div class="main-container">
+        <div id="cframe">
+            <!-- load-nav -->
+        </div>
+        <div id="right-content">
+                <div class="breadcrumb-hold">
+                    <ol class="breadcrumb">
+                        <li><a href="../../html/welcome/login.html">首頁</a></li>
+                        <li>樣式表</li>
+                        <li class="active">挑選項目表格Picklist</li>
+                    </ol>
+                    
+                </div>
+            <div class="content">
+                <!-- demo-sample -->
+                <div class="demo-sample">
+                    <h2 class="table-tit">
+                                <span>挑選項目表格Picklist</span>
+                            </h2>
+                    <table class="table table-bordered table-striped tb-multi">
+                    <thead>
+                        <tr>
+                                <th class="wid_50per">可選擇此使用者之人員 </th>
+                                <th class="wid_50per">已設定此使用者之人員 </th>
+                            </tr>
+                    </thead>
+                        <tbody>
+                            <tr>
+                                <td colspan="2">
+                                    <div id="pickList"></div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <!-- code-box-copy -->
+                    <div class="code-box-copy">
+                        <button class="code-box-copy__btn" type="button" data-clipboard-target="#code-01" title="Copy"></button>
+                        <pre><code class="language-html" id="code-01">&lt;table class="table table-bordered table-striped tb-multi">
+                    &lt;thead>
+                        &lt;tr>
+                                &lt;th class="wid_50per">可選擇此使用者之人員 &lt;/th>
+                                &lt;th class="wid_50per">已設定此使用者之人員 &lt;/th>
+                            &lt;/tr>
+                    &lt;/thead>
+                        &lt;tbody>
+                            &lt;tr>
+                                &lt;td colspan="2">
+                                    &lt;div id="pickList">&lt;/div>
+                                &lt;/td>
+                            &lt;/tr>
+                        &lt;/tbody>
+                    &lt;/table></code></pre>
+                    </div>
+                    <!-- END code-box-copy -->
+                </div>
+                <!-- END demo-sample -->
+                <h4>js 引入</h4>
+                <pre> &lt;script src="../../inc/plugin/pickList-master/pickList.js">&lt;/script> </pre>
+                <h4>js 設定</h4>
+                <pre>&lt;script>
+         var val = {
+            01: {id: 01, text: 'USERID1(使用者1)'},
+            02: {id: 02, text: 'USERID2(使用者2)'},
+            03: {id: 03, text: 'CHEN11(陳一)'},
+            04: {id: 04, text: 'WANG22(王二)'},
+         };
+         var pick = $("#pickList").pickList({data: val});
+         $("#getSelected").click(function () {
+            console.log(pick.getValues());
+         });
+
+      &lt;/script></pre>
+            </div>
+            <!-- content -->
+        </div>
+        <!-- right-content -->
+    </div>
+    <!-- main-container -->
+    <div id="footer">
+        <!-- load-float-bar -->
+    </div>
+    <script src="../../inc/js/jquery.min.js"></script>
+    <script src="../../inc/plugin/bootstrap/bootstrap.min.js"></script>
+    <script src="../../inc/plugin/CopyToClipboard/js/prism.min.js"></script>
+    <script src="../../inc/plugin/CopyToClipboard/js/clipboard.min.js"></script>
+    <script src="../../inc/plugin/CopyToClipboard/js/code-box-copy.js"></script>
+    <script src="../../inc/plugin/pickList-master/pickList.js"></script>
+    <script src="../../inc/js/base.js"></script>
+    <script>
+    // very simple to use!
+    $(document).ready(function() {
+        setTimeout(function() {
+            $(".sample-form").addClass("active").removeClass("collapsed").next(".panel-collapse").addClass("in");
+            $(".sample-form-picklist").addClass("active");
+            $("#side-menu-10").siblings().removeClass("active in");
+            $("#side-menu-10").addClass("active in");
+        }, 500);
+        checkall();
+        codeBoxCopy_fun();
+    });
+    </script>
+    <script>
+         var val = {
+            01: {id: 01, text: 'USERID1(使用者1)'},
+            02: {id: 02, text: 'USERID2(使用者2)'},
+            03: {id: 03, text: 'CHEN11(陳一)'},
+            04: {id: 04, text: 'WANG22(王二)'},
+         };
+         var pick = $("#pickList").pickList({data: val});
+         $("#getSelected").click(function () {
+            console.log(pick.getValues());
+         });
+
+      </script>
+</body>
+
+</html>

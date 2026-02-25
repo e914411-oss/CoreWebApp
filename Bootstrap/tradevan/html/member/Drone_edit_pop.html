@@ -1,0 +1,115 @@
+<div class="modal fade modal-Drone-edit" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                <h4 class="modal-title">新增無人機資料​</h4>
+            </div>
+            <div class="modal-body">
+                <div class="radio">
+                    <input type="radio" name="radio1" id="radio1" value="option1" checked="">
+                    <label for="radio1">
+                        <ul class="inline-block mt-5">
+                            <li class="title">廠牌​</li>
+                            <li>
+                                <select class="selectpicker" title="請選擇..." name="selValue" data-width="fit">
+                                    <option data-hidden="true"></option>
+                                    <option value="1">大疆（DJI）</option>
+                                    <option value="2">Ketchup</option>
+                                    <option value="3">Relish</option>
+                                </select>
+                            </li>
+                            <li class="title">廠牌​</li>
+                            <li>
+                                <select class="selectpicker" title="請選擇..." name="selValue2" data-width="fit">
+                                    <option data-hidden="true"></option>
+                                    <option>Ketchup</option>
+                                    <option>Relish</option>
+                                </select>
+                            </li>
+                            <li class="title">序號</li>
+                            <li>
+                                <input type="text" class="form-control" placeholder="請輸入序號​">
+                            </li>
+                        </ul>
+                        <div class="table-responsive rim mt10 toggle-select collapse" >
+                        <table class="table  tb-multi">
+                        <thead>
+                            <tr>
+                                <th class="ct">性能諸元</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="lt">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <ul class="list-dot mt10">
+                                            <li> 構造:無人直昇機​</li>
+                                            <li>尺寸(長*寬*高):​</li>
+                                            <li>最大起飛重量(公斤):70.0​</li>
+                                            <li>飛機翼展/直昇機旋翼半徑/多旋翼軸距(公尺):7.5​</li>
+                                            <li>起飛方式:跑道​</li>
+                                            <li>降落方式:降落傘​</li>
+                                            <li>機身空重:50.5​</li>
+                                            <li>使用動力:燃油​</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <ul class="list-dot mt10">
+                                            <li>最大升限(英呎):100000​</li>
+                                            <li>最大巡航速度(浬/時):200​</li>
+                                            <li>遙控方式/頻率:紅外線​</li>
+                                            <li>導航方式:衛星系統​</li>
+                                            <li>使用頻率保護功能:有​</li>
+                                            <li>位置燈/防撞燈:有​</li>
+                                            <li>失效-安全能力概述:喵​</li>
+                                            <li>安全緩降裝置概述:喵喵​</li>
+                                            <li>附註:喵喵喵​</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            
+                                </td>
+                              
+                            </tr>
+                            
+                        </tbody>
+                    </table>
+                    </div>
+                    </label>
+                </div>
+                <div class="radio mt10">
+                    <input type="radio" name="radio1" id="radio2" value="option2">
+                    <label for="radio2"> 
+                    <ul class="inline-block mt-5">
+                    <li class="title">自製特種實體檢驗申請號碼</li>
+                      <li><input type="text" class="form-control" placeholder="請輸入申請號碼​"></li>
+                    </ul>
+                     </label>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="modal-footer ct">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">取消​</button>
+                <a href="javascript:;" class="btn btn-primary" data-dismiss="modal">確定</a>
+                <!-- <button type="button" class="btn btn-primary"  id="Print">列印 </button> -->
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+$('.selectpicker').selectpicker('refresh');
+// checkall();
+// $('.collapse').collapse();
+$(document).ready(function() {
+
+    $('select[name=selValue]').on('change', function() {
+        var selected = $(this).find("option:selected").val();
+        if (selected == 1) {
+            // alert(selected);
+           $(".toggle-select").collapse('show');
+        }
+    });
+});
+</script>

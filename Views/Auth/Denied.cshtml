@@ -1,0 +1,15 @@
+﻿@{
+    ViewData["Title"] = "無權限";
+    Layout = "_LoginLayout";
+}
+
+<div class="row justify-content-center">
+    <div class="col-12 col-md-8 col-lg-6">
+        <div class="alert alert-warning shadow-sm">
+            <h4 class="alert-heading">存取被拒</h4>
+            <p>你已登入，但目前帳號沒有權限存取此頁面。</p>
+            <hr />
+            <a class="btn btn-outline-secondary" asp-controller="Inspection" asp-action="Index">回到首頁</a>
+        </div>
+    </div>
+</div>

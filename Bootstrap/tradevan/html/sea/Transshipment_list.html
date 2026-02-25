@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="zh-Hant">
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+<head>
+    <meta charset="utf-8">
+    <title>FDA-PMDS 產品通路管理資訊系統</title>
+    <!--SEO Meta Tags-->
+    <meta name="description" content="FDA-PMDS 產品通路管理資訊系統" />
+    <meta name="keywords" content="FDA-PMDS 產品通路管理資訊系統" />
+    <meta name="author" content="FDA-PMDS 產品通路管理資訊系統" />
+    <!--Mobile Specific Meta Tag-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <!--Favicon-->
+    <link href="../../inc/img/favicon.ico" rel="icon" />
+    <!--Master Slider Styles-->
+    <!-- menu -->
+    <link href="../../inc/plugin/bootstrap/bootstrap.css" rel="stylesheet">
+    <link href="../../inc/css/icomoon/style.css" rel="stylesheet">
+    <link href="../../inc/plugin/bootstrap-select/css/bootstrap-select.css" rel="stylesheet">
+    <link href="../../inc/plugin/datepicker/datepicker3.css" rel="stylesheet">
+    <link href="../../inc/css/cf-layout.css" rel="stylesheet">
+    <link href="../../inc/css/animate.css" rel="stylesheet">
+</head>
+<!--Body-->
+
+<body class="has-rwd">
+    <div id="header"></div>
+    <div class="main-container ">
+        <div id="cframe">
+            <!-- load-nav -->
+        </div>
+        <div id="right-content">
+            <!-- <div class="content" style="padding: 0"> -->
+            <div class="breadcrumb-hold">
+                <ol class="breadcrumb">
+                    <li><a href="../../html/wellcom/main.html">首頁</a></li>
+                    <li>遠洋漁船作業</li>
+                    <li class="active">轉載確認​</li>
+                </ol>
+            </div>
+            <div class="content">
+                <h1 class="main-title">
+                    轉載確認​
+                    <a href="javascript:;" class="addmyfav">
+                        <i class="icon-heart-o"></i>
+                        <span>加入常用功能</span>
+                    </a>
+                    <select class="selectpicker" data-width="150px" data-icon="icon-star-solid">
+                        <option data-hidden="true" data-icon="icon-star-solid" selected>我的常用功能</option>
+                        <option>Mustard</option>
+                        <option>Ketchup</option>
+                        <option>Relish</option>
+                    </select>
+                </h1>
+                <div class="edit-form">
+                    <!-- list -->
+                    <div class="tb-single-rwd">
+                        <div class="td hd"><span class="star">*</span> 案件編號</div>
+                        <div class="td">
+                            <div class="form-group">
+                                <input type="text" class="form-control" value="">
+                                <span class="help-block">XXX</span>
+                            </div>
+                        </div>
+                        <div class="td hd"></div>
+                        <div class="td"></div>
+                    </div>
+                    <!-- END list -->
+                    <div class="collapse in" id="form-cc1">
+                        <div class="tb-single-rwd">
+                            <div class="td hd">預定轉載日</div>
+                            <div class="td">
+                                <div class="input-group date">
+                                    <input type="text" class="datepicker form-control pull-right">
+                                    <div class="input-group-addon" onclick="$(this).prev().focus()">
+                                        <i class="icon-calendar-full"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="td hd">實際轉載日</div>
+                            <div class="td">
+                                <div class="input-group date">
+                                    <input type="text" class="datepicker form-control pull-right">
+                                    <div class="input-group-addon" onclick="$(this).prev().focus()">
+                                        <i class="icon-calendar-full"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tb-single-rwd">
+                            <div class="td hd">漁船名稱</div>
+                            <div class="td">
+                                <select class="selectpicker" title="請選擇..." data-width="100%" data-size="5">
+                                    <option data-hidden="true"></option>
+                                    <option>XXX </option>
+                                </select>
+                            </div>
+                            <div class="td hd">洋區</div>
+                            <div class="td">
+                                <select class="selectpicker" title="請選擇..." data-width="100%" data-size="5" data-container="body">
+                                    <option data-hidden="true"></option>
+                                    <option>XXX </option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix mb20 visible-xs"></div>
+                    <a href="#form-cc1" class="btn btn-default btn-sm collapse-toggle " data-toggle="collapse" aria-expanded="true"><i></i>
+                        <span class="c-open">展開全部</span>
+                        <span class="c-close">收回內容</span>
+                    </a>
+                </div>
+                <div class="btn-area">
+                    <a href="javascript:;" class="btn btn-primary">清除​</a>
+                    <a href="javascript:;" class="btn btn-primary">查詢​</a>
+                </div>
+                <h2 class="table-tit"> <span>查詢清單​</span> </h2>
+                <div class="table-responsive rim has-foot">
+                    <table class="table  tb-multi">
+                        <thead>
+                            <tr>
+                                <th>案件編號​</th>
+                                <th>漁業別​
+                                    <hr>洋區</th>
+                                <th>預定轉載日期​
+                                    <hr>實際轉載日期​</th>
+                                <th>漁船名稱</th>
+                                <th width="200px">功能 </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>TW-2019-PLLB00013​</td>
+                                <td>鮪延繩釣​ <br> WCPFC</td>
+                                <td>2019/03/13​</td>
+                                <td>國利二號</td>
+                                <td>
+                              <select name="selValue" class="selectpicker"  title="處理方式" data-container="body" data-width="100%" data-style="btn-primary-line" >
+                                <option data-hidden="true"></option>
+                                <option  value="javascript:;">修改</option>
+                                <option  value="javascript:;">審查表​</option>
+                                <option  value="javascript:;">審查決定書​</option>
+                                <option  value="javascript:;">收繳通知書​</option>
+                                <option  value="pop">pop up</option>
+                                </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>TW-2019-PCAB0021​</td>
+                                <td>運搬船 <br> WCPFC</td>
+                                <td>2019/03/13<br>2019/03/13</td>
+                                <td>搬國利二號</td>
+                                <td>
+                              <select name="selValue" class="selectpicker"  title="處理方式" data-container="body" data-width="100%" data-style="btn-primary-line" >
+                                <option data-hidden="true"></option>
+                                <option  value="javascript:;">修改</option>
+                                <option  value="javascript:;">審查表​</option>
+                                <option  value="javascript:;">審查決定書​</option>
+                                <option  value="javascript:;">收繳通知書​</option>
+                                <option  value="pop">pop up</option>
+                                </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>TW-2019-PCAB0021​</td>
+                                <td>鮪延繩釣​ <br> IATTC</td>
+                                <td>2019/03/13<br>2019/03/13</td>
+                                <td>十八春陽​</td>
+                                <td>
+                              <select name="selValue" class="selectpicker"  title="處理方式" data-container="body" data-width="100%" data-style="btn-primary-line" >
+                                <option data-hidden="true"></option>
+                                <option  value="javascript:;">修改</option>
+                                <option  value="javascript:;">審查表​</option>
+                                <option  value="javascript:;">審查決定書​</option>
+                                <option  value="javascript:;">收繳通知書​</option>
+                                <option  value="pop">pop up</option>
+                                </select>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                
+                    <div class="paginator div-tb">
+                        <div class="td wid_80px">
+                            <div class="btn-group">
+                                <button class="btn btn-sm"><i class="icon-first-page"></i></button>
+                                <button class="btn btn-sm"><i class=" icon-chevron-left"></i></button>
+                            </div>
+                        </div>
+                        <div class="td ct">
+                            <span class="hidden-xs">第</span>
+                            <select class="selectpicker" data-width="50px">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                            </select>
+                            <span class="hidden-xs">/ </span> <span class="p-info hidden-xs">3</span><span class="hidden-xs">頁，每頁</span>
+                            <select class="selectpicker hidden-xs" data-width="60px">
+                                <option>10</option>
+                                <option>20</option>
+                                <option>30</option>
+                                <option>40</option>
+                            </select>
+                            <span class="hidden-xs"> 筆 ，共24筆</span>
+                        </div>
+                        <div class="td rt wid_80px">
+                            <div class="btn-group">
+                                <button class="btn  btn-sm"><i class="icon-chevron-right"></i></button>
+                                <button class="btn  btn-sm"><i class="icon-last-page"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- main-container -->
+    <div id="footer">
+        <!-- load-float-bar -->
+    </div>
+    <div class="load-pop"></div>
+    <script src="../../inc/js/jquery.min.js"></script>
+    <script src="../../inc/plugin/bootstrap/bootstrap.min.js"></script>
+    <script src="../../inc/plugin/bootstrap-select/js/bootstrap-select.min.js"></script>
+    <script src="../../inc/plugin/datepicker/bootstrap-datepicker.js"></script>
+    <script src="../../inc/js/base.js"></script>
+    <script>
+    // very simple to use!
+    $(document).ready(function() {
+        setTimeout(function() {
+            $(".tsb-1").removeClass("collapsed");
+            $("#accordion1").addClass("in");
+            $(".panel.m2-2 a").removeClass("collapsed").addClass("active");
+            $("#side-menu-1").siblings().removeClass("active in");
+            $("#side-menu-1").addClass("active in");
+            // $(".m2-1-1").addClass("active")
+        }, 500);
+        // $(".load-Buyer_wishlist").load("Buyer_wishlist.html");
+        $(".load-pop").load("detail_pop.html");
+        date_picker_fun();
+        radio_toggle();
+        file_upload();
+         $('select[name=selValue]').on('change', function(){
+                var selected = $(this).find("option:selected").val();
+                // alert(selected);
+                if(selected=="pop"){
+                  $('.modal-detail').modal('show');
+                }
+              });
+
+    });
+    </script>
+</body>
+
+</html>

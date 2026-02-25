@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="zh-Hant">
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+<head>
+    <meta charset="utf-8">
+    <title>TradeVan E-Vendor 系統
+    </title>
+    <!--SEO Meta Tags-->
+    <meta name="description" content="TradeVan E-Vendor 系統" />
+    <meta name="keywords" content="TradeVan E-Vendor 系統" />
+    <meta name="author" content="TradeVan E-Vendor 系統" />
+    <!--Mobile Specific Meta Tag-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <!--Favicon-->
+    <link href="../../inc/img/favicon.ico" rel="icon" />
+    <!--Master Slider Styles-->
+    <!-- menu -->
+    <link href="../../inc/plugin/bootstrap/bootstrap.css" rel="stylesheet">
+    <link href="../../inc/css/icomoon/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../inc/plugin/CopyToClipboard/css/code-box-copy.css">
+    <link rel="stylesheet" href="../../inc/plugin/bootstrap-select/css/bootstrap-select.css">
+    <link rel="stylesheet" href="../../inc/plugin/datepicker/datepicker3.css">
+    <link href="../../inc/css/cf-layout.css" rel="stylesheet">
+</head>
+<!--Body-->
+
+<body class="has-rwd">
+<div id="header"></div>
+    <div class="main-container">
+        <div id="cframe">
+            <!-- load-nav -->
+        </div>
+        <div id="right-content">
+            <div class="breadcrumb-hold">
+                <ol class="breadcrumb">
+                    <li><a href="../../html/wellcom/main.html">首頁</a></li>
+                    <li>遠洋漁船作業</li>
+                    <li>轉載預報</li>
+                    <li class="active">各式申請書</li>
+                </ol>
+            </div>
+            <div class="content">
+                <h1 class="main-title">
+                            各式申請書 ​
+                            <a href="javascript:;" class="addmyfav">
+        <i class="icon-heart-o"></i>
+        <span>加入常用功能</span>
+        </a>
+                           <select class="selectpicker"  data-width="150px" data-icon="icon-star-solid">
+                            <option data-hidden="true"  data-icon="icon-star-solid" selected>我的常用功能</option>
+  <option>Mustard</option>
+  <option>Ketchup</option>
+  <option>Relish</option>
+</select>
+                            </h1>  
+                           <ul class="row btn-table-list">
+                               <li class="col-md-15 col-sm-3"><a href="choiceWCPFC.html"><span>太平洋​<br>鮪延繩釣​</span></a></li>
+                               <li class="col-md-15 col-sm-3"><a href="javascript:;"><span>太平洋​<br>鰹鮪圍網​</span></a></li>
+                               <li class="col-md-15 col-sm-3"><a href="javascript:;"><span>太平洋​<br>鮪延繩釣</span></a></li>
+                               <li class="col-md-15 col-sm-3"><a href="javascript:;"><span>印度洋​<br>鮪延繩釣​</span></a></li>
+                               <li class="col-md-15 col-sm-3"><a href="javascript:;"><span>魷釣​</span></a></li>
+                               <li class="col-md-15 col-sm-4"><a href="javascript:;"><span>秋刀魚</span></a></li>
+                           </ul>
+            </div>
+        </div>
+    </div>
+    <!-- main-container -->
+    <div id="footer">
+    </div>
+    <!-- modal -->
+    <div class="load-Buyer_wishlist"></div>
+    <!-- <div class="load-pop"></div> -->
+    <!-- END modal -->
+    <script src="../../inc/js/jquery.min.js"></script>
+    <script src="../../inc/plugin/bootstrap/bootstrap.min.js"></script>
+    <script src="../../inc/plugin/bootstrap-select/js/bootstrap-select.min.js"></script>
+    <script src="../../inc/plugin/datepicker/bootstrap-datepicker.js"></script>
+    <script src="../../inc/js/base.js"></script>
+    <script>
+    // very simple to use!
+    $(document).ready(function() {
+       setTimeout(function() {
+        $(".tsb-1").removeClass("collapsed");
+            $("#accordion1").addClass("in");
+            $(".panel.m2-1 a").removeClass("collapsed").next(".panel-collapse").addClass("in");
+            $("#side-menu-1").siblings().removeClass("active in");
+            $("#side-menu-1").addClass("active in");
+            $(".m2-1-1").addClass("active")
+        }, 500);
+        $(".load-Buyer_wishlist").load("Buyer_wishlist.html");
+        // $(".load-pop").load("detail_pop.html");
+        date_picker_fun();
+
+    });
+    </script>
+</body>
+
+</html>

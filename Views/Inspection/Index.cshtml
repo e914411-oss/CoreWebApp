@@ -1,0 +1,43 @@
+﻿@{
+    ViewData["Title"] = "首頁";
+    var username = ViewBag.Username as string ?? "";
+    var loginSuccess = TempData["LoginSuccess"] as string;
+    var loginTime = ViewBag.loginTime as string ?? DateTime.Now.ToString("yyyy/MM/DD HH:mm:ss");
+    var displayName = Context.Session.GetString("DisplayName");
+}
+
+
+<div class="wellcome">
+    <div class="row">
+        <div class="col col-sm-12">
+            <h3>
+                <p>
+                    親愛的
+                        @* <asp:Label runat="server" ID="lblUserName"></asp:Label>*@
+                        @displayName
+                    您好！​
+                </p>
+                <p>
+                    歡迎使用 <span class="big">電子稽查記錄系統</span>
+                </p>
+                <p class="date">
+                    成功登入時間 : @loginTime
+                </p>
+            </h3>
+            @*<div class="info">
+                <a href="javascript:;" class="btn btn-default" data-toggle="collapse" data-target="#wait-list">待辦清單 <span class="caret"></span>
+                </a>
+                <a href="#" onclick="ChgPwd();">
+                    <input type="button" class="btn btn-password" runat="server" id="btnChgPwd" value="變更密碼" /></a>
+                <small>提醒您，透過網站右上角下拉選項，可快速切換您常用的系統​</small>
+            </div>*@
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+

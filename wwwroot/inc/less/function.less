@@ -1,0 +1,166 @@
+/*color*/
+@red:#ea7975; @red-dark:#b52912; @red-light:#eb6d71;
+@yellow:#ffe400;@yellow-light:#fffca5;
+@green:#349f41;/**/@green-light:#82cd8c;@green-dark:#0f6328; @green-white:#f4faf6;
+@green-th:#e0f1e4;
+@green-rim:#c4e3c9;
+@blue:#2e9fd9;/**/@blue-dark:#013a87; @blue-black:#103f6e;  @blue-light:#21b4ff; 
+@blue-white:#e8f2f9;
+@blue-th:#e0ebf1;
+@blue-rim:#c4d4e3;
+@purple:#5262b9;/**/@purple-light:#968eb0;
+@cyan:#17a2b8;
+@gold:#d5c681;/**/@gold-dark:#544227;@gold-light:#ddd1bb;
+@gold-white:#f4ece1;
+@orange:#fca148; @orange-dark:#c95000; @orange-white:#fbe5d7;
+@black:#000;/**/ @dark:#222;@dark-gray:#555;
+@line-th:rgba(0,54,128,.2);
+@line:#ddd;
+
+@line-light:rgba(0,0,0,.2);
+@gray-dark:#444; /**/@gray:#999;/**/ @gray-light:#bababa; @gray-white:#c2c2c2;
+@light-gray:#dfdfdf;/**/@light-white:#f7f7f7;/**/ @white:#fff;
+@input-title:#999;
+@input-color:#324148;
+@input-color-p:#bbb;
+@side-bg:#fff;
+@side-bg-dark:#fff;
+@side-bar-a:@blue;
+@side-bar-collapsed-a:@dark;
+@side-bar-a-hover:@blue;
+@side-bar-a-active:@blue-dark;
+@radius:8px;
+/*theme green*/
+@main-color:@green;
+@main-color-white:@green-white;
+@main-color-light:@green-light;
+@main-color-th:@green-th; 
+@main-color-th-line:@green-rim; 
+@main-color-dark:@green-dark;
+@main-color-gray:@green-rim;
+@rim:@green-rim;
+@rim-shadow:@green;
+@wellcome-bg: url(../img/global/login-main-bg-green.jpg) no-repeat top right;
+/*END theme green*/
+
+/*theme blue*/
+
+/*@main-color:@blue;
+@main-color-white:@blue-white;
+@main-color-light:@blue-light;
+@main-color-th:@blue-th; 
+@main-color-th-line:@blue-rim; 
+@main-color-dark:@blue-dark;
+@rim:@blue-rim;
+@main-color-gray:@blue-rim;
+@rim-shadow:@blue;
+@wellcome-bg: url(../img/global/login-main-bg-blue.jpg) no-repeat top right;*/
+
+/*END theme blue*/
+
+@radius:8px;
+@side-line:#0076cd;
+@container-width:1170px;
+
+@side-width:250px;
+@side-width-close:50px;
+.icomoon(){
+  display: inline-block;
+  font-family: "icomoon";
+  position: absolute;
+}
+.transition(@second: .2s){
+  -moz-transition: all @second ease-out;
+  -webkit-transition: all @second ease-out;
+  -o-transition: all @second ease-out;
+  transition: all @second ease-out;}
+  .transition-set(@second){
+  -moz-transition: all @second ease-out;
+  -webkit-transition: all @second ease-out;
+  -o-transition: all @second ease-out;
+  transition: all @second ease-out;}
+.scale(@a){
+   -webkit-transform: scale(@a);
+   -moz-transform: scale(@a);
+   -o-transform: scale(@a);
+   -ms-transform: scale(@a);
+   transform: scale(@a);
+   }
+.shadow(){
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.6);
+-moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.6);
+box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.6);
+}
+.shadow-inner (@a, @b, @c, @d) {
+  -webkit-box-shadow: @c @d @a rgba(0,0,0,@b) inset;
+  -moz-box-shadow: @c @d @a rgba(0,0,0,@b) inset;
+  box-shadow: @c @d @a rgba(0,0,0,@b) inset;
+  }
+.gradient (@startColor, @endColor) {
+  background-color: @startColor;
+  background: -webkit-gradient(linear, left top, left bottom, from(@startColor), to(@endColor));
+  background: -webkit-linear-gradient(top, @startColor, @endColor);
+  background: -moz-linear-gradient(top, @startColor, @endColor);
+  background: -ms-linear-gradient(top, @startColor, @endColor);
+  background: -o-linear-gradient(top, @startColor, @endColor);
+}
+.flex-center{
+         display: -webkit-flex; /* Safari */
+        -webkit-align-items: center; /* Safari 7.0+ */
+        display: flex;
+        align-items: center;
+        /*水平置中*/
+        justify-content: center; 
+        -webkit-justify-content: center; 
+}
+.flex-center-left{
+         display: -webkit-flex; /* Safari */
+        -webkit-align-items: center; /* Safari 7.0+ */
+        display: flex;
+        align-items: center;
+        /*水平置左*/
+        justify-content: left;
+        -webkit-justify-content: left;
+}
+.row-flex{
+  display: flex;
+  flex-wrap: wrap;
+  display: -ms-flexbox;
+  -ms-flex-wrap: wrap;
+  margin-right: -10px;
+  margin-left: -10px;
+}
+.animate(@name, @duration) {
+    -webkit-animation: @name @duration 0s linear 1 normal both;
+    animation: @name @duration 0s linear 1 normal both;
+}
+
+.column(@a, @b) {
+  -moz-column-count: @a;
+-moz-column-gap: @b;
+-webkit-column-count: @a;
+-webkit-column-gap: @b;
+column-count: @a;
+column-gap: @b;
+}
+
+.placeholder-color(@f_color,@f_size) {
+        &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+        color: @f_color;
+        font-size: @f_size;
+        }
+        &::-moz-placeholder { /* Firefox 19+ */
+        color: @f_color;
+        font-size: @f_size;
+        }
+        &:-ms-input-placeholder { /* IE 10+ */
+        color: @f_color;
+        font-size: @f_size;
+        }
+        &:-moz-placeholder { /* Firefox 18- */
+        color: @f_color;
+        font-size: @f_size;
+        }
+}
+
+@ie:\9;

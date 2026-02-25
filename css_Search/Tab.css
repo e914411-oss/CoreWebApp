@@ -1,0 +1,96 @@
+﻿
+
+
+.path{
+	background-image: url(../images_search/line_path.png);
+	background-repeat: no-repeat;
+	background-position: left bottom;
+	margin-bottom: 8px;
+	position: relative;
+	height: 29px;
+}
+
+.panelMain_tab{
+	position: absolute;
+
+	left: 0px;
+	top: 0px;
+}
+
+.panelMain_tab ul{
+	list-style-type: none;
+	margin: 0px;
+	padding: 0px;
+}
+
+.panelMain_tab li{
+	float: left;
+
+}
+
+.panelMain_tab li .panelMain_tab_left{
+	background-image: url(../images_search/panelMain_tab_unselect_left.png);
+	background-repeat: no-repeat;
+	height: 26px;
+	width: 6px;
+	float: left;	
+}
+.panelMain_tab li .panelMain_tab_mid{
+	background-image: url(../images_search/panelMain_tab_unselect_mid.png);
+	background-repeat: repeat-x;
+	height: 26px;
+	padding-right: 30px;
+	padding-left: 30px;
+	float: left;
+	padding-top: 5px;
+	_padding-top: 8px;
+	font-weight: bold;
+	color: #6A6A6A;
+	font-size: 13px;
+	cursor:hand;
+	cursor:pointer;
+	text-decoration: none;
+	z-index: 1;
+}
+.panelMain_tab li .panelMain_tab_mid a{
+	color: #797979;
+	text-decoration: none;
+	
+}
+.panelMain_tab li .panelMain_tab_mid a:hover{
+	color: #797979;
+}
+.panelMain_tab li .panelMain_tab_right{
+	background-image: url(../images_search/panelMain_tab_unselect_right.png);
+	background-repeat: no-repeat;
+	height: 26px;
+	width: 6px;
+	float: left;	
+}
+.panelMain_tab li a.selected{
+
+}
+.panelMain_tab li a.selected .panelMain_tab_left{
+	background-image: url(../images_Search/panelMain_tab_select_left.png);
+}
+.panelMain_tab li a.selected .panelMain_tab_mid{
+	background-image: url(../images_Search/panelMain_tab_select_mid.png);
+	color: #FFFFFF;
+	cursor:hand;
+	cursor:pointer;
+	text-decoration: none;
+}
+.panelMain_tab li a.selected .panelMain_tab_mid a, .panelMain_tab li a.selected .panelMain_tab_mid a:hover{
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.panelMain_tab li a.selected .panelMain_tab_right{
+	background-image: url(../images_Search/panelMain_tab_select_right.png);
+}
+
+.pahtBox{
+	float: right;
+	font-size: 90%;
+	color: #666666;
+	margin-top: 3px;
+}

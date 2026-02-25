@@ -1,0 +1,113 @@
+@import "function.less";
+.owl-hold{
+    padding:10px 40px 0 40px;
+}
+.link_owl{
+    position: relative;
+    /*padding: 0 30px;*/
+    .owl-nav{
+        position: absolute;
+        z-index: 2;
+        top: 50%;
+        margin-top: -20px;
+        width: 100%;
+        .owl-prev,.owl-next{
+            font-size: 2.5rem;
+            position: absolute;
+             opacity: .6;
+            .transition;
+            i:before{
+                color: @main-color;
+            }
+            &:hover{
+                opacity: 1;
+                .transition;
+            }
+        }
+         .owl-prev{
+            left: -30px;
+         }
+         .owl-next{
+            right: -30px;
+         }
+         .disabled{
+            opacity: 0;
+         }
+    }
+    &:before{
+        display:inline-block;
+        content: "";
+        width: 100%;
+        height: 41px;
+/*        background: url(../img/index/slider-bg.png) no-repeat center bottom;*/
+        background-size: auto 100%;
+        position: absolute;
+        bottom: -41px;
+        z-index: 2;
+    }
+    
+        .owl-dots {
+        text-align: center;
+        -webkit-tap-highlight-color: transparent;
+        position: absolute;
+        width: 100%;
+        text-align: center;
+        bottom: 20px;
+        .owl-dot {
+            margin:0 6px;
+            border: 1px solid #fff;
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(0,0,0,.5);
+            zoom: 1;
+            cursor: pointer;
+            .shadow;
+            &.active{
+                background: @green;
+            }
+            }
+        }
+        .owl-item{
+            .item{
+                padding: 15px;
+                a{
+                    background: #fff;
+                    border:1px solid @line;
+                    border-radius: 50%;
+                    position: relative;
+                    .transition;
+                    &:hover{
+                        .scale(1.15);
+                        .transition;
+                        -webkit-box-shadow: 3px 3px 6px 0 rgba(0,0,0,.07);
+
+box-shadow: 3px 3px 6px 0 rgba(0,0,0,.07);
+                    }
+                    .owl-info{
+                        .flex-center;   
+                        /*display: inline-block;*/
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        span{
+                            text-align: center;
+                            margin-top: -10px;
+                            font-size: 18px;
+                            color: @dark;
+                            img{
+                            width: 70px;
+                            height: auto;
+                            margin:0 auto 0px auto;
+                            }
+                        }
+                        
+                    }
+                }
+            }
+        }
+}
+

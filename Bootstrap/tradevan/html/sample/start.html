@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="zh-Hant">
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+<head>
+    <meta charset="utf-8">
+    <title>FDA-PMDS 產品通路管理資訊系統</title>
+    <!--SEO Meta Tags-->
+    <meta name="description" content="FDA-PMDS 產品通路管理資訊系統" />
+    <meta name="keywords" content="FDA-PMDS 產品通路管理資訊系統" />
+    <meta name="author" content="FDA-PMDS 產品通路管理資訊系統" />
+    <!--Mobile Specific Meta Tag-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <!--Favicon-->
+    <link href="../../inc/img/favicon.ico" rel="icon" />
+    <!--Master Slider Styles-->
+    <!-- menu -->
+    <link href="../../inc/plugin/bootstrap/bootstrap.css" rel="stylesheet">
+    <link href="../../inc/css/icomoon/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../inc/plugin/bootstrap-select/css/bootstrap-select.css">
+    <link rel="stylesheet" href="../../inc/plugin/datepicker/datepicker3.css">
+    
+    <link href="../../inc/css/cf-layout.css" rel="stylesheet">
+</head>
+<!--Body-->
+<body>
+    <div class="main-container">
+        <div id="cframe"> <!-- load-nav --> </div>
+        <div id="right-content">
+                <div class="breadcrumb-hold">
+                    <ol class="breadcrumb">
+                        <li><a href="../../html/welcome/login.html">首頁</a></li>
+                        <li class="active">空白起始頁</li>
+                    </ol>
+                </div>
+            <div class="content">
+               <p>複製此頁，內容由此開始</p>
+            </div>
+        </div>
+    </div>
+    <!-- main-container -->
+    <div id="footer"> <!-- load-float-bar --> </div>
+    <script src="../../inc/js/jquery.min.js"></script>
+    <script src="../../inc/plugin/bootstrap/bootstrap.min.js"></script>
+    <script src="../../inc/plugin/bootstrap-select/js/bootstrap-select.min.js"></script>
+    <script src="../../inc/plugin/datepicker/bootstrap-datepicker.js"></script>
+    <script src="../../inc/js/base.js"></script>
+    <script>
+    // very simple to use!
+    $(document).ready(function() {
+        setTimeout(function() {
+              $(".sample-blank").addClass("active");
+            $("#side-menu-2").siblings().removeClass("active in");
+            $("#side-menu-10").addClass("active in");
+            contentHeight();
+        }, 1000);
+        alert_show();
+        date_picker_fun();
+
+
+    });
+    </script>
+</body>
+
+</html>

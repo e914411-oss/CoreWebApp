@@ -1,0 +1,12 @@
+bin/
+obj/
+.vs/
+*.user
+*.suo
+packages/
+TestResults/
+*.log
+
+*.csprj
+*.csproj.user
+*.bak

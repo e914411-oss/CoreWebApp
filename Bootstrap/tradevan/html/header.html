@@ -1,0 +1,51 @@
+<div class="header">
+<div class="container">
+    <a href="../../html/sample/sample-title.html" class="logo"></a>
+    <span class="test-site">測試台</span>
+    <ul class="top-nav">
+    <li><a href="../../html/welcome/main.html" data-toggle="tooltip" data-placement="bottom" title="回首頁"><i class="icon-home"></i></a></li>
+        <li><a href="../../index.html"><i class="icon-logout"  data-toggle="tooltip" data-placement="bottom" data-container="body" title="登出"></i></a></li>
+    </ul>
+    <!-- <span class="welcome">自動登出: 12:33​</span> -->
+
+     <div class="input-group btn-reload">
+                <span class="input-group-addon">自動登出<i>12:33​</i></span>
+                <div class="input-group-btn">
+                  <button type="button" class="btn"><i class="icon-undo"></i></button>
+                </div>
+              </div>
+    <select class="selectpicker"  title="請選擇..."  onchange="location = this.value;">
+                                <option data-hidden="true"></option>
+                                <option selected value="javascript:;">產品通路便捷稽查作業平台​</option>
+                                <option value="javascript:;">產品通路查詢平台(歷史區)</option>
+                                <option value="javascript:;">違規廣告民眾查詢系統</option>
+                                <option value="javascript:;">**違規廣告管理系統**</option>
+                                <option value="javascript:;">全國法規資料庫</option>
+                                <option value="javascript:;">食品法規查詢</option>
+                                <option value="javascript:;">公共衛生資訊入口網</option>
+                                <option value="javascript:;">食品藥物管理署公告事項</option>
+                                <option value="javascript:;">商工登記資料公示查詢系統</option>
+                                <option value="javascript:;">營業(稅籍)登記資料公示查詢</option>
+                                <option value="javascript:;">可供食品使用原料一覽表</option>
+                                <option value="javascript:;">線上教學專區</option>
+                                <option value="javascript:;">食品消費紅綠燈 </option>
+                                </select>
+    <div class="mobile-menu-toggle">
+    <a href="javascript:;" class="toggle-open"></a>
+    <a href="javascript:;" class="toggle-close hide"></a>
+    </div>
+    </div>
+<!-- container -->
+</div>
+    
+
+<script>
+$(document).ready(function() {
+    contentHeight();
+    side_memu_toggle();
+    $('[data-toggle="tooltip"]').tooltip();
+    $('.selectpicker').selectpicker('refresh');
+
+});
+
+</script>

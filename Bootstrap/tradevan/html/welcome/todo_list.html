@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="zh-Hant">
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+<head>
+    <meta charset="utf-8">
+    <title>FDA-PMDS 產品通路管理資訊系統</title>
+    <!--SEO Meta Tags-->
+    <meta name="description" content="FDA-PMDS 產品通路管理資訊系統" />
+    <meta name="keywords" content="FDA-PMDS 產品通路管理資訊系統" />
+    <meta name="author" content="FDA-PMDS 產品通路管理資訊系統" />
+    <!--Mobile Specific Meta Tag-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <!--Favicon-->
+    <link href="../../inc/img/favicon.ico" rel="icon" />
+    <!--Master Slider Styles-->
+    <!-- menu -->
+    <link href="../../inc/plugin/bootstrap/bootstrap.css" rel="stylesheet">
+    <link href="../../inc/css/icomoon/style.css" rel="stylesheet">
+    <link href="../../inc/plugin/bootstrap-select/css/bootstrap-select.css" rel="stylesheet">
+    <link href="../../inc/plugin/datepicker/datepicker3.css" rel="stylesheet">
+    <link href="../../inc/css/cf-layout.css" rel="stylesheet">
+    <link href="../../inc/css/animate.css" rel="stylesheet">
+</head>
+<!--Body-->
+
+<body class="has-rwd">
+    <div id="header"></div>
+    <div class="main-container ">
+        <div id="cframe">
+            <!-- load-nav -->
+        </div>
+        <div id="right-content">
+            <!-- <div class="content" style="padding: 0"> -->
+            <div class="breadcrumb-hold">
+                <ol class="breadcrumb">
+                    <li><a href="../../html/welcome/main.html">首頁</a></li>
+                    <li class="active">待辦事項</li>
+                </ol>
+            </div>
+            <div class="content">
+            
+                <h1 class="main-title">
+                            待辦事項
+                            <a href="javascript:;" class="addmyfav">
+        <i class="icon-heart-o"></i>
+        <span>加入常用功能</span>
+        </a>
+                           <select class="selectpicker"  data-width="150px" data-icon="icon-star-solid">
+                            <option data-hidden="true"  data-icon="icon-star-solid" selected>我的常用功能</option>
+  <option>Mustard</option>
+  <option>Ketchup</option>
+  <option>Relish</option>
+</select>
+                            </h1>
+                    <ul class="nav nav-tabs mb20">
+      <li class="active"><a href="#" data-toggle="tab" class="show-all">全部</a></li>
+      <li class=""><a href="#" data-toggle="tab" class="show-d1">轉載預報​</a></li>
+      <li class=""><a href="#" data-toggle="tab" class="show-d2">轉載確認</a></li>
+    </ul>
+                            
+                            <h2 class="table-tit"> <span>遠洋漁船作業​</span> </h2>
+                                <div class="table-responsive rim">
+                            <table class="table  tb-multi">
+                        <thead>
+                            <tr>
+                                <th>功能名稱​</th>
+                                <th>船名​</th>
+                                <th width="100px">功能 </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="s-d1">
+                                <td rowspan="2">轉載預報​</td>
+                                <td >國利二號</td>
+                                <td>
+                                <a href="javascript:;" class="btn btn-primary-line">申請​</a>
+                                </td>
+                            </tr>
+                            <tr class="s-d1">
+                                <td >十八春陽​</td>
+                                <td>
+                                <a href="javascript:;" class="btn btn-primary-line">申請​</a>
+                                </td>
+                            </tr>
+                            <tr class="s-d2">
+                                <td>轉載確認</td>
+                                <td >天華壹號​</td>
+                                <td>
+                                <a href="javascript:;" class="btn btn-primary-line">申請​</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    </div>
+            </div>
+        </div>
+    </div>
+    <!-- main-container -->
+    <div id="footer">
+        <!-- load-float-bar -->
+    </div>
+    <div class="load-modal"></div>
+    <script src="../../inc/js/jquery.min.js"></script>
+    <script src="../../inc/plugin/bootstrap/bootstrap.min.js"></script>
+    <script src="../../inc/plugin/bootstrap-select/js/bootstrap-select.min.js"></script>
+    <script src="../../inc/plugin/datepicker/bootstrap-datepicker.js"></script>
+    <script src="../../inc/js/base.js"></script>
+    <script>
+    // very simple to use!
+    $(document).ready(function() {
+        // $(".main-container").addClass("no-side-menu");
+       setTimeout(function() {
+            $(".tsb-0").removeClass("collapsed").addClass("active");
+            // $("#accordion1").addClass("in");
+            // $(".panel.m1-1 a").removeClass("collapsed").next(".panel-collapse").addClass("in");
+            $("#side-menu-1").siblings().removeClass("active in");
+            $("#side-menu-1").addClass("active in");
+            // $(".m1-1-2").addClass("active")
+        }, 500);
+
+$(".show-all").click(function(){
+    $(".s-d1,.s-d2").show();
+});
+$(".show-d1").click(function(){
+    $(".s-d1").show();
+    $(".s-d2").hide();
+});
+$(".show-d2").click(function(){
+    $(".s-d2").show();
+    $(".s-d1").hide();
+});
+
+
+    });
+    </script>
+</body>
+
+</html>

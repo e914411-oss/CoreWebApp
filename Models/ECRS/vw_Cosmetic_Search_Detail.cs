@@ -1,0 +1,51 @@
+﻿using System;
+using System.Collections.Generic;
+
+namespace CoreWebApp.Models.ECRS;
+
+public partial class vw_Cosmetic_Search_Detail
+{
+    public int DC_Check_Id { get; set; }
+
+    public string? Check_dateT { get; set; }
+
+    public string? Signboard_Name { get; set; }
+
+    public string? Industry_Names { get; set; }
+
+    public string? Addr { get; set; }
+
+    public string? Responsible_Person_Name { get; set; }
+
+    public string? Product_Name { get; set; }
+
+    public string? SYS_Value { get; set; }
+
+    public string? SYS_Code { get; set; }
+
+    public DateTime? Improve_Date { get; set; }
+
+    public string? Reply_Remark { get; set; }
+
+    public string? Inspector { get; set; }
+
+    public string? Co_Inspector { get; set; }
+
+    public string? Punish { get; set; }
+
+    public string? Out_Court { get; set; }
+
+    public string? OUTCOUNTRY { get; set; }
+
+    public string? outcity_number { get; set; }
+
+    public string? outcity_date { get; set; }
+
+    public string? outcity_industry { get; set; }
+
+    public string? outcity_person { get; set; }
+
+    public string? outcity_address { get; set; }
+
+    public string? outcity_reason { get; set; }
+}

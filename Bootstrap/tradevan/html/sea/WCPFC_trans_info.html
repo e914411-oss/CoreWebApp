@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="zh-Hant">
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+<head>
+    <meta charset="utf-8">
+    <title>FDA-PMDS 產品通路管理資訊系統</title>
+    <!--SEO Meta Tags-->
+    <meta name="description" content="FDA-PMDS 產品通路管理資訊系統" />
+    <meta name="keywords" content="FDA-PMDS 產品通路管理資訊系統" />
+    <meta name="author" content="FDA-PMDS 產品通路管理資訊系統" />
+    <!--Mobile Specific Meta Tag-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <!--Favicon-->
+    <link href="../../inc/img/favicon.ico" rel="icon" />
+    <!--Master Slider Styles-->
+    <!-- menu -->
+    <link href="../../inc/plugin/bootstrap/bootstrap.css" rel="stylesheet">
+    <link href="../../inc/css/icomoon/style.css" rel="stylesheet">
+    <link href="../../inc/plugin/bootstrap-select/css/bootstrap-select.css" rel="stylesheet">
+    <link href="../../inc/plugin/datepicker/datepicker3.css" rel="stylesheet">
+    <link href="../../inc/css/cf-layout.css" rel="stylesheet">
+    <link href="../../inc/css/animate.css" rel="stylesheet">
+</head>
+<!--Body-->
+
+<body class="has-rwd">
+    <div id="header"></div>
+    <div class="main-container ">
+        <div id="cframe">
+            <!-- load-nav -->
+        </div>
+        <div id="right-content">
+            <!-- <div class="content" style="padding: 0"> -->
+            <div class="breadcrumb-hold">
+                <ol class="breadcrumb">
+                    <li><a href="../../html/wellcom/main.html">首頁</a></li>
+                    <li>遠洋漁船作業</li>
+                    <li>轉載預報</li>
+                    <li class="active">各式申請書</li>
+                </ol>
+            </div>
+            <div class="content">
+                <h1 class="main-title">
+                            各式申請書 ​
+                            <a href="javascript:;" class="addmyfav">
+        <i class="icon-heart-o"></i>
+        <span>加入常用功能</span>
+        </a>
+                           <select class="selectpicker"  data-width="150px" data-icon="icon-star-solid">
+                            <option data-hidden="true"  data-icon="icon-star-solid" selected>我的常用功能</option>
+  <option>Mustard</option>
+  <option>Ketchup</option>
+  <option>Relish</option>
+</select>
+                            </h1>
+                <ul class="wizard-steps">
+                    <li class="active">
+                        <span class="step">1</span> <span class="title">漁船資料</span>
+                    </li>
+                    <li class="active">
+                        <span class="step">2</span> <span class="title">申請資訊​</span>
+                    </li>
+                    <li class="active">
+                        <span class="step">3</span> <span class="title">確認資訊</span>
+                    </li>
+                    <li class="current">
+                        <span class="step">4</span> <span class="title">送出結果​</span>
+                    </li>
+                </ul>
+                <div class="trans_info success">
+                    <div class="status">
+                        <i class="icon-checkmark-circle"></i>
+                    </div>
+                    <div class="info"> 
+                    表單送出成功​<br> 未來可至待辦清單或申請書狀態查詢。​
+                    </div>
+                </div><div class="trans_info failure">
+                    <div class="status">
+                        <i class="icon-sad"></i>
+                    </div>
+                    <div class="info"> 
+                    表單送出失敗 ​<br> 錯誤代碼：錯誤訊息
+                    </div>
+                </div>
+                
+                <div class="btn-area">
+                    <a href="sea_operation_apply.html" class="btn btn-primary">回功能首頁</a>
+                </div>
+                
+                
+            </div>
+        </div>
+    </div>
+    <!-- main-container -->
+    <div id="footer">
+        <!-- load-float-bar -->
+    </div>
+     <script src="../../inc/js/jquery.min.js"></script>
+    <script src="../../inc/plugin/bootstrap/bootstrap.min.js"></script>
+    <script src="../../inc/plugin/bootstrap-select/js/bootstrap-select.min.js"></script>
+    <script src="../../inc/plugin/datepicker/bootstrap-datepicker.js"></script>
+    <script src="../../inc/js/base.js"></script>
+    <script>
+    // very simple to use!
+    $(document).ready(function() {
+       setTimeout(function() {
+        $(".tsb-1").removeClass("collapsed");
+            $("#accordion1").addClass("in");
+            $(".panel.m2-1 a").removeClass("collapsed").next(".panel-collapse").addClass("in");
+            $("#side-menu-1").siblings().removeClass("active in");
+            $("#side-menu-1").addClass("active in");
+            $(".m2-1-1").addClass("active")
+        }, 500);
+        // $(".load-Buyer_wishlist").load("Buyer_wishlist.html");
+        // $(".load-pop").load("detail_pop.html");
+        date_picker_fun();
+        radio_toggle();
+        file_upload();
+
+    });
+    </script>
+</body>
+
+</html>

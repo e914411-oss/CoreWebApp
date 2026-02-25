@@ -1,0 +1,563 @@
+<!doctype html>
+<html lang="zh-Hant">
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+<head>
+    <meta charset="utf-8">
+    <title>FDA-PMDS 產品通路管理資訊系統</title>
+    <!--SEO Meta Tags-->
+    <meta name="description" content="FDA-PMDS 產品通路管理資訊系統" />
+    <meta name="keywords" content="FDA-PMDS 產品通路管理資訊系統" />
+    <meta name="author" content="FDA-PMDS 產品通路管理資訊系統" />
+    <!--Mobile Specific Meta Tag-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <!--Favicon-->
+    <link href="../../inc/img/favicon.ico" rel="icon" />
+    <!--Master Slider Styles-->
+    <!-- menu -->
+    <link href="../../inc/plugin/bootstrap/bootstrap.css" rel="stylesheet">
+    <link href="../../inc/css/icomoon/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../inc/plugin/CopyToClipboard/css/code-box-copy.css">
+    <link rel="stylesheet" href="../../inc/plugin/bootstrap-select/css/bootstrap-select.css">
+    <link rel="stylesheet" href="../../inc/plugin/datepicker/datepicker3.css">
+    <link href="../../inc/css/cf-layout.css" rel="stylesheet">
+</head>
+<!--Body-->
+
+<body>
+    <div class="main-container">
+        <div id="header"></div>
+        <div id="cframe">
+            <!-- load-nav -->
+        </div>
+        <div id="right-content">
+            <div class="breadcrumb-hold">
+                <ol class="breadcrumb">
+                    <li><a href="../../html/welcome/login.html">首頁</a></li>
+                    <li>樣式表</li>
+                    <li class="active">單筆表格</li>
+                </ol>
+            </div>
+            <div class="content">
+                <!-- demo-sample -->
+                <div class="demo-sample">
+                    <h2 class="table-tit">
+                        <span>單筆表格</span>
+                    </h2>
+                    <div class="edit-form">
+                        <div class="tb-single-rwd">
+                            <div class="td hd"><span class="star">*</span>標題必填四欄 </div>
+                            <div class="td"></div>
+                            <div class="td hd">標題四欄 </div>
+                            <div class="td"></div>
+                        </div>
+                        <div class="tb-single-rwd">
+                            <div class="td hd">標題雙欄</div>
+                            <div class="td"></div>
+                        </div>
+                    </div>
+                    <!-- code-box-copy -->
+                    <div class="code-box-copy">
+                        <button class="code-box-copy__btn" type="button" data-clipboard-target="#code-01" title="Copy"></button>
+                        <pre><code class="language-html" id="code-01">&lt;div class="edit-form">
+                                &lt;div class="tb-single-rwd">
+                    &lt;div class="td hd">&lt;span class="star">*&lt;/span>標題必填四欄 &lt;/div>
+                    &lt;div class="td">&lt;/div>
+                    &lt;div class="td hd">標題四欄 &lt;/div>
+                    &lt;div class="td">&lt;/div>
+                &lt;/div>
+                &lt;div class="tb-single-rwd">
+                    &lt;div class="td hd">標題雙欄&lt;/div>
+                    &lt;div class="td">&lt;/div>
+                &lt;/div>
+                            &lt;/div></code></pre>
+                    </div>
+                    <!-- END code-box-copy -->
+                </div>
+                <!-- END demo-sample -->
+                <h2 class="table-tit">
+                    <span>表格內表單</span>
+                </h2>
+                <!-- demo-sample -->
+                <div class="demo-sample" style="padding-bottom: 0;border: 0;margin: 0">
+                    <ul class="list-group">
+                        <li class="list-group-item list-group-item-warning">
+                            <p><i class="icon-warning"></i> 角色代碼為必填欄位，請輸入符合的字元！</p>
+                            <p class="mb0"><i class="icon-warning"></i> 角色名稱為必填欄位，請輸入！</p>
+                        </li>
+                    </ul>
+                    <!-- code-box-copy -->
+                    <div class="code-box-copy">
+                        <button class="code-box-copy__btn" type="button" data-clipboard-target="#code-01-6" title="Copy" style="margin-top: 40px;"></button>
+                        <pre><code class="language-html" id="code-01-6">&lt;ul class="list-group">
+  &lt;li class="list-group-item list-group-item-warning">
+      &lt;p>&lt;i class="icon-warning">&lt;/i> 角色代碼為必填欄位，請輸入符合的字元！&lt;/p>
+                                &lt;p class="mb0">&lt;i class="icon-warning">&lt;/i> 角色名稱為必填欄位，請輸入！&lt;/p>
+  &lt;/li>
+&lt;/ul></code></pre>
+                    </div>
+                    <!-- END code-box-copy -->
+                </div>
+                <!-- END demo-sample -->
+                <table class="table table-bordered tb-single md">
+                    <tbody>
+                        <tr>
+                            <td class="hd">
+                                <span class="star">＊</span>一般下拉選單</td>
+                            <td width="33%">
+                                <!-- demo-sample -->
+                                <div class="demo-sample in-td">
+                                    <select class="selectpicker" title="請選擇...">
+                                        <option data-hidden="true"></option>
+                                        <option selected>Mustard</option>
+                                        <option>Ketchup</option>
+                                        <option>Relish</option>
+                                    </select>
+                                    <div class="code-box-copy">
+                                        <button class="code-box-copy__btn" type="button" data-clipboard-target="#code-02" title="Copy"></button>
+                                        <pre><code class="language-html" id="code-02">&lt;select class="selectpicker"  title="請選擇...">
+                                &lt;option data-hidden="true">&lt;/option>
+                                &lt;option>Mustard&lt;/option>
+                                &lt;option>Ketchup&lt;/option>
+                                &lt;option>Relish&lt;/option>
+                                &lt;/select></code></pre>
+                                    </div>
+                                </div>
+                                <!-- END demo-sample -->
+                            </td>
+                            <td class="hd"><span class="star">＊</span>可搜尋下拉選單</td>
+                            <td>
+                                <!-- demo-sample -->
+                                <div class="demo-sample in-td">
+                                    <select class="selectpicker" title="請選擇..." data-live-search="true">
+                                        <option data-hidden="true"></option>
+                                        <option>Mustard</option>
+                                        <option>Ketchup</option>
+                                        <option>Relish</option>
+                                    </select>
+                                    <div class="code-box-copy">
+                                        <button class="code-box-copy__btn" type="button" data-clipboard-target="#code-03" title="Copy"></button>
+                                        <pre><code class="language-html" id="code-03">&lt;select class="selectpicker"  title="請選擇..." data-live-search="true">
+                                &lt;option data-hidden="true">&lt;/option>
+                                &lt;option>Mustard&lt;/option>
+                                &lt;option>Ketchup&lt;/option>
+                                &lt;option>Relish&lt;/option>
+                                &lt;/select></code></pre>
+                                    </div>
+                                </div>
+                                <!-- END demo-sample -->
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="hd">
+                                <span class="star">＊</span>純文字</td>
+                            <td>
+                                <div class="demo-sample in-td">
+                                    <span class="only-txt">純文字純文字</span>
+                                    <div class="code-box-copy">
+                                        <button class="code-box-copy__btn" type="button" data-clipboard-target="#code-0333" title="Copy"></button>
+                                        <pre><code class="language-html" id="code-0333">&lt;span class="only-txt">純文字純文字&lt;/span></code></pre>
+                                    </div>
+                                </div>
+                                <!-- END demo-sample -->
+                            </td>
+                            <td class="hd"><span class="star">＊</span>checkbox 樣式</td>
+                            <td>
+                                <!-- demo-sample -->
+                                <div class="demo-sample in-td">
+                                    <div class="checkbox checkbox-inline">
+                                        <input type="checkbox" id="inlineCheckbox1" value="option1">
+                                        <label for="inlineCheckbox1"> checkbox文字 </label>
+                                    </div>
+                                    <div class="checkbox checkbox-inline">
+                                        <input type="checkbox" id="inlineCheckbox2" value="option1">
+                                        <label for="inlineCheckbox2"> checkbox文字 </label>
+                                    </div>
+                                    <div class="checkbox checkbox-inline">
+                                        <input type="checkbox" id="inlineCheckbox3" value="option1" disabled>
+                                        <label for="inlineCheckbox3"> checkbox文字 </label>
+                                    </div>
+                                    <div class="code-box-copy">
+                                        <button class="code-box-copy__btn" type="button" data-clipboard-target="#code-04" title="Copy"></button>
+                                        <pre><code class="language-html" id="code-04">&lt;div class="checkbox checkbox-inline">
+    &lt;input type="checkbox" id="inlineCheckbox1" value="option1">
+    &lt;label for="inlineCheckbox1"> checkbox文字 &lt;/label>
+&lt;/div>
+&lt;div class="checkbox checkbox-inline">
+    &lt;input type="checkbox" id="inlineCheckbox2" value="option1">
+    &lt;label for="inlineCheckbox2"> checkbox文字 &lt;/label>
+&lt;/div>
+&lt;div class="checkbox checkbox-inline">
+    &lt;input type="checkbox" id="inlineCheckbox3" value="option1" disabled>
+    &lt;label for="inlineCheckbox3"> checkbox文字 &lt;/label>
+&lt;/div></code></pre>
+                                    </div>
+                                </div>
+                                <!-- END demo-sample -->
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="hd"><span class="star">＊</span>Inline radio（並排在一起）</td>
+                            <td>
+                                <!-- demo-sample -->
+                                <div class="demo-sample in-td">
+                                    <div class="radio radio-inline">
+                                        <input type="radio" id="inlineRadio1" value="option1" name="radioInline" checked="">
+                                        <label for="inlineRadio1"> Inline One </label>
+                                    </div>
+                                    <div class="radio radio-inline">
+                                        <input type="radio" id="inlineRadio2" value="option1" name="radioInline">
+                                        <label for="inlineRadio2"> Inline Two </label>
+                                    </div>
+                                    <div class="code-box-copy">
+                                        <button class="code-box-copy__btn" type="button" data-clipboard-target="#code-06" title="Copy"></button>
+                                        <pre><code class="language-html" id="code-06">&lt;div class="radio radio-inline">
+        &lt;input type="radio" id="inlineRadio1" value="option1" name="radioInline" checked="">
+        &lt;label for="inlineRadio1"> Inline One &lt;/label>
+    &lt;/div>
+    &lt;div class="radio radio-inline">
+        &lt;input type="radio" id="inlineRadio2" value="option1" name="radioInline">
+        &lt;label for="inlineRadio2"> Inline Two &lt;/label>
+    &lt;/div></code></pre>
+                                    </div>
+                                </div>
+                                <!-- END demo-sample -->
+                            </td>
+                            <td class="hd">
+                                單行裡出現兩行以上</td>
+                            <td>
+                                <!-- demo-sample -->
+                                <div class="demo-sample in-td">
+                                    <div class="radio">
+                                        <input type="radio" name="radio1" id="radio1" value="option1" checked="">
+                                        <label for="radio1">
+                                            <div class="form-group">
+                                                <div class="input-group date">
+                                                    <input type="text" class="datepicker form-control pull-right">
+                                                    <div class="input-group-addon" onclick="$(this).prev().focus()">
+                                                        <i class="icon-calendar-full"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </label>
+                                    </div>
+                                    <div class="radio">
+                                        <input type="radio" name="radio1" id="radio2" value="option2">
+                                        <label for="radio2"> 週期預約：2018/01/02 </label>
+                                    </div>
+                                    <div class="code-box-copy">
+                                        <button class="code-box-copy__btn" type="button" data-clipboard-target="#code-07" title="Copy"></button>
+                                        <pre><code class="language-html" id="code-07">&lt;div class="radio"> 
+&lt;input type="radio" name="radio1" id="radio1" value="option1" checked=""> 
+&lt;label for="radio1"> 
+&lt;div class="form-group">
+                &lt;div class="input-group date" >
+                  &lt;input type="text" class="datepicker form-control pull-right">
+                  &lt;div class="input-group-addon" onclick="$(this).prev().focus()">
+                    &lt;i class="icon-calendar-full">&lt;/i>
+                  &lt;/div>
+                &lt;/div>
+                &lt;/div>
+             &lt;/label> 
+&lt;/div>
+
+ &lt;div class="radio"> 
+ &lt;input type="radio" name="radio1" id="radio2" value="option2"> 
+ &lt;label for="radio2"> 週期預約：2018/01/02 &lt;/label> 
+ &lt;/div></code></pre>
+                                    </div>
+                                </div>
+                                <!-- END demo-sample -->
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="hd">文字輸入框</td>
+                            <td>
+                                <!-- demo-sample -->
+                                <div class="demo-sample in-td">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control">
+                                    </div>
+                                    <div class="code-box-copy">
+                                        <button class="code-box-copy__btn" type="button" data-clipboard-target="#code-08" title="Copy"></button>
+                                        <pre><code class="language-html" id="code-08">&lt;div class="form-group">
+                                &lt;input type="text" class="form-control">
+                                &lt;/div></code></pre>
+                                    </div>
+                                </div>
+                                <!-- END demo-sample -->
+                            </td>
+                            <td class="hd"> 文字輸入框(較短)</td>
+                            <td>
+                                <!-- demo-sample -->
+                                <div class="demo-sample in-td">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control wid_150px">
+                                    </div>
+                                    <div class="code-box-copy">
+                                        <button class="code-box-copy__btn" type="button" data-clipboard-target="#code-09" title="Copy"></button>
+                                        <pre><code class="language-html" id="code-09">&lt;div class="form-group">
+                &lt;input type="text" class="form-control wid_150px">
+                &lt;/div></code></pre>
+                                    </div>
+                                </div>
+                                <!-- END demo-sample -->
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="hd">日期</td>
+                            <td>
+                                <!-- demo-sample -->
+                                <div class="demo-sample in-td">
+                                    <div class="input-group date">
+                                        <input type="text" class="datepicker form-control pull-right">
+                                        <div class="input-group-addon" onclick="$(this).prev().focus()">
+                                            <i class="icon-calendar-full"></i>
+                                        </div>
+                                    </div>
+                                    <div class="code-box-copy">
+                                        <button class="code-box-copy__btn" type="button" data-clipboard-target="#code-10" title="Copy"></button>
+                                        <pre><code class="language-html" id="code-10"> &lt;div class="input-group date" >
+                  &lt;input type="text" class="datepicker form-control pull-right">
+                  &lt;div class="input-group-addon" onclick="$(this).prev().focus()">
+                    &lt;i class="icon-calendar-full">&lt;/i>
+                  &lt;/div>
+                &lt;/div> </code></pre>
+                                    </div>
+                                </div>
+                                <!-- END demo-sample -->
+                            </td>
+                            <td class="hd"> 日期(只秀月份)</td>
+                            <td>
+                                <!-- demo-sample -->
+                                <div class="demo-sample in-td">
+                                    <div class="input-group date">
+                                        <input type="text" class="datepicker-months form-control pull-right">
+                                        <div class="input-group-addon" onclick="$(this).prev().focus()">
+                                            <i class="icon-calendar-full"></i>
+                                        </div>
+                                    </div>
+                                    <div class="code-box-copy">
+                                        <button class="code-box-copy__btn" type="button" data-clipboard-target="#code-11" title="Copy"></button>
+                                        <pre><code class="language-html" id="code-11">&lt;input type="text" class="form-control wid_150px"></code></pre>
+                                    </div>
+                                </div>
+                                <!-- END demo-sample -->
+                            </td>
+                        </tr>
+                        <tr>
+                        <tr>
+                            <td class="hd">日期(只秀年份)</td>
+                            <td>
+                                <!-- demo-sample -->
+                                <div class="demo-sample in-td">
+                                    <div class="input-group date">
+                                        <input type="text" class="datepicker-years form-control pull-right">
+                                        <div class="input-group-addon" onclick="$(this).prev().focus()">
+                                            <i class="icon-calendar-full"></i>
+                                        </div>
+                                    </div>
+                                    <div class="code-box-copy">
+                                        <button class="code-box-copy__btn" type="button" data-clipboard-target="#code-12" title="Copy"></button>
+                                        <pre><code class="language-html" id="code-12"> &lt;div class="input-group date" >
+                  &lt;input type="text" class="datepicker-years form-control pull-right">
+                  &lt;div class="input-group-addon" onclick="$(this).prev().focus()">
+                    &lt;i class="icon-calendar-full">&lt;/i>
+                  &lt;/div>
+                &lt;/div> </code></pre>
+                                    </div>
+                                </div>
+                                <!-- END demo-sample -->
+                            </td>
+                            <td class="hd">選擇檔案</td>
+                            <td>
+                                <!-- demo-sample -->
+                                <div class="demo-sample in-td">
+                                    <div class="btn-group">
+                                        <a class="btn btn-default btn-file add">
+                                            <i class="icon-plus"></i>
+                                            <span>新增附件</span>
+                                            <input type="file">
+                                        </a>
+                                    </div>
+                                    <a class="btn btn-primary">
+                                        <span>上傳</span>
+                                        <i class="icon-upload"></i>
+                                    </a>
+                                    <div class="code-box-copy">
+                                        <button class="code-box-copy__btn" type="button" data-clipboard-target="#code-13" title="Copy"></button>
+                                        <pre><code class="language-html" id="code-13">&lt;div class="btn-group">
+                                &lt;a class="btn btn-default btn-file add">
+                                    &lt;i class="icon-plus">&lt;/i>
+                                    &lt;span>新增附件&lt;/span>
+                                    &lt;input type="file">
+                                &lt;/a>
+                            &lt;/div>
+                            &lt;a class="btn btn-primary">
+                                &lt;span>上傳&lt;/span>
+                                &lt;i class="icon-upload">&lt;/i>
+                            &lt;/a> </code></pre>
+                                    </div>
+                                </div>
+                                <!-- END demo-sample -->
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="hd">使用期間 </td>
+                            <td width="33%">
+                                <div class="demo-sample in-td">
+                                    <div class="div-tb">
+                                        <div class="td wid_45per">
+                                            <div class="input-group date">
+                                                <input type="text" class="datepicker form-control pull-right">
+                                                <div class="input-group-addon" onclick="$(this).prev().focus()">
+                                                    <i class="icon-calendar-full"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="td ct vmid">~</div>
+                                        <div class="td wid_45per">
+                                            <div class="input-group date">
+                                                <input type="text" class="datepicker form-control pull-right">
+                                                <div class="input-group-addon" onclick="$(this).prev().focus()">
+                                                    <i class="icon-calendar-full"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="code-box-copy">
+                                        <button class="code-box-copy__btn" type="button" data-clipboard-target="#code-133" title="Copy"></button>
+                                        <pre><code class="language-html" id="code-133">&lt;div class="div-tb">
+                                    &lt;div class="td wid_45per">
+                                    &lt;div class="input-group date" >
+                  &lt;input type="text" class="datepicker form-control pull-right">
+                  &lt;div class="input-group-addon" onclick="$(this).prev().focus()">
+                    &lt;i class="icon-calendar-full">&lt;/i>
+                  &lt;/div>
+                &lt;/div> 
+                &lt;/div>
+                                    &lt;div class="td ct vmid">~&lt;/div>
+                                    &lt;div class="td wid_45per">
+                                        &lt;div class="input-group date" >
+                  &lt;input type="text" class="datepicker form-control pull-right">
+                  &lt;div class="input-group-addon" onclick="$(this).prev().focus()">
+                    &lt;i class="icon-calendar-full">&lt;/i>
+                  &lt;/div>
+                &lt;/div> 
+                                    &lt;/div>
+                                &lt;/div></code></pre>
+                                    </div>
+                                </div>
+                                <!-- END demo-sample -->
+                            </td>
+                            <td class="hd"> </td>
+                            <td> </td>
+                        </tr>
+                        <tr>
+                            <td class="hd"><span class="star">*</span>文字輸入框錯誤錯誤</td>
+                            <td colspan="3">
+                                <!-- demo-sample -->
+                                <div class="demo-sample in-td">
+                                    <div class="radio">
+                                        <input type="radio" name="radio11" id="radio11" value="option1" checked="">
+                                        <label for="radio11"> 不通知</label>
+                                    </div>
+                                    <div class="radio mt20">
+                                        <input type="radio" name="radio11" id="radio22" value="option2">
+                                        <label for="radio22">
+                                            <span class="has-form-group">通知 </span>
+                                            <div class="has-error form-group inline-block">
+                                                <input class="form-control wid_250px inline-block" type="text">
+                                                <span class="help-block inline-block">錯誤訊息</span>
+                                            </div>
+                                        </label>
+                                    </div>
+                                    <div class="radio">
+                                        <input type="radio" name="radio11" id="radio33" value="option2" disabled>
+                                        <label for="radio33"> radio(disabled) </label>
+                                    </div>
+                                    <div class="code-box-copy">
+                                        <button class="code-box-copy__btn" type="button" data-clipboard-target="#code-16" title="Copy"></button>
+                                        <pre><code class="language-html" id="code-16">&lt;div class="radio"> 
+                                &lt;input type="radio" name="radio11" id="radio11" value="option1" checked=""> 
+                                &lt;label for="radio11"> 不通知&lt;/label> 
+                                &lt;/div>
+                                &lt;div class="radio mt20"> 
+                                &lt;input type="radio" name="radio11" id="radio22" value="option2"> 
+                                &lt;label for="radio22"> 
+                                &lt;span class="has-form-group">通知 &lt;/span>
+                                &lt;div class="has-error form-group inline-block">
+                                  &lt;input class="form-control wid_250px inline-block" type="text">
+                                  &lt;span class="help-block inline-block">錯誤訊息&lt;/span>
+                                  &lt;/div>
+                                &lt;/label> 
+                                &lt;/div>
+                                &lt;div class="radio"> 
+                                &lt;input type="radio" name="radio11" id="radio33" value="option2" disabled> 
+                                &lt;label for="radio33"> radio(disabled)  &lt;/label>
+                                &lt;/div></code></pre>
+                                    </div>
+                                </div>
+                                <!-- END demo-sample -->
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="hd"><span class="star">*</span>文字敘述</td>
+                            <td colspan="3">
+                                <!-- demo-sample -->
+                                <div class="demo-sample in-td">
+                                    <div class="form-group">
+                                        <textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
+                                    </div>
+                                    <div class="code-box-copy">
+                                        <button class="code-box-copy__btn" type="button" data-clipboard-target="#code-16" title="Copy"></button>
+                                        <pre><code class="language-html" id="code-16">&lt;textarea class="form-control" rows="3" placeholder="Enter ...">&lt;/textarea></code></pre>
+                                    </div>
+                                </div>
+                                <!-- END demo-sample -->
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="demo-sample in-td inline-block">
+                    <div class="form-outside"><span class="color-red">*</span> 表格外註解文字 </div>
+                    <div class="code-box-copy">
+                        <button class="code-box-copy__btn" type="button" data-clipboard-target="#code-17" title="Copy"></button>
+                        <pre><code class="language-html" id="code-17">&lt;div class="form-outside">&lt;span class="color-red">*&lt;/span> 表格外註解文字&lt;/div></code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- main-container -->
+    <div id="footer">
+        <!-- load-float-bar -->
+    </div>
+    <script src="../../inc/js/jquery.min.js"></script>
+    <script src="../../inc/plugin/bootstrap/bootstrap.min.js"></script>
+    <script src="../../inc/plugin/CopyToClipboard/js/prism.min.js"></script>
+    <script src="../../inc/plugin/CopyToClipboard/js/clipboard.min.js"></script>
+    <script src="../../inc/plugin/CopyToClipboard/js/code-box-copy.js"></script>
+    <script src="../../inc/plugin/bootstrap-select/js/bootstrap-select.min.js"></script>
+    <script src="../../inc/plugin/datepicker/bootstrap-datepicker.js"></script>
+    <script src="../../inc/js/base.js"></script>
+    <script>
+    // very simple to use!
+    $(document).ready(function() {
+        setTimeout(function() {
+            $(".sample-form").addClass("active").removeClass("collapsed").next(".panel-collapse").addClass("in");
+            $(".sample-form-single").addClass("active");
+            $("#side-menu-10").siblings().removeClass("active in");
+            $("#side-menu-10").addClass("active in");
+        }, 500);
+        file_upload();
+        codeBoxCopy_fun();
+        date_picker_fun();
+
+
+    });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,413 @@
+﻿@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>@ViewData["Title"] - CoreWebApp</title>
+
+    <link rel="icon" href="~/inc/img/favicon.ico" />
+
+    <!-- ========== Bootstrap 3.4.1（你目前的模板就是這版）========== -->
+    <!--
+    <link rel="stylesheet" href="~/inc/plugin/bootstrap/bootstrap.min.css" asp-append-version="true" />
+    -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+
+    <!-- ========== 模板 CSS ========== -->
+    <link rel="stylesheet" href="~/inc/css/icomoon/style.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/inc/plugin/bootstrap-select/css/bootstrap-select.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/inc/plugin/owl-carousel/owl.carousel.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/inc/css/cf-layout.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/inc/css/animate.css" asp-append-version="true" />
+
+    <!-- ========== 你自己的客製/覆寫 ========== -->
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/pmds-overrides.css" asp-append-version="true" />
+
+    @RenderSection("Styles", required: false)
+
+    <style>
+        /* ===== Layout：Header / Sidebar / Content / Footer ===== */
+
+        /* Header 底色（你目前用 darkgreen） */
+        .pmds-navbar {
+            background: darkgreen;
+            border-color: darkgreen;
+            border-radius: 0;
+            margin-bottom: 0; /* 讓內容緊貼 header */
+        }
+
+            .pmds-navbar .navbar-brand,
+            .pmds-navbar .navbar-nav > li > a {
+                color: #fff !important;
+            }
+
+                .pmds-navbar .navbar-nav > li > a:hover {
+                    opacity: .9;
+                }
+
+        /* 讓整個頁面有「上內容、下 footer」的結構 */
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            background: #fff;
+        }
+
+        /* 主內容區（扣掉 header + footer） */
+        .pmds-page {
+            min-height: calc(100vh - 50px - 50px); /* navbar 約 50px，footer 約 50px */
+        }
+
+        /* ===== Sidebar 整體 ===== */
+        .pmds-sidebar {
+            background: darkgreen;
+            position: sticky;
+            top: 50px; /* 你的 navbar 約 50px */
+            align-self: flex-start; /* sticky 時常搭配 */
+            height: 100%; /* 讓 sticky 以內容高度為基準  fit-content */
+            border-right: 1px solid rgba(255,255,255,.15);
+            /* min-height: calc(100vh - 50px - 50px); */
+        }
+
+            /* ===== Sidebar 所有文字預設白色 ===== */
+            .pmds-sidebar,
+            .pmds-sidebar a,
+            .pmds-sidebar span,
+            .pmds-sidebar li {
+                color: #fff;
+            }
+
+                /* ===== Menu 容器（ul）半透明灰白 ===== */
+                .pmds-sidebar > ul {
+                    background: rgba(255, 255, 255, 0.12); /* 半透明灰白 */
+                    padding: 12px;
+                    border-radius: 8px;
+                }
+
+                /* ===== 第一層選單 ===== */
+                .pmds-sidebar .nav > li > a {
+                    color: #fff;
+                    border-radius: 6px;
+                }
+
+                    /* hover / active 狀態 */
+                    .pmds-sidebar .nav > li > a:hover,
+                    .pmds-sidebar .nav > li.active > a {
+                        background: rgba(255,255,255,0.14);
+                        color: #fff;
+                    }
+
+        /* ===== 第二層（submenu） ===== */
+        /* 子選單容器：縮排 + 與第一層分隔 */
+        .pmds-submenu {
+            margin: 8px 0 0 0;
+            padding: 6px 0 0 12px; /* 左縮排，不要用表示 block 的 padding 很大 */
+            border-left: 2px solid rgba(255,255,255,.18); /* 給個輕微導引線 */
+        }
+
+            /* 子選單每一項：取消 Bootstrap 預設的大間距/圓角干擾 */
+            .pmds-submenu > li {
+                margin: 0;
+            }
+
+                /* 子選單連結：做成「一行一行」的按鈕 */
+                .pmds-submenu > li > a {
+                    display: block; /* 一行一個 */
+                    padding: 10px 12px; /* 控制高度，不要被 nav-stacked 撐爆 */
+                    margin: 6px 10px 6px 0; /* 右邊留空，不要貼到卡片邊 */
+                    border-radius: 6px;
+                    color: rgba(255,255,255,.92);
+                    background: transparent; /* 預設不要白底 */
+                    text-decoration: none;
+                    line-height: 1.2;
+                    /* 避免某些模板把 a 變成很奇怪的寬度/陰影 */
+                    box-shadow: none;
+                }
+
+                    /* hover：輕微反白，不要整塊白 */
+                    .pmds-submenu > li > a:hover,
+                    .pmds-submenu > li > a:focus {
+                        background: rgba(255,255,255,.14);
+                        color: #fff;
+                        outline: none;
+                    }
+
+                /* active：只反白該行（半透明灰白，不要純白） */
+                .pmds-submenu > li.active > a,
+                .pmds-submenu > li.active > a:hover,
+                .pmds-submenu > li.active > a:focus {
+                    background: rgba(255,255,255,.24);
+                    color: #fff;
+                    font-weight: 600;
+                }
+
+                    /* 如果 Bootstrap 3 nav-pills 給 active 加了 weird border/after，清掉 */
+                    .pmds-submenu > li.active > a:after,
+                    .pmds-submenu > li > a:after {
+                        content: none !important;
+                    }
+
+        /* ===== collapse 箭頭點擊區不出現藍框 ===== */
+        .pmds-sidebar a:focus {
+            outline: none;
+            text-decoration: none;
+        }
+
+        /* 內容區 */
+        .pmds-content {
+            padding: 15px;
+            min-height: calc(100vh - 50px - 50px);
+        }
+
+        /* Footer */
+        .pmds-footer {
+            font-size:10pt;
+            background: darkgreen;
+            color: #fff;
+            height: 60px;
+            line-height: 50px;
+            margin-top: 0;
+        }
+
+            .pmds-footer a {
+                color: #fff;
+                text-decoration: underline;
+            }
+
+            .pmds-footer .container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 8px;
+                white-space: normal; /* 允許正常換行 */
+                line-height: 1.6;
+            }
+
+
+        /* ========== 第一層（外層 nav-stacked）統一壓掉 BS3 的 hover/focus 亮底 ========== */
+        .pmds-sidebar > ul.nav.flex-column > li > a,
+        .pmds-sidebar > ul.nav.flex-column > li > a:visited {
+            background: transparent !important;
+            color: #fff !important;
+        }
+
+            /* hover / focus：用你選的方案A（淡白 0.14），不要用 BS3 的 #eee */
+            .pmds-sidebar > ul.nav.flex-column > li > a:hover,
+            .pmds-sidebar > ul.nav.flex-column > li > a:focus {
+                background: rgba(255,255,255,0.14) !important;
+                color: #fff !important;
+                outline: none;
+            }
+
+        /* active：同樣用方案A，避免爆亮 */
+        .pmds-sidebar > ul.nav.flex-column > li.active > a,
+        .pmds-sidebar > ul.nav.flex-column > li.active > a:hover,
+        .pmds-sidebar > ul.nav.flex-column > li.active > a:focus {
+            background: rgba(255,255,255,0.14) !important;
+            color: #fff !important;
+        }
+
+    </style>
+</head>
+<body>
+    @{
+        // ===== Route 判斷（用於選單 active / 展開）=====
+        var currentController = ViewContext.RouteData.Values["controller"]?.ToString();
+        var currentAction = ViewContext.RouteData.Values["action"]?.ToString();
+
+        var isInspection = currentController == "Inspection";
+        @* var isInspectionIndex = isInspection && currentAction == "Index";*@
+        var isInspectionWork = isInspection && currentAction == "InspectionQry";      // 稽查作業
+        var isInspectionVendor = isInspection && currentAction == "Fquery";  // 業者稽查查詢
+        var isInspectionCase = isInspection && currentAction == "FormQuery";      // 稽查單查詢
+
+        // ★ 新增：PReview（第一層、無子選單）
+        var isPReview = currentController == "PReview";
+        var isInspectionPReview = isInspection && currentAction == "PReview";   //待審核案件
+
+        // ★ 新增：FormManage（表單管理，第一層、有子選單）
+        var isFormManage = currentController == "FormManage";
+        var isFormManageFormEditer = isFormManage && currentAction == "FormEditer";   //表單管理-表單編輯作業
+        var isFormManageFormQryByPJ = isFormManage && currentAction == "FormQryByPJ";   //表單管理-專案查詢
+
+        // ===== Session 內的登入資訊（你原本就有）=====
+        var token = HttpContextAccessor.HttpContext?.Session.GetString("AuthToken");
+        var displayName = HttpContextAccessor.HttpContext?.Session.GetString("DisplayName");
+    }
+
+    <!-- ===================== Header (Bootstrap 3 navbar) ===================== -->
+    <nav class="navbar navbar-default pmds-navbar">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" asp-controller="Inspection" asp-action="Index">ECRS-稽查系統</a>
+            </div>
+
+            <ul class="nav navbar-nav navbar-right">
+                @* 你要顯示「已登入/登出」放 Header 或 Sidebar 都可以；這裡放在 Header *@
+                <li>
+                    <a class="nav-link text-black ajax-link" asp-controller="Inspection" asp-action="Index"
+                       style="color:#fff; font-weight:600;">
+                        回首頁
+                    </a>
+                </li>
+                @if (!string.IsNullOrWhiteSpace(token))
+                {
+                    <li class="navbar-text" style="color:#fff;">Hi, @displayName</li>
+                    <li>
+                        <form asp-controller="Auth" asp-action="Logout" method="post" style="display:inline;">
+                            @Html.AntiForgeryToken()
+                            <button type="submit" class="btn btn-default navbar-btn">登出</button>
+                        </form>
+                    </li>
+                }
+                else
+                {
+                    <li>
+                        <a asp-controller="Auth" asp-action="Login">登入</a>
+                    </li>
+                }
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ===================== Page (Sidebar + Content) ===================== -->
+    <div class="container-fluid pmds-page">
+        <div class="row pmds-navbar">
+
+            <!-- ===== Sidebar (Bootstrap 3 column) ===== -->
+            <aside class="col-md-2  pmds-sidebar">
+
+                <!-- Sidebar 登入區（保留你原本 sidebar 內的資訊） -->
+                <div class="auth-box">
+                    @if (User?.Identity?.IsAuthenticated ?? false)
+                    {
+                        <div style="align-content:center; font-size:12px; color:floralwhite">已登入  @User.Identity!.Name</div>
+
+                        @* <form asp-controller="Auth" asp-action="Logout" method="post" style="margin-top:8px;">
+                            @Html.AntiForgeryToken()
+                            <button type="submit" class="btn btn-sm btn-default btn-block">登出</button>
+                        </form> *@
+                    }
+                    else
+                    {
+                        <a class="btn btn-sm btn-default btn-block" asp-controller="Auth" asp-action="Login">登入</a>
+                    }
+                </div>
+
+                <!-- ===== Menu（Bootstrap 3：collapse 用 data-toggle / class in）===== -->
+                <ul class="nav nav-pills flex-column">
+
+                    <!-- 第一層：只控制展開 -->
+                    <li class="@(isInspection ? "active" : "")">
+                        <a class="nav-link text-black ajax-link" href="#inspectionMenu"
+                           data-toggle="collapse"
+                           aria-expanded="@(isInspection ? "true" : "false")">
+                            稽查管理
+                        </a>
+
+                        <!-- 第二層 -->
+                        <div id="inspectionMenu" class="collapse @(isInspection ? "show" : "")">
+                            <ul class="nav nav-pills flex-column pmds-submenu">
+
+                                @* <li class="@(isInspectionIndex ? "active" : "")">
+                                    <a asp-controller="Inspection" asp-action="Index">稽查管理</a>
+                                </li> *@
+
+                                <li class=" @(isInspectionWork ? "active" : "")">
+                                    <a class="nav-link text-black ajax-link" asp-controller="Inspection" asp-action="InspectionQry">稽查作業</a>
+                                </li>
+
+                                <li class="@(isInspectionVendor ? "active" : "")">
+                                    <a class="nav-link text-black ajax-link" asp-controller="Inspection" asp-action="Fquery">業者稽查查詢</a>
+                                </li>
+
+                                <li class="@(isInspectionCase ? "active" : "")">
+                                    <a class="nav-link text-black ajax-link" asp-controller="Inspection" asp-action="FormQuery">稽查單查詢</a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </li>
+
+                    <!-- ================= 第一層：PReview（無第二層、直接導頁） ================= -->
+                    <li class="@(isInspectionPReview ? "active" : "")">
+                        <a class="nav-link text-black ajax-link" asp-controller="Inspection" asp-action="ReviewPerform">
+                            待審核案件
+                        </a>
+                    </li>
+
+                    <!-- ================= 第一層：表單管理(FormManage)，只控制展開 ================= -->
+                    <li class="@(isFormManage ? "active" : "")">
+                        <a class="nav-link text-black ajax-link" href="#FormManageMenu"
+                           data-toggle="collapse"
+                           aria-expanded="@(isFormManage ? "true" : "false")">
+                            表單管理
+                        </a>
+
+                        <!-- 第二層 -->
+                        <div id="FormManageMenu" class="collapse @(isInspection ? "show" : "")">
+                            <ul class="nav nav-pills flex-column pmds-submenu">
+                                <li class=" @(isFormManageFormEditer ? "active" : "")">
+                                    <a class="nav-link text-black ajax-link" asp-controller="FormManage" asp-action="FormEditer">表單編輯作業</a>
+                                </li>
+                                <li class=" @(isFormManageFormQryByPJ ? "active" : "")">
+                                    <a class="nav-link text-black ajax-link" asp-controller="FormManage" asp-action="FormQryByPJ">專案查詢</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+
+                </ul>
+            </aside>
+
+            <!-- ===== Content ===== -->
+            <main class="col-10 pmds-content" style="background-color: rgba(255, 255, 255, 0.9);" id="mainContent">
+                @RenderBody()
+            </main>
+        </div>
+    </div>
+
+    <!-- ===================== Footer ===================== -->
+    <footer class="pmds-footer">
+        <div class="container text-center">
+            建議使用 Edge或Chrome版本之瀏覽器，螢幕解析度1024X768以上瀏覽 衛生福利部食品藥物管理署 ©2022-2030 版權所有​<br />
+            諮詢服務專線 : 0809-091-133 諮詢服務時間 : 08:00~12:00及13:00~18:00 (周一至周五)​elitech
+        </div>
+    </footer>
+
+
+
+    <!-- ========== JS：Bootstrap 3 必須 jQuery 在前、Bootstrap 在後 ========== -->
+    <!--
+    <script src="~/inc/js/jquery.min.js" asp-append-version="true"></script>
+    <script src="~/inc/plugin/bootstrap/bootstrap.min.js" asp-append-version="true"></script>
+    -->
+
+    <!-- plugin（你原本的） -->
+    <script src="~/inc/plugin/bootstrap-select/js/bootstrap-select.min.js" asp-append-version="true"></script>
+    <script src="~/inc/plugin/owl-carousel/owl.carousel.js" asp-append-version="true"></script>
+    <script src="~/inc/js/base.js" asp-append-version="true"></script>
+
+    <!-- 你自己的 JS -->
+    <script src="~/js/layout_site.js" asp-append-version="true"></script>
+    <script src="~/js/FormManage/FormQryByPJ_site.js" asp-append-version="true"></script>
+    <script src="~/js/FormManage/Formadd_note.js" asp-append-version="true"></script>
+    <script src="~/js/Inspection/FormQuery_site.js" asp-append-version="true"></script>
+    <script src="~/js/Inspection/PReview_site.js" asp-append-version="true"></script>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

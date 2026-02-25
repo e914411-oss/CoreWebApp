@@ -1,0 +1,49 @@
+﻿@model CoreWebApp.Models.LoginViewModel
+@{
+    ViewData["Title"] = "登入";
+    Layout = "_LoginLayout"; // 若不想獨立 Layout，把這行刪掉即可
+    var returnUrl = (string?)ViewBag.ReturnUrl;
+}
+
+<div class="row justify-content-center">
+    <div class="col-12 col-md-6 col-lg-4">
+        <div class="card shadow-sm">
+            <div class="card-body p-4">
+                <h4 class="mb-3">系統登入</h4>
+
+                @if (!ViewData.ModelState.IsValid)
+                {
+                    <div class="text-danger mb-3">
+                        @Html.ValidationSummary(excludePropertyErrors: true)
+                    </div>
+                }
+
+                <form asp-action="Login" asp-controller="Auth" method="post">
+                    @Html.AntiForgeryToken()
+                    <input type="hidden" name="returnUrl" value="@returnUrl" />
+
+                    <div class="mb-3">
+                        <label class="form-label">帳號</label>
+                        <input asp-for="UserName" class="form-control" autocomplete="username" />
+                        <span asp-validation-for="UserName" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">密碼</label>
+                        <input asp-for="Password" class="form-control" autocomplete="current-password" />
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary w-100">登入</button>
+                </form>
+            </div>
+        </div>
+        @* <div class="text-muted small mt-3">
+            提示：預設示範帳號 admin / P@ssw0rd!
+        </div> *@
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

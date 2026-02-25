@@ -1,0 +1,97 @@
+﻿@{
+    ViewData["Title"] = "表單管理-專案查詢";
+}
+
+
+<h1 class="main-title">
+    <span id="ctl00_ContentPlaceHolder1_UC_NodeName_lblNodeName">@ViewData["Title"]</span>
+</h1>
+<div id="ctl00_ContentPlaceHolder1_Panel1">
+
+    <input type="hidden" name="ctl00$ContentPlaceHolder1$GroupId" id="ctl00_ContentPlaceHolder1_GroupId" value="4">
+    <div class="tb-single-rwd">
+        <div class="td hd">
+            <input id="radioCustom" type="radio" name="groupType" checked>自訂表單名稱</input>
+        </div>
+        <div class="td">
+            <input id="FormName" type="text" placeholder="高雄市食品工廠" class="form-control">
+        </div>
+    </div>
+    <div class="tb-single-rwd">
+        <div class="td hd">
+            <input id="radioProject" type="radio" name="groupType">專案名稱</input>
+        </div>
+        <div class="td">
+            <input id="PJName" type="text" class="form-control" placeholder="高雄市食品工廠已逾兩年未執行稽查通知群組" />
+        </div>
+        <div class="td hd">
+            建立單位：
+        </div>
+        <div class="td">
+            <select id="Select1">
+                <option>全部</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="btn-area" style="margin-left:80%;">
+        <span style="vertical-align: top;">
+            <button type="button" class="btn btn-primary">搜尋</button>
+            <input id="btnClear" type="button" class="btn btn-primary" onclick="qry_clear()" value="清除" />
+        </span>
+    </div>
+
+    <div class="tb-single-rwd">
+        <div class="td">
+            <ul class="inline-block">
+                <li style="width: 300px;" class="text-center">
+                    <span style="font-weight: bold;">搜尋結果</span>
+                </li>
+                <li style="width: 300px;"></li>
+                <li style="width: 300px; margin-left: 90px" class="text-center">
+                    <span style="font-weight: bold;">已選擇專案</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="tb-single-rwd">
+        <div class="td hd"></div>
+        <div class="td">
+            <ul class="inline-block">
+                <li>
+                    <select size="4" name="ctl00$ContentPlaceHolder1$LBSelect" multiple="multiple" id="ctl00_ContentPlaceHolder1_LBSelect" class="form-control" style="width: 300px; height: 400px">
+                        <option value="S221178181">鄭慧君</option>
+
+                    </select>
+                </li>
+                <li>
+                    <div class="btn-group" style="position: absolute; top: 45%">
+                        <input type="submit" name="ctl00$ContentPlaceHolder1$right" value="-&gt;" id="ctl00_ContentPlaceHolder1_right" class="btn btn-primary-line">
+                        <input type="submit" name="ctl00$ContentPlaceHolder1$left" value="&lt;-" onclick="return chkMail();" id="ctl00_ContentPlaceHolder1_left" class="btn btn-primary-line">
+                    </div>
+                </li>
+                <li>
+                    <select size="4" name="ctl00$ContentPlaceHolder1$LBUnselect" multiple="multiple" id="ctl00_ContentPlaceHolder1_LBUnselect" class="form-control" style="width: 300px; height: 400px; margin-left: 90px">
+                        <option value="V221289119">包裝飲料產品之咖啡因標示稽查（FDA）</option>
+                        <option value="X220084101">超商，速食樂（FDA）</option>
+                        <option value="T222133276">真空包裝即食飲品販售溫度稽查1（FDA）</option>
+                        <option value="T222211257">網路食品（FDA）</option>
+                        <option value="T223161916">市售禽肉來源及標示與其衛生安全（FDA）</option>
+                    </select>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="btn-area">
+        <span style="vertical-align: top;">
+            @* <button type="button" class="btn btn-primary" onclick="window.history.go(-1);">儲存</button> *@
+            @* <a asp-action="FormAdd" asp-controller="FormManage">儲存</a> *@
+            <button type="button" id="btnLoadForm" class="btn btn-primary" data-url="@Url.Action("FormAdd", "FormManage")" onclick="loadForm()">儲存</button>
+            <button type="button" class="btn btn-primary" onclick="window.history.go(-1);">取消</button>
+        </span>
+    </div>
+
+    <div id="formAddHost"></div>
+
+</div>
+
