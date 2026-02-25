@@ -16,10 +16,8 @@
     <!--
     <link rel="stylesheet" href="~/inc/plugin/bootstrap/bootstrap.min.css" asp-append-version="true" />
     -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 
 
     <!-- ========== 模板 CSS ========== -->
@@ -235,8 +233,8 @@
         var isInspectionCase = isInspection && currentAction == "FormQuery";      // 稽查單查詢
 
         // ★ 新增：PReview（第一層、無子選單）
-        var isPReview = currentController == "PReview";
-        var isInspectionPReview = isInspection && currentAction == "PReview";   //待審核案件
+        var isPReview = currentController == "ReviewPerform";
+        var isInspectionPReview = isInspection && currentAction == "ReviewPerform";   //待審核案件
 
         // ★ 新增：FormManage（表單管理，第一層、有子選單）
         var isFormManage = currentController == "FormManage";
@@ -255,13 +253,14 @@
                 <a class="navbar-brand" asp-controller="Inspection" asp-action="Index">ECRS-稽查系統</a>
             </div>
 
-            <ul class="nav navbar-nav navbar-right">
+            <ul class="nav navbar-navx navbar-rightx">
                 @* 你要顯示「已登入/登出」放 Header 或 Sidebar 都可以；這裡放在 Header *@
                 <li>
-                    <a class="nav-link text-black ajax-link" asp-controller="Inspection" asp-action="Index"
+                    <a class="nav-link ajax-link" asp-controller="Inspection" asp-action="Index"
                        style="color:#fff; font-weight:600;">
                         回首頁
                     </a>
+
                 </li>
                 @if (!string.IsNullOrWhiteSpace(token))
                 {
@@ -312,9 +311,7 @@
 
                     <!-- 第一層：只控制展開 -->
                     <li class="@(isInspection ? "active" : "")">
-                        <a class="nav-link text-black ajax-link" href="#inspectionMenu"
-                           data-toggle="collapse"
-                           aria-expanded="@(isInspection ? "true" : "false")">
+                        <a class="nav-link text-black " asp-controller="Inspection" asp-action="Index">
                             稽查管理
                         </a>
 
@@ -327,15 +324,15 @@
                                 </li> *@
 
                                 <li class=" @(isInspectionWork ? "active" : "")">
-                                    <a class="nav-link text-black ajax-link" asp-controller="Inspection" asp-action="InspectionQry">稽查作業</a>
+                                    <a class="nav-link" asp-controller="Inspection" asp-action="InspectionQry">稽查作業</a>
                                 </li>
 
                                 <li class="@(isInspectionVendor ? "active" : "")">
-                                    <a class="nav-link text-black ajax-link" asp-controller="Inspection" asp-action="Fquery">業者稽查查詢</a>
+                                    <a class="nav-link" asp-controller="Inspection" asp-action="Fquery">業者稽查查詢</a>
                                 </li>
 
                                 <li class="@(isInspectionCase ? "active" : "")">
-                                    <a class="nav-link text-black ajax-link" asp-controller="Inspection" asp-action="FormQuery">稽查單查詢</a>
+                                    <a class="nav-link" asp-controller="Inspection" asp-action="FormQuery">稽查單查詢</a>
                                 </li>
 
                             </ul>
@@ -344,27 +341,24 @@
 
                     <!-- ================= 第一層：PReview（無第二層、直接導頁） ================= -->
                     <li class="@(isInspectionPReview ? "active" : "")">
-                        <a class="nav-link text-black ajax-link" asp-controller="Inspection" asp-action="ReviewPerform">
+                        <a class="nav-link text-black" asp-controller="Inspection" asp-action="ReviewPerform">
                             待審核案件
                         </a>
                     </li>
 
                     <!-- ================= 第一層：表單管理(FormManage)，只控制展開 ================= -->
                     <li class="@(isFormManage ? "active" : "")">
-                        <a class="nav-link text-black ajax-link" href="#FormManageMenu"
-                           data-toggle="collapse"
-                           aria-expanded="@(isFormManage ? "true" : "false")">
-                            表單管理
-                        </a>
+                        <a class="nav-link text-black " asp-controller="FormManage" asp-action="Index">表單管理</a>
+
 
                         <!-- 第二層 -->
-                        <div id="FormManageMenu" class="collapse @(isInspection ? "show" : "")">
+                        <div id="FormManageMenu" class="collapse @(isFormManage ? "show" : "")">
                             <ul class="nav nav-pills flex-column pmds-submenu">
                                 <li class=" @(isFormManageFormEditer ? "active" : "")">
-                                    <a class="nav-link text-black ajax-link" asp-controller="FormManage" asp-action="FormEditer">表單編輯作業</a>
+                                    <a class="nav-link ajax-link" asp-controller="FormManage" asp-action="FormEditer">表單編輯作業</a>
                                 </li>
                                 <li class=" @(isFormManageFormQryByPJ ? "active" : "")">
-                                    <a class="nav-link text-black ajax-link" asp-controller="FormManage" asp-action="FormQryByPJ">專案查詢</a>
+                                    <a class="nav-link ajax-link" asp-controller="FormManage" asp-action="FormQryByPJ">專案查詢</a>
                                 </li>
                             </ul>
                         </div>
@@ -406,7 +400,7 @@
     <script src="~/js/FormManage/FormQryByPJ_site.js" asp-append-version="true"></script>
     <script src="~/js/FormManage/Formadd_note.js" asp-append-version="true"></script>
     <script src="~/js/Inspection/FormQuery_site.js" asp-append-version="true"></script>
-    <script src="~/js/Inspection/PReview_site.js" asp-append-version="true"></script>
+    <script src="~/js/Inspection/ReviewPerform_site.js" asp-append-version="true"></script>
 
     @RenderSection("Scripts", required: false)
 </body>

@@ -20,6 +20,23 @@ namespace CoreWebApp.Controllers
             _logger = logger;
         }
 
+        public IActionResult Index()
+        {
+            // ...組 model，可忽略
+            if (Request.Headers["X-Requested-With"] == "XMLHttpRequest")
+                return PartialView("Index" /*, model */);
+
+            return View(/* model */);
+        }
+
+        public async Task<IActionResult> FormQryByPJ()
+        {
+            if (Request.Headers["X-Requested-With"] == "XMLHttpRequest")
+                return PartialView("FormQryByPJ");
+
+            return View();
+        }
+
         public async Task<IActionResult> FormEditer(string cities)
         {
             //return View();
@@ -54,13 +71,7 @@ namespace CoreWebApp.Controllers
             return View();
         }
 
-        public async Task<IActionResult> FormQryByPJ()
-        {
-            if (Request.Headers["X-Requested-With"] == "XMLHttpRequest")
-                return PartialView("FormQryByPJ");
 
-            return View();
-        }
 
 
 
