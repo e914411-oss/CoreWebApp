@@ -88,7 +88,8 @@ namespace CoreWebApp.Controllers
 
             ViewBag.loginTime = DateTime.Now.ToString("yyyy/MM/DD HH:mm:ss");
 
-            return RedirectToAction("Index", "Inspection");
+            //return RedirectToAction("Index", "Inspection");
+            return RedirectToAction("AfterLogin", "Entry", new { returnUrl });
         }
 
         [HttpPost]
