@@ -39,6 +39,9 @@ builder.Services.AddHttpClient<AuthApiClient>((sp, client) =>
     client.BaseAddress = new Uri(baseUrl);
 });
 
+//註冊裝置偵測服務（用於判斷行動裝置或桌面裝置）
+builder.Services.AddSingleton<IDeviceDetector, DeviceDetector>();
+
 //註冊讀取資料都API
 builder.Services.AddSingleton(sp =>
 {

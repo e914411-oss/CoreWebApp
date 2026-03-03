@@ -13,12 +13,20 @@ namespace CoreWebApp.Controllers
         private readonly AuthApiClient _authApi;
         private readonly GspOAuthClient _gsp;
 
+        private readonly IDeviceDetector _device;
 
 
-        public EntryController(AuthApiClient authApi, GspOAuthClient gsp)
+        //public EntryController(AuthApiClient authApi, GspOAuthClient gsp)
+        //{
+        //    _authApi = authApi;
+        //    _gsp = gsp;
+        //}
+
+        public EntryController(AuthApiClient authApi, GspOAuthClient gsp, IDeviceDetector device)
         {
             _authApi = authApi;
             _gsp = gsp;
+            _device = device;
         }
 
         public IActionResult Index()
@@ -31,6 +39,19 @@ namespace CoreWebApp.Controllers
 3、行動自然人憑證（點擊後導到自然人憑證登入頁面，帳密驗證成功後回傳相關信息回來再導到稽查首頁。）";
             return View();
         }
+
+        [Authorize]
+        [HttpGet]
+        public IActionResult AfterLogin(string? returnUrl = null)
+        {
+            // 站內回跳（避免 open redirect）
+            if (!string.IsNullOrWhiteSpace(returnUrl) && Url.IsLocalUrl(returnUrl))
+                return Redirect(returnUrl);
+
+            // 先固定導到你現有的 PC 首頁（你專案目前就是 Inspection/Index）
+            return RedirectToAction("Index", "Inspection");
+        }
+
 
         //E政府帳號登入驗證
         [HttpPost]
@@ -123,7 +144,8 @@ namespace CoreWebApp.Controllers
             var fullUrl = $"{Request.Scheme}://{Request.Host}{Request.Path}{Request.QueryString}";
 
 
-            var expected = HttpContext.Session.GetString("LoginB_State");
+            //var expected = HttpContext.Session.GetString("LoginB_State");
+            var expected = HttpContext.Session.GetString("EgovLoginBState");
             if (string.IsNullOrWhiteSpace(state) || expected != state)
                 return Unauthorized("Invalid state");
 
