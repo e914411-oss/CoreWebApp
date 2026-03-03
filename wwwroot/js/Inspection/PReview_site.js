@@ -21,3 +21,9 @@ function openModalRec() {
 function closeModalRec() {
     document.getElementById("modalRec").style.display = "none";
 }
+
+function openModalF() {
+    document.getElementById("modal").style.display = "flex";
+    
+}
+

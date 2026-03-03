@@ -2,7 +2,7 @@
     ViewData["Title"] = "首頁";
     var username = ViewBag.Username as string ?? "";
     var loginSuccess = TempData["LoginSuccess"] as string;
-    var loginTime = ViewBag.loginTime as string ?? DateTime.Now.ToString("yyyy/MM/DD HH:mm:ss");
+    var loginTime = ViewBag.loginTime as string ?? DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
     var displayName = Context.Session.GetString("DisplayName");
 }
 

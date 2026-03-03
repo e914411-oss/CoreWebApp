@@ -1,5 +1,5 @@
 ﻿@{
-    ViewData["Title"] = "待審核案件-審核作業";
+    ViewData["Title"] = "稽查紀錄總覽";
 }
 
 <style>
@@ -33,7 +33,7 @@
 .modal-content1 {
         position: relative; /* 關鍵 */
 
-        width: 400px;
+        width: 530px;
         height: 400px;
         background: white;
         display: flex;
@@ -127,75 +127,122 @@
     <span id="ctl00_ContentPlaceHolder1_UC_NodeName_lblNodeName">@ViewData["Title"]</span>
 </h1>
 <div id="ctl00_ContentPlaceHolder1_Panel1">
-    <button class="btn btn-default btn-light" onclick="openModal()">退回案件</button>
-    <button class="btn btn-default btn-light" onclick="closeModal(); alert('案件已核准');">核准案件</button>
 
-    <h2 class="table-tit mb0 inline-block"><span>稽查單內容 </span></h2>
+    <h2 class="table-tit mb0 inline-block"><span>公司基本資料</span></h2>
     <div class="visible-xs mb5"></div>
     <div class="tab" id="tab-1">
         <div class="tb-single-rwd">
-            <div class="td hd">表單編號</div>
+            <div class="td hd">業者編號</div>
             <div class="td col-6">
                 <div class="form-group">
-                    <label class="form-control input-sm" style="width:100%;">QP2025071100001</label>
+                    <label class="form-control input-sm" style="width:100%;">11407220012</label>
                 </div>
             </div>
-            <div class="td hd">稽查日期</div>
-            <div class="td col-6">
-                <div class="form-group">
-                    <label class="form-control input-sm" style="width:100%;">2025-07-21</label>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="tb-single-rwd">
-            <div class="td hd">稽查員</div>
-            <div class="td col-6">
-                <div class="form-group">
-                    <label class="form-control input-sm" style="width:100%;">稽查員A</label>
-                </div>
-
-            </div>
-            <div class="td hd">機構代碼</div>
-            <div class="td col-6">
-                <div class="form-group">
-                    <label class="form-control input-sm" style="width:100%;">AB123</label>
-                </div>
-            </div>
-        </div>
-
-        <div class="tb-single-rwd">
-            <div class="td hd">業者名稱</div>
-            <div class="td col-6">
-                <div class="form-group">
-                    <label class="form-control input-sm" style="width:100%;">立蜂實業有限公司</label>
-                </div>
-
-            </div>
-            <div class="td hd">業者電子信箱</div>
-            <div class="td col-6">
-                <div class="form-group">
-                    <label class="form-control input-sm" style="width:100%;">AB123@gmail.com</label>
-                </div>
-            </div>
-        </div>
-
-        <div class="tb-single-rwd">
             <div class="td hd">負責人</div>
             <div class="td col-6">
                 <div class="form-group">
-                    <label class="form-control input-sm" style="width:100%;">立蜂</label>
+                    <label class="form-control input-sm" style="width:100%;">負責人A</label>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="tb-single-rwd">
+            <div class="td hd">業者名稱(市招)</div>
+            <div class="td col-6">
+                <div class="form-group">
+                    <label class="form-control input-sm" style="width:100%;">A實業有限公司</label>
                 </div>
 
             </div>
-            <div class="td hd">業者電話</div>
+            <div class="td hd">業者名稱(商登)</div>
+            <div class="td col-6">
+                <div class="form-group">
+                    <label class="form-control input-sm" style="width:100%;">B實業有限公司</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="tb-single-rwd">
+            <div class="td hd">統一編號</div>
             <div class="td col-6">
                 <div class="form-group">
                     <label class="form-control input-sm" style="width:100%;">12345678</label>
                 </div>
+
+            </div>
+            <div class="td hd">登錄字號</div>
+            <div class="td col-6">
+                <div class="form-group">
+                    <label class="form-control input-sm" style="width:100%;">　</label>
+                </div>
             </div>
         </div>
+        
+        <div class="tb-single-rwd">
+            <div class="td hd">醫事機構代碼</div>
+            <div class="td col-6">
+                <div class="form-group">
+                    <label class="form-control input-sm" style="width:100%;">　</label>
+                </div>
+
+            </div>
+            <div class="td hd">藥事機構代碼</div>
+            <div class="td col-6">
+                <div class="form-group">
+                    <label class="form-control input-sm" style="width:100%;">　</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="tb-single-rwd">
+            <div class="td hd">營業狀態</div>
+            <div class="td col-6">
+                <div class="form-group">
+                    <label class="form-control input-sm" style="width:100%;">營業中</label>
+                </div>
+
+            </div>
+            <div class="td hd">傳真號碼</div>
+            <div class="td col-6">
+                <div class="form-group">
+                    <label class="form-control input-sm" style="width:100%;">　</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="tb-single-rwd">
+            <div class="td hd">電話號碼</div>
+            <div class="td col-6">
+                <div class="form-group">
+                    <label class="form-control input-sm" style="width:100%;">02-23456789</label>
+                </div>
+
+            </div>
+            <div class="td hd">行動電話</div>
+            <div class="td col-6">
+                <div class="form-group">
+                    <label class="form-control input-sm" style="width:100%;">0922123456</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="tb-single-rwd">
+            <div class="td hd">電子信箱</div>
+            <div class="td col-6">
+                <div class="form-group">
+                    <label class="form-control input-sm" style="width:100%;">ABC@gmail.com</label>
+                </div>
+
+            </div>
+            <div class="td hd">業者類別</div>
+            <div class="td col-6">
+                <div class="form-group">
+                    <label class="form-control input-sm" style="width:100%;">餐飲業</label>
+                </div>
+            </div>
+        </div>
+
         <div class="tb-single-rwd">
             <div class="td hd">業者地址</div>
             <div class="td col-auto">
@@ -208,7 +255,15 @@
 
     </div>
 
-    <h2 class="table-tit mb0 inline-block"><span>稽查紀錄 </span></h2>
+
+    <h2 class="table-tit mb-0 d-flex justify-content-between align-items-center">
+        <span>稽查紀錄</span>
+        <a href="javascript:;"
+           class="btn btn-primary rounded-pill px-4"
+           onclick="openModalF()">
+            <i class="icon-plus"></i> 新增稽查表單
+        </a>
+    </h2>
     <div class="visible-xs mb5"></div>
     <!-- END pull-right -->
     <div class="data-list">
@@ -218,12 +273,14 @@
                 <thead>
                     <tr>
                         <th>操作</th>
+                        <th>稽查單號</th>
                         <th>稽查表單</th>
                         <th>稽查人員</th>
+                        <th>稽查進度</th>
                         <th>稽查日期</th>
                         <th>稽查結果</th>
-                        <th>限改日期</th>
                         <th>執行狀態</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -233,15 +290,28 @@
                             <a href="javascript:void(0);" onclick=" openModalRec(); return false;" class="btn btn-icon view" title="檢視"><i class="icon-eye-2"></i></a>
 
                         </td>
+                        <td class="lt">1140721001</td>
                         <td class="lt">114年度食品業稽查專案紀錄表</td>
                         <td class="lt">稽查員A</td>
+                        <td class="lt">稽查完成</td>
                         <td class="lt">2025-07-21</td>
-                        <td>辣椒粉有蘇丹紅-裁罰</td>
+                        <td>有蘇丹紅-裁罰</td>
+                        <td class="lt">已轉PMDS　</td>
                         <td class="lt"></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="javascript:void(0);" onclick=" openModalRec(); return false;" class="btn btn-icon view" title="檢視"><i class="icon-eye-2"></i></a>
+
+                        </td>
+                        <td class="lt">1140722002</td>
+                        <td class="lt">114年度食品業稽查專案紀錄表</td>
+                        <td class="lt">稽查員B</td>
+                        <td class="lt">稽查完成</td>
+                        <td class="lt">2025-07-22</td>
+                        <td>有蘇丹紅-裁罰</td>
                         <td class="lt">待審核</td>
-
-
-
+                        <td class="lt"><a href="javascript:;" class="btn btn-default rounded-pill px-4" onclick="location.href='#';">複製稽查表單</a></td>
                     </tr>
 
                 </tbody>
@@ -281,15 +351,63 @@
 
             <!-- 標題列 -->
             <div class="modal-header">
-                <span class="modal-title">　退回案件-簽核意見</span>
+                <span class="modal-title">增加表單</span>
             </div>
+
             <div class="modal-contentb">
                 <div class="modal-content">
-                不夠詳細
+                    <div id="divInputAreax">
+                        <div>
+                            <div>
+
+                                <input name="ctl00$ContentPlaceHolder1$id" style="width:350px" type="text" class="form-controlx" />
+
+                                <a href="javascript:;"
+                                   class="btn btn-primary rounded-pill px-4"
+                                   >
+                                    查詢表單
+                                </a>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                   
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" name="Res" value="1">
+                                            <label class="form-check-label">114年度肉類加工食品製造稽查專案紀錄表</label>
+                                        </div>
+
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" name="Res" value="2">
+                                            <label class="form-check-label">GHP稽查紀錄表</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" name="Res" value="3">
+                                            <label class="form-check-label">HACCP稽查紀錄表</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" name="Res" value="4">
+                                            <label class="form-check-label">抽驗紀錄表</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" name="Res" value="5">
+                                            <label class="form-check-label">健康食品製造良好作業規範標準查核表</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" name="Res" value="6">
+                                            <label class="form-check-label">其他</label>
+                                        </div>
+                                        <!-- 其他依此類推 -->
+
+                                    </div>
+                                </div>
+                                
+                            </div>
+
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="modal-footer">
-                <button class="close-btnS" onclick="closeModal();alert('案件退回')">
+                <button class="close-btnS" onclick="closeModal()">
                     <i class="bi bi-check-lg me-1"></i> 確定
                 </button>
                 <button class="close-btnC" onclick="closeModal()">
