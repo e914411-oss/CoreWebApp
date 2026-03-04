@@ -219,7 +219,7 @@
 
         .login-logo {
             width: 98px;
-            height: 98px;
+            height: 58px;
             background: url('/FDA_Logo.png');
             background-repeat: no-repeat;
             background-size: contain; /* 或 cover */
@@ -278,6 +278,73 @@
             line-height: 1;
         }
        
+        .tooltips {
+            position: relative;
+            display: inline-block;
+        }
+
+        .tooltip-text {
+            visibility: hidden;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 5px 8px;
+            border-radius: 4px;
+            position: absolute;
+            top: 125%; /* 顯示在上方 */
+            left: 50%;
+            transform: translateX(-50%);
+            white-space: nowrap;
+            font-size: 12px;
+
+        }
+
+        .tooltips:hover .tooltip-text {
+            visibility: visible;
+        }
+
+
+
+        /* 預設顯示「收合內容」, 隱藏 展開全部 */
+        .when-collapsed {
+            display: nono;
+        }
+
+        /* 展開時顯示「收合內容」 */
+        button:not(.collapsed) .when-collapsed {
+            display: none;
+        }
+
+        button:not(.collapsed) .when-expanded {
+            display: inline;
+        }
+
+        /* 收合時顯示「展開全部」 */
+        button.collapsed .when-collapsed {
+            display: inline;
+        }
+
+        button.collapsed .when-expanded {
+            display: none;
+        }
+
+
+
+        /* 箭頭動畫 */
+        .arrow-icon {
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+
+
+
+        /* 展開時旋轉 180 度 */
+        button:not(.collapsed) .arrow-icon {
+            transform: rotate(180deg);
+        }
+
+
+
     </style>
 </head>
 <body>
@@ -318,13 +385,18 @@
                 </div>
             </div>
 
-            <ul class="nav navbar-navx navbar-rightx">
+            <ul class="nav navbar-navx navbar-right">
                 @* 你要顯示「已登入/登出」放 Header 或 Sidebar 都可以；這裡放在 Header *@
                 <li>
-                    <a class="nav-link ajax-link" asp-controller="Inspection" asp-action="Index"
+                    <a class="btn btn-block" asp-controller="Inspection" asp-action="Index" 
                        style="color:#fff; font-weight:600;">
-                        回首頁
+                        <div class="tooltips">
+                            <i class="icon-home">
+                                <span class="tooltip-text">回首頁</span>
+                            </i>
+                        </div>
                     </a>
+
                 </li>
                 @if (!string.IsNullOrWhiteSpace(token))
                 {
@@ -513,7 +585,16 @@
         // 記住桌機收合狀態
         if (localStorage.getItem("sidebarCollapsed") === "true") {
             sidebar.classList.add("collapsed");
-            icon?.classList.replace("bi-chevron-left", "bi-chevron-right");
+            //icon?.classList.replace("bi-chevron-left", "bi-chevron-right");
+            sidebar.classList.toggle("collapsed");
+
+            const collapsed = sidebar.classList.contains("collapsed");
+            localStorage.setItem("sidebarCollapsed", collapsed);
+
+                icon.classList.replace("bi-chevron-right", "bi-chevron-left");
+                sidebar.classList.remove("d-none");
+                mainContent.classList.remove("col-md-12");
+                mainContent.classList.add("col-md-10");
         }
 
         toggleBtn?.addEventListener("click", function () {
@@ -551,6 +632,9 @@
                 mainContent.classList.add("col-md-10");
             }
         });
+
+
+
 
     </script>
 

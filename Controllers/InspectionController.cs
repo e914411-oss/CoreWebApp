@@ -71,7 +71,12 @@ namespace CoreWebApp.Controllers
             return View();
         }
 
-
+        public IActionResult Flist()
+        {
+            if (Request.Headers["X-Requested-With"] == "XMLHttpRequest")
+                return PartialView("Flist");
+            return View();
+        }
 
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

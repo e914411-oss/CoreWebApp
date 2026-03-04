@@ -198,7 +198,7 @@
         </div>
         <div class="tb-single-rwd">
             <div class="td hd">業者地址</div>
-            <div class="td col-3">
+            <div class="td col-auto">
                 <div class="form-group">
                     <label class="form-control input-sm" style="width:100%;">台北市南港區三重路100號</label>
                 </div>
@@ -289,8 +289,12 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button class="close-btnC" onclick="closeModal()">取消</button>
-                <button class="close-btnS" onclick="closeModal()">確定</button>
+                <button class="close-btnS" onclick="closeModal();alert('案件退回')">
+                    <i class="bi bi-check-lg me-1"></i> 確定
+                </button>
+                <button class="close-btnC" onclick="closeModal()">
+                    <i class="bi bi-x-lg me-1"></i> 取消
+                </button>
             </div>
             <button class="close-btn" onclick="closeModal()">✕</button>
         </div>

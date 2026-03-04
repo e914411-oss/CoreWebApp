@@ -3,6 +3,319 @@
 }
 
 
-<h1>@ViewData["Title"]</h1>
+<h1 class="main-title">
+    <span id="ctl00_ContentPlaceHolder1_UC_NodeName_lblNodeName">@ViewData["Title"]</span>
+</h1>
+<div class="content">
 
+    <div class="edit-form">
+        <div class="tb-single-rwd">
+            <div class="td hd"><span style="color: Red;">＊</span>營業地址：​</div>
+            <div class="td">
+                <div class="div-tb">
+                    <div class="td col-xs-12 col-md-4">
+
+
+                        <div class="div-tb">
+                            <div class="td col-6">
+
+                    <select name="ctl00$ContentPlaceHolder1$cboBusiness_Category_Main" onchange="javascript:setTimeout(&#39;__doPostBack(\&#39;ctl00$ContentPlaceHolder1$cboBusiness_Category_Main\&#39;,\&#39;\&#39;)&#39;, 0)" id="ctl00_ContentPlaceHolder1_cboBusiness_Category_Main" class="selectpicker" data-width="100%" data-live-search="true" data-size="5">
+                        <option selected="selected" value="">全部</option>
+                        <option value="01">台北市</option>
+                        <option value="02">基隆市</option>
+
+
+                    </select>
+                            </div>
+                            <div class="td col-xs-6">
+
+                                <select name="ctl00$ContentPlaceHolder1$uclBusiness$ddlcounty" id="ctl00_ContentPlaceHolder1_uclBusiness_ddlcounty" data-width="100%" data-container="body" data-live-search="true" data-size="5">
+                                                        <option selected="selected" value="">全部</option>
+                        <option value="01">松山區</option>
+                        <option value="02">信義區</option>
+                                </select>
+                            </div>
+                        </div>
+                        <input type="hidden" name="ctl00$ContentPlaceHolder1$uclBusiness$hidCityID" id="ctl00_ContentPlaceHolder1_uclBusiness_hidCityID" value="DH" />
+                        <input type="hidden" name="ctl00$ContentPlaceHolder1$uclBusiness$hidCountyID" id="ctl00_ContentPlaceHolder1_uclBusiness_hidCountyID" />
+                        <input type="hidden" name="ctl00$ContentPlaceHolder1$uclBusiness$hidCityName" id="ctl00_ContentPlaceHolder1_uclBusiness_hidCityName" />
+                        <input type="hidden" name="ctl00$ContentPlaceHolder1$uclBusiness$hidCountyName" id="ctl00_ContentPlaceHolder1_uclBusiness_hidCountyName" />
+
+                    </div>
+                    <div class="td col-xs-12 col-md-8">
+                        <input name="ctl00$ContentPlaceHolder1$txtAddress" type="text" id="ctl00_ContentPlaceHolder1_txtAddress" class="form-control" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tb-single-rwd">
+            <div class="td hd">商業登記名稱：​</div>
+            <div class="td">
+                <input name="ctl00$ContentPlaceHolder1$txtCompany_Name" type="text" id="ctl00_ContentPlaceHolder1_txtCompany_Name" class="form-control" />
+            </div>
+            <div class="td hd">市招名稱：</div>
+            <div class="td">
+                <input name="ctl00$ContentPlaceHolder1$txtSignboard_Name" type="text" id="ctl00_ContentPlaceHolder1_txtSignboard_Name" class="form-control" />
+            </div>
+        </div>
+        <div class="collapse show" id="sub_search">
+            <div class="card card-body mt-2">
+            <div class="tb-single-rwd">
+                <div class="td hd">負責人姓名：​</div>
+                <div class="td">
+                    <input name="ctl00$ContentPlaceHolder1$txtResponsible_Person_Name" type="text" id="ctl00_ContentPlaceHolder1_txtResponsible_Person_Name" class="form-control" />
+                </div>
+                <div class="td hd">電話：</div>
+                <div class="td">
+                    <input name="ctl00$ContentPlaceHolder1$txtTelephone" type="text" id="ctl00_ContentPlaceHolder1_txtTelephone" class="form-control" onkeyup="return ValidateNumber(this,value);" />
+                </div>
+            </div>
+            
+            <div class="tb-single-rwd">
+                <div class="td hd">業者業別主類：​</div>
+                <div class="td">
+                    <select name="ctl00$ContentPlaceHolder1$cboBusiness_Category_Main" onchange="javascript:setTimeout(&#39;__doPostBack(\&#39;ctl00$ContentPlaceHolder1$cboBusiness_Category_Main\&#39;,\&#39;\&#39;)&#39;, 0)" id="ctl00_ContentPlaceHolder1_cboBusiness_Category_Main" class="selectpicker" data-width="100%" data-live-search="true" data-size="5">
+                        <option selected="selected" value="">全部</option>
+                        <option value="01">食品工廠</option>
+                        <option value="02">其他一般食品製造業</option>
+                        <option value="03">物流業</option>
+                        <option value="04">餐飲業</option>
+                        <option value="05">食品販賣業</option>
+                        <option value="06">傳播業</option>
+                        <option value="11">醫事照護機構</option>
+                        <option value="12">非食品業者</option>
+                        <option value="13">化粧品製造業者</option>
+                        <option value="14">化粧品販賣業</option>
+                        <option value="15">瘦身美容業</option>
+                        <option value="16">藥事機構</option>
+                        <option value="17">醫療機構</option>
+                        <option value="18">非藥事機構</option>
+                        <option value="19">輸入業</option>
+
+                    </select>
+                </div>
+                <div class="td hd">業者業別次類：</div>
+                <div class="td">
+                    <div id="ctl00_ContentPlaceHolder1_UpdatePanel_Category_Sub">
+
+                        <select name="ctl00$ContentPlaceHolder1$cboBusiness_Category_Sub" id="ctl00_ContentPlaceHolder1_cboBusiness_Category_Sub" class="selectpicker" data-width="100%" data-live-search="true" data-size="5">
+                            <option value="全部">全部</option>
+
+                        </select>
+
+                    </div>
+                </div>
+            </div>
+            <div class="tb-single-rwd">
+
+                <div class="tb-single-rwd">
+                    <div class="td hd">業者編號：​</div>
+                    <div class="td">
+                        <input name="ctl00$ContentPlaceHolder1$id" type="text" id="ctl00_ContentPlaceHolder1_id" class="form-control" />
+                    </div>
+                    <div class="td hd">營業狀況：</div>
+                    <div class="td">
+                        <select name="ctl00$ContentPlaceHolder1$cboIndustryState" id="ctl00_ContentPlaceHolder1_cboIndustryState" class="selectpicker" data-width="100%">
+	<option value="0">營業</option>
+	<option value="1">停業</option>
+	<option value="2">歇業</option>
+	<option value="3">廢業</option>
+	<option value="全部">全部</option>
+
+</select>
+                    </div>
+                </div>
+                <div class="tb-single-rwd">
+                    <div class="td hd">統一編號：​</div>
+                    <div class="td">
+                        <input name="ctl00$ContentPlaceHolder1$txtCompany_Tax_ID" type="text" id="ctl00_ContentPlaceHolder1_txtCompany_Tax_ID" class="form-control" />
+                    </div>
+                    <div class="td hd">食品登錄字號：</div>
+                    <div class="td">
+                        <input name="ctl00$ContentPlaceHolder1$txt食品登錄字號" type="text" id="ctl00_ContentPlaceHolder1_txt食品登錄字號" class="form-control" />
+                    </div>
+                </div>
+
+            </div>
+            </div>
+        </div>
+
+    <button class="btn btn-outline-secondary btn-sm expanded d-flex align-items-center gap-2"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#sub_search"
+            aria-expanded="false"
+            aria-controls="sub_search">
+
+        <!-- 文字 -->
+        <span class="when-collapsed">展開全部</span>
+        <span class="when-expanded">收合內容</span>
+
+        <!-- 箭頭 -->
+        <span class="arrow-icon">
+            ▼
+        </span>
+    </button>
+        
+        <div class="btn-area">
+            <input type="submit" name="ctl00$ContentPlaceHolder1$cmdReset" value="清除" id="ctl00_ContentPlaceHolder1_cmdReset" class="btn btn-primary" />
+            <input type="submit" name="ctl00$ContentPlaceHolder1$cmdSearch" value="查詢" onclick="preSearch();" id="ctl00_ContentPlaceHolder1_cmdSearch" class="btn btn-primary" />            
+            <!--<span id="btnExcel2"><a title="匯出Xls" href="javascript:void();"><img src="" style="border-width:0px;" /></a></span>-->
+        </div>
+        
+        <h2 class="table-tit"><span>查詢清單​</span>
+            <div class="btn-group">
+                <a href="javascript:;" class="btn btn-default"  id="btn_IMShowDialog" ><i class="icon-inbox"></i>匯出​</a>
+            </div>
+            <input onclick="__doPostBack('ctl00$ContentPlaceHolder1$btn_IndustryMerge','')" name="ctl00$ContentPlaceHolder1$btn_IndustryMerge" type="button" id="ctl00_ContentPlaceHolder1_btn_IndustryMerge" style="display: none" />
+        </h2>
+        <!--查詢狀態提示-->
+    <div class="visible-xs mb5"></div>
+    <!-- END pull-right -->
+    <div class="data-list">
+
+        <div class="table-responsive mt15">
+            <table class="table table-bordered table-striped tb-multi">
+                <thead>
+                    <tr>
+                        <th>項次</th>
+                        <th>業者編號</th>
+                        <th>業者名稱</th>
+                        <th>食品登錄字號</th>
+                        <th>統一編號</th>
+                        <th>電話號碼</th>
+                        <th>業者地址</th>
+                        <th>案件建立日期</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr>
+                        <td class="lt">1</td>
+                        <td class="lt">1143912720</td>
+                        <td class="lt">
+                            <a class="nav-link text-black ajax-link" asp-controller="Inspection" asp-action="Flist">上鼎食品有限公司</a>
+                            
+                        </td>
+                        <td class="lt">A-170453357-00001-3</td>
+                        <td>12345678</td>
+                        <td class="lt">02-23456789</td>
+                        <td class="lt">台北市南港區三重路100號</td>
+                        <td class="lt">2025-07-21</td>
+
+
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+        <!-- table-responsive -->
+
+        <div class="paginator div-tb">
+            <div class="td wid_80px">
+                <div class="btn-group">
+                    <button id="FirstPage" type="button" name="firstPage" class="btn btn-sm" disabled="disabled" data-page="1"><i class="icon-first-page"></i></button>
+                    <button id="PrevPage" type="button" name="prevPage" class="btn btn-sm" disabled="disabled" data-page="1"><i class=" icon-chevron-left"></i></button>
+                </div>
+            </div>
+            <div class="td ct">
+                <div id="Params" style="display:none">{"LogNo":"M-200000001-00000-2","Busin":"0","AName":"拿鐵","Affix":"0"}</div>
+                <span class="hidden-xs">第</span>
+                <select id="PageNum" name="Page" class="form-control" data-width="auto" data-container="body" style="display:inline-block;width:auto;vertical-align:middle"><option value="1" selected="selected">1</option></select>
+                <span class="hidden-xs">/</span> <span class="p-info hidden-xs">1</span>
+                <span class="hidden-xs">頁，每頁</span>
+                <select id="PageSize" name="Size" class="form-control hidden-xs" data-width="auto" data-container="body" style="display:inline-block;width:auto;vertical-align:middle"><option value="10" selected="selected">10</option><option value="20">20</option><option value="30">30</option><option value="40">40</option></select>
+                <span class="hidden-xs">筆，共 1 筆</span>
+            </div>
+            <div class="td rt wid_80px">
+                <div class="btn-group">
+                    <button id="NextPage" type="button" name="nextPage" class="btn btn-sm" disabled="disabled" data-page="1"><i class="icon-chevron-right"></i></button>
+                    <button id="LastPage" type="button" name="lastPage" class="btn btn-sm" disabled="disabled" data-page="1"><i class="icon-last-page"></i></button>
+                </div>
+            </div>
+        </div>
+
+
+</div>
+    </div>
+    <input type="hidden" name="ctl00$ContentPlaceHolder1$hidIndMergeID" id="ctl00_ContentPlaceHolder1_hidIndMergeID" />
+    <input type="hidden" name="ctl00$ContentPlaceHolder1$hidSIndustryID" id="ctl00_ContentPlaceHolder1_hidSIndustryID" />
+    <div class="modal fade modal-1" tabindex="-1" role="dialog" id="div_IndustryMerge">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                    <h4 class="modal-title">業者資料整併</h4>
+                </div>
+                <div class="modal-body">
+                    <table class="table tb-multi">
+                        <tr>
+                            <td align="center" style="text-align: left;">
+                                <div class="resultBox_header">
+                                    <font color="red">注意： 此動作將整併表列業者資料與相對應之稽查事件，整併後，原則上僅剩下欲保留之業者資料，<br />但會合併不同登錄字號及業別，並將併入其他待整併業者之稽查事件。</font>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="center" style="text-align: left;">
+                                <div>
+                                    <font>請選取欲保留之主業者：</font>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="scroll_table has-foot">
+                                    <table class="table tb-multi">
+                                        <thead>
+                                            <tr>
+                                                <th style="text-align: center">選取</th>
+                                                <th style="text-align: center">市招名稱</th>
+                                                <th style="text-align: center">營業地址</th>
+                                                <th style="text-align: center">食品登錄字號</th>
+                                                <th style="text-align: center">業別</th>
+                                                <th style="text-align: center">工廠登記證號</th>
+                                                <th style="text-align: center">業者編號</th>
+                                                <th style="text-align: center">資料轉入來源</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="tb_IMList">
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <input type="button" id="btn_IMCancel" value="取消" class="btn btn-primary"
+                        data-dismiss="modal" />
+                    <input type="button" id="btn_IMCommit" value="確定" class="btn btn-primary"
+                        data-dismiss="modal" onclick="IndMerge();" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+        
+        <!-- main-container -->
+        <div id="footer">
+            <div id="topcontrol" class=""><i class="icon-chevron-up"></i></div>
+            <!-- footer -->
+            <footer>
+                <div class="foot-btm">
+                    <div class="container">
+                        <div class="info">
+                            建議使用 Edge或Chrome版本之瀏覽器，螢幕解析度1024X768以上瀏覽  <a href="javascript:;" class="map">衛生福利部食品藥物管理署</a> ©2022-2030 版權所有​<br>
+                            諮詢服務專線 : 0809-091-133    諮詢服務時間 : 08:00~12:00及13:00~18:00 (周一至周五)​
+                            <span id="ctl00_LocalIPAddress" style="color:#EEFFEE;">DESKTOP-B55B0PO</span>
+                        </div>
+
+                    </div>
+                </div>
+            </footer>
+            <!-- /footer -->
+        </div>
+    
 

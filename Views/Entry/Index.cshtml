@@ -12,24 +12,33 @@
     <div class="row text-center">
 
         <div class="col-md-3">
+            <img src="/images/login_01.png" style="width:150px; height:150px" /><br />
             <a asp-controller="Auth" asp-action="Login">
                 <buton class="btn btn-primary w-20">使用帳號密碼登入</buton>
             </a>
         </div>
 
         <div class="col-md-3">
+            <img src="/images/login_02.png" style="width:150px; height:150px" /><br />
             <form asp-controller="Entry" asp-action="LoginB" method="post">
                 <button type="submit" class="btn btn-primary w-20">E政府帳號登入</button>
             </form>
         </div>
 
         <div class="col-md-3">
+            <img src="/images/login_03.png" style="width:150px; height:150px" /><br />
             <form asp-controller="Entry" asp-action="LoginC" method="post">
-                <button type="submit" class="btn btn-primary w-20">自然人憑證登入</button>
+                <button type="submit" class="btn btn-primary w-20">實體自然人憑證登入</button>
             </form>
         </div>
 
         <div class="col-md-3">
+            <img src="/images/login_04.png" style="width:150px; height:150px" /><br />
+            <button type="submit" class="btn btn-primary w-20">行動自然人憑證登入</button>
+        </div>
+
+        <div class="col-md-3">
+            <img src="/images/login_05.png" style="width:150px; height:150px" /><br />
             <form asp-controller="Entry" asp-action="LoginD" method="post">
                 <button type="submit" class="btn btn-primary w-20">醫事憑證登入</button>
             </form>
