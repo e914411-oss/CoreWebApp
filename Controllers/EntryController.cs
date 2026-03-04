@@ -45,11 +45,32 @@ namespace CoreWebApp.Controllers
         public IActionResult AfterLogin(string? returnUrl = null)
         {
             // 站內回跳（避免 open redirect）
-            if (!string.IsNullOrWhiteSpace(returnUrl) && Url.IsLocalUrl(returnUrl))
-                return Redirect(returnUrl);
+    if (!string.IsNullOrWhiteSpace(returnUrl) && Url.IsLocalUrl(returnUrl))
+        return Redirect(returnUrl);
 
-            // 先固定導到你現有的 PC 首頁（你專案目前就是 Inspection/Index）
-            return RedirectToAction("Index", "Inspection");
+    const string CookieName = "pmds_layout_mode";
+
+    // 1) 先看 Cookie（使用者手動選擇優先）
+    var cookieMode = Request.Cookies[CookieName];
+    string mode;
+
+    if (string.Equals(cookieMode, "Mobile", StringComparison.OrdinalIgnoreCase) ||
+        string.Equals(cookieMode, "Desktop", StringComparison.OrdinalIgnoreCase))
+    {
+        mode = cookieMode!;
+    }
+    else
+    {
+        // 2) 沒 Cookie 才自動偵測
+        var isMobile = _device.IsMobile(HttpContext);
+        mode = isMobile ? "Mobile" : "Desktop";
+    }
+
+    // 3) 寫入 Session 給 _ViewStart.cshtml 使用
+    HttpContext.Session.SetString("LayoutMode", mode);
+
+    // 4) 首頁固定導到 Inspection/Index
+    return RedirectToAction("Index", "Inspection");
         }
 
 
