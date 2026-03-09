@@ -1,0 +1,253 @@
+﻿@{
+    ViewData["Title"] = "稽查管理-稽查作業-表單：餐飲業 食品良好衛生規範準則 稽查記錄表";
+}
+
+@section Styles {
+    <style>
+        .inspection-question-panel {
+            margin-top: 24px;
+        }
+
+        .inspection-question-card {
+            background: #f7f8f8;
+            border: 1px solid #dfe5e7;
+            border-radius: 12px;
+            padding: 18px 18px 14px 18px;
+            margin-bottom: 18px;
+            box-shadow: 0 1px 4px rgba(0,0,0,.05);
+        }
+
+        .inspection-question-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #222;
+            line-height: 1.8;
+            margin-bottom: 14px;
+        }
+
+        .inspection-question-body {
+            background: #fff;
+            border: 1px solid #e2e7ea;
+            border-radius: 10px;
+            padding: 14px;
+        }
+
+        .inspection-result-row {
+            margin-bottom: 14px;
+        }
+
+        .inspection-result-select {
+            height: 44px;
+            border-radius: 8px;
+            border: 1px solid #d6dde2;
+            font-size: 16px;
+            color: #444;
+        }
+
+        .inspection-upload-row {
+            margin-bottom: 12px;
+        }
+
+        .inspection-upload-btn {
+            min-width: 150px;
+            height: 44px;
+            border-radius: 24px;
+            border: 2px solid #b9dfe2;
+            background: #f8ffff;
+            color: #69b8bd;
+            font-size: 16px;
+            font-weight: 700;
+            padding: 0 20px;
+        }
+
+            .inspection-upload-btn:hover {
+                background: #eefbfc;
+                color: #4fa9af;
+                border-color: #9fd1d6;
+            }
+
+        .inspection-file-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .inspection-file-chip {
+            display: flex;
+            align-items: center;
+            min-width: 320px;
+            max-width: 460px;
+            height: 48px;
+            border: 1px solid #d7e0e3;
+            border-radius: 8px;
+            background: #fff;
+            overflow: hidden;
+        }
+
+        .inspection-file-icon {
+            width: 44px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #eef6f7;
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+
+        .inspection-file-name {
+            flex: 1;
+            padding: 0 12px;
+            font-size: 15px;
+            color: #6aaeb5;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .inspection-file-remove {
+            width: 40px;
+            height: 48px;
+            border: 0;
+            background: transparent;
+            color: #87b9be;
+            font-size: 24px;
+            line-height: 1;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+
+            .inspection-file-remove:hover {
+                color: #4d8d93;
+            }
+
+        @@media (max-width: 992px) {
+            .inspection-question-title {
+                font-size: 16px;
+            }
+
+            .inspection-file-chip {
+                min-width: 100%;
+                max-width: 100%;
+            }
+        }
+    </style>
+}
+
+
+<h1 class="main-title">
+    <span id="ctl00_ContentPlaceHolder1_UC_NodeName_lblNodeName">@ViewData["Title"]</span>
+</h1>
+
+<!-- 稽查題目區 -->
+<div class="inspection-question-panel mt-4">
+
+    <!-- 題目 1 -->
+    <div class="inspection-question-card">
+        <div class="inspection-question-title">
+            餐飲業－【三十（一）】洗滌場所所有符合飲用水水質標準之流動水，並具有洗滌、沖洗及有效殺菌功能之餐具清洗設施；水龍頭高度高於水槽滿水位高度，防水逆流污染；無充足之符合飲用水水質標準之流動水者，使用用畢即行丟棄之餐具。
+        </div>
+
+        <div class="inspection-question-body">
+            <div class="inspection-result-row">
+                <select class="form-select inspection-result-select">
+                    <option value="">請選擇稽查結果</option>
+                    <option>符合規定</option>
+                    <option selected>不符合規定</option>
+                    <option>不適用</option>
+                </select>
+            </div>
+
+            <div class="inspection-upload-row">
+                <button type="button" class="btn inspection-upload-btn" onclick="triggerUpload('evidenceUpload1')">
+                    上傳佐證/附件
+                </button>
+                <input type="file" id="evidenceUpload1" class="d-none" multiple onchange="renderFiles(this, 'evidenceFileList1')" />
+            </div>
+
+            <div class="inspection-file-list" id="evidenceFileList1">
+                <div class="inspection-file-chip">
+                    <span class="inspection-file-icon">🖼</span>
+                    <span class="inspection-file-name">c738a344ec0c4b87ab020d0c59051165.png</span>
+                    <button type="button" class="inspection-file-remove" onclick="removeFileChip(this)">×</button>
+                </div>
+
+                <div class="inspection-file-chip">
+                    <span class="inspection-file-icon">🖼</span>
+                    <span class="inspection-file-name">5ea211be46474d4db8bcbc87e72e7a794c.png</span>
+                    <button type="button" class="inspection-file-remove" onclick="removeFileChip(this)">×</button>
+                </div>
+
+                <div class="inspection-file-chip">
+                    <span class="inspection-file-icon">🖼</span>
+                    <span class="inspection-file-name">8b301509d0fa4d3d8cf770c4ddd1cbaf.png</span>
+                    <button type="button" class="inspection-file-remove" onclick="removeFileChip(this)">×</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 題目 2 -->
+    <div class="inspection-question-card">
+        <div class="inspection-question-title">
+            餐飲業－【三十（二）、三十（三）、三十（四）】餐飲作業場所之截油設施，經常清理乾淨。油煙有適當之處理措施，避免造成油污及油煙污染作業場所及用餐環境。廚房有維持適當空氣壓力及室溫之措施。
+        </div>
+
+        <div class="inspection-question-body">
+            <div class="inspection-result-row">
+                <select class="form-select inspection-result-select">
+                    <option value="">請選擇稽查結果</option>
+                    <option>符合規定</option>
+                    <option selected>不符合規定</option>
+                    <option>不適用</option>
+                </select>
+            </div>
+
+            <div class="inspection-upload-row">
+                <button type="button" class="btn inspection-upload-btn" onclick="triggerUpload('evidenceUpload2')">
+                    上傳佐證/附件
+                </button>
+                <input type="file" id="evidenceUpload2" class="d-none" multiple onchange="renderFiles(this, 'evidenceFileList2')" />
+            </div>
+
+            <div class="inspection-file-list" id="evidenceFileList2"></div>
+        </div>
+    </div>
+
+    <!-- 題目 3 -->
+    <div class="inspection-question-card">
+        <div class="inspection-question-title">
+            餐飲業－【三十（五）】販賣櫃臺與調理、加工及操作之場所，予以有效區隔。
+        </div>
+
+        <div class="inspection-question-body">
+            <div class="inspection-result-row">
+                <select class="form-select inspection-result-select">
+                    <option value="">請選擇稽查結果</option>
+                    <option selected>符合規定</option>
+                    <option>不符合規定</option>
+                    <option>不適用</option>
+                </select>
+            </div>
+
+            <div class="inspection-upload-row">
+                <button type="button" class="btn inspection-upload-btn" onclick="triggerUpload('evidenceUpload3')">
+                    上傳佐證/附件
+                </button>
+                <input type="file" id="evidenceUpload3" class="d-none" multiple onchange="renderFiles(this, 'evidenceFileList3')" />
+            </div>
+
+            <div class="inspection-file-list" id="evidenceFileList3"></div>
+        </div>
+    </div>
+
+    <!-- 功能列 - 確定 -->
+    <div class="rounded p-1 d-flex mt-3 align-items-center justify-content-center w-100">
+        <a class="btn btn-primary text-nowrap"
+           style="min-width:100px"
+           onclick="window.history.back();">
+            回上頁
+        </a>
+    </div>
+
+</div>

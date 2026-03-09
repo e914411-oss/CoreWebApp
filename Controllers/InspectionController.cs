@@ -37,6 +37,24 @@ namespace CoreWebApp.Controllers
             return View();
         }
 
+        public IActionResult InspectionForms()
+        {
+            //return View();
+            if (Request.Headers["X-Requested-With"] == "XMLHttpRequest")
+                return PartialView("InspectionForms");
+
+            return View();
+        }
+
+        public IActionResult InspectionFormContent()
+        {
+            //return View();
+            if (Request.Headers["X-Requested-With"] == "XMLHttpRequest")
+                return PartialView("InspectionFormContent");
+
+            return View();
+        }
+
         public IActionResult Fquery()
         {
             //return View();
@@ -51,6 +69,15 @@ namespace CoreWebApp.Controllers
             //return View();
             if (Request.Headers["X-Requested-With"] == "XMLHttpRequest")
                 return PartialView("FormQuery");
+
+            return View();
+        }
+
+        public IActionResult FormContent()
+        {
+            //return View();
+            if (Request.Headers["X-Requested-With"] == "XMLHttpRequest")
+                return PartialView("FormContent");
 
             return View();
         }
