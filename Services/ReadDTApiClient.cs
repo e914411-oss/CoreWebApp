@@ -36,5 +36,26 @@ namespace CoreWebApp.Services
 
         }
 
+
+        public async Task<List<PMDS_機構_縣市匹配>> Query_PMDS_機構_縣市匹配(string _cityies, CancellationToken ct = default)
+        {
+            var action = Uri.EscapeDataString("PMDS_機構_縣市匹配");
+            var url = $"/Api/FormManage/{action}";
+
+            var resp = await _http.PostAsJsonAsync(url, _cityies, ct);
+
+            if (!resp.IsSuccessStatusCode)
+            {
+                var raw = await resp.Content.ReadAsStringAsync(ct);
+                throw new Exception(
+                    $"API {(int)resp.StatusCode} {resp.ReasonPhrase}: {raw}"
+                );
+            }
+
+            var body = await resp.Content.ReadFromJsonAsync<List<PMDS_機構_縣市匹配>>(cancellationToken: ct);
+            return body ?? new List<PMDS_機構_縣市匹配>();
+
+        }
+
     }
 }

@@ -1,6 +1,9 @@
 ﻿@{
     ViewData["Title"] = "稽查管理-業者稽查查詢";
 }
+@{
+    var deptList = ViewBag.DeptList as List<CoreWebApp.Models.ECRS.系統_部門表>;
+}
 
 
 <h1 class="main-title">
@@ -19,20 +22,24 @@
                         <div class="div-tb">
                             <div class="td col-6">
 
-                    <select name="ctl00$ContentPlaceHolder1$cboBusiness_Category_Main" onchange="javascript:setTimeout(&#39;__doPostBack(\&#39;ctl00$ContentPlaceHolder1$cboBusiness_Category_Main\&#39;,\&#39;\&#39;)&#39;, 0)" id="ctl00_ContentPlaceHolder1_cboBusiness_Category_Main" class="selectpicker" data-width="100%" data-live-search="true" data-size="5">
+                    <select name="ctl00$ContentPlaceHolder1$cboBusiness_Category_Main" id="citySelect" class="form-control" data-width="100%" data-live-search="true" data-size="5">
                         <option selected="selected" value="">全部</option>
-                        <option value="01">台北市</option>
-                        <option value="02">基隆市</option>
+
+                        @foreach (var dept in deptList)
+                        {
+                            <option value="@dept.所在縣市編號">
+                                @dept.名稱
+                            </option>
+                        }
 
 
                     </select>
                             </div>
                             <div class="td col-xs-6">
 
-                                <select name="ctl00$ContentPlaceHolder1$uclBusiness$ddlcounty" id="ctl00_ContentPlaceHolder1_uclBusiness_ddlcounty" data-width="100%" data-container="body" data-live-search="true" data-size="5">
-                                                        <option selected="selected" value="">全部</option>
-                        <option value="01">松山區</option>
-                        <option value="02">信義區</option>
+                                <select name="ctl00$ContentPlaceHolder1$uclBusiness$ddlcounty" id="areaSelect" class="form-control" data-width="100%"  data-live-search="true" data-size="5">
+                                                       
+
                                 </select>
                             </div>
                         </div>
@@ -318,4 +325,3 @@
             <!-- /footer -->
         </div>
     
-

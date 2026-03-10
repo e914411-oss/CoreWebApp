@@ -27,3 +27,35 @@ function openModalF() {
     
 }
 
+
+$(document).ready(function () {
+
+    $("#citySelect").change(function () {
+
+        var cityId = $(this).val();
+
+        $.ajax({
+            url: '/Inspection/GetAreaByCity',
+            type: 'GET',
+            data: { cityId: cityId },
+            success: function (data) {
+
+                var areaSelect = $("#areaSelect");
+                areaSelect.empty();
+
+                areaSelect.append('<option value="">全部</option>');
+
+                $.each(data, function (i, item) {
+                    areaSelect.append(
+                        '<option value="' + item.鄉鎮區代碼 + '">' + item.機構縣市鄉鎮市區 + '</option>'
+                    );
+                });
+
+                // 如果使用 bootstrap-select
+                //areaSelect.selectpicker('refresh');
+            }
+        });
+
+    });
+
+});
