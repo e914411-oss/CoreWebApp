@@ -3,19 +3,18 @@
 }
 
 <style>
-#modal {
-    position: fixed;          /* 固定在畫面 */
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
+    #modal {
+        position: fixed; /* 固定在畫面 */
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        display: none; /* 使用 flex 置中 */
+        justify-content: center; /* 水平置中 */
+        align-items: center; /* 垂直置中 */
 
-    display: none;            /* 使用 flex 置中 */
-    justify-content: center;  /* 水平置中 */
-    align-items: center;      /* 垂直置中 */
-
-    background-color: rgba(0, 0, 0, 0.3); /* 半透明背景(可選) */
-}
+        background-color: rgba(0, 0, 0, 0.3); /* 半透明背景(可選) */
+    }
 
     #modalRec {
         position: fixed; /* 固定在畫面 */
@@ -30,7 +29,7 @@
         background-color: rgba(0, 0, 0, 0.3); /* 半透明背景(可選) */
     }
 
-.modal-content1 {
+    .modal-content1 {
         position: relative; /* 關鍵 */
 
         width: 530px;
@@ -69,6 +68,7 @@
 
         padding: 10px;
     }
+
     .modal-content {
         width: 100%; /* 填滿 */
         height: 100%;
@@ -110,7 +110,6 @@
     }
 
     .close-btnS {
-
         background: #007bff;
         color: white;
         border: none;
@@ -178,7 +177,7 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="tb-single-rwd">
             <div class="td hd">醫事機構代碼</div>
             <div class="td col-6">
@@ -272,7 +271,6 @@
             <table class="table table-bordered table-striped tb-multi">
                 <thead>
                     <tr>
-                        <th>操作</th>
                         <th>稽查單號</th>
                         <th>稽查表單</th>
                         <th>稽查人員</th>
@@ -286,11 +284,9 @@
                 <tbody>
 
                     <tr>
-                        <td>
-                            <a href="javascript:void(0);" onclick=" openModalRec(); return false;" class="btn btn-icon view" title="檢視"><i class="icon-eye-2"></i></a>
-
+                        <td class="lt">
+                            <a href="javascript:void(0);" onclick=" openModalRec(); return false;" class="btn btn-icon view" title="檢視">1140721001</i></a>
                         </td>
-                        <td class="lt">1140721001</td>
                         <td class="lt">114年度食品業稽查專案紀錄表</td>
                         <td class="lt">稽查員A</td>
                         <td class="lt">稽查完成</td>
@@ -300,11 +296,9 @@
                         <td class="lt"></td>
                     </tr>
                     <tr>
-                        <td>
-                            <a href="javascript:void(0);" onclick=" openModalRec(); return false;" class="btn btn-icon view" title="檢視"><i class="icon-eye-2"></i></a>
-
+                        <td class="lt">
+                            <a href="javascript:void(0);" onclick=" openModalRec(); return false;" class="btn btn-icon view" title="檢視">1140721002</i></a>
                         </td>
-                        <td class="lt">1140722002</td>
                         <td class="lt">114年度食品業稽查專案紀錄表</td>
                         <td class="lt">稽查員B</td>
                         <td class="lt">稽查完成</td>
@@ -344,9 +338,9 @@
         </div>
 
 
-</div>
+    </div>
 
-    <div id="modal" style="display:none" >
+    <div id="modal" style="display:none">
         <div class="modal-content1">
 
             <!-- 標題列 -->
@@ -363,13 +357,12 @@
                                 <input name="ctl00$ContentPlaceHolder1$id" style="width:350px" type="text" class="form-controlx" />
 
                                 <a href="javascript:;"
-                                   class="btn btn-primary rounded-pill px-4"
-                                   >
+                                   class="btn btn-primary rounded-pill px-4">
                                     查詢表單
                                 </a>
                                 <div class="row">
                                     <div class="col-md-12">
-                                   
+
                                         <div class="form-check">
                                             <input class="form-check-input" type="checkbox" name="Res" value="1">
                                             <label class="form-check-label">114年度肉類加工食品製造稽查專案紀錄表</label>
@@ -399,7 +392,7 @@
 
                                     </div>
                                 </div>
-                                
+
                             </div>
 
                         </div>
@@ -424,7 +417,7 @@
 
             <!-- 標題列 -->
             <div class="modal-header">
-                <span class="modal-title">　稽查內容</span>
+                <span class="modal-title">　114年度食品業稽查專案紀錄表-稽查內容</span>
             </div>
             <div class="modal-contentb">
                 <div class="modal-content">
