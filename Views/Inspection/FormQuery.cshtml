@@ -60,9 +60,9 @@
                 <div class="td hd">稽查狀態：</div>
                 <div class="td">
                     <span class="checkbox checkbox-inline"><input id="ctl00_ContentPlaceHolder1_ckb1" type="checkbox" name="ctl00$ContentPlaceHolder1$ckb11"><label for="ctl00_ContentPlaceHolder1_ckb1">全部</label></span>
-                    <span class="checkbox checkbox-inline"><input id="ctl00_ContentPlaceHolder1_ckb2" type="checkbox" name="ctl00$ContentPlaceHolder1$ckb2"><label for="ctl00_ContentPlaceHolder1_ckb2">2</label></span>
-                    <span class="checkbox checkbox-inline"><input id="ctl00_ContentPlaceHolder1_ckb3" type="checkbox" name="ctl00$ContentPlaceHolder1$ckb3"><label for="ctl00_ContentPlaceHolder1_ckb3">3</label></span>
-                    <span class="checkbox checkbox-inline"><input id="ctl00_ContentPlaceHolder1_ckb4" type="checkbox" name="ctl00$ContentPlaceHolder1$ckb4"><label for="ctl00_ContentPlaceHolder1_ckb4">4</label></span>
+                    <span class="checkbox checkbox-inline"><input id="ctl00_ContentPlaceHolder1_ckb2" type="checkbox" name="ctl00$ContentPlaceHolder1$ckb2"><label for="ctl00_ContentPlaceHolder1_ckb2">稽查中</label></span>
+                    <span class="checkbox checkbox-inline"><input id="ctl00_ContentPlaceHolder1_ckb3" type="checkbox" name="ctl00$ContentPlaceHolder1$ckb3"><label for="ctl00_ContentPlaceHolder1_ckb3">稽查完成</label></span>
+                    <span class="checkbox checkbox-inline"><input id="ctl00_ContentPlaceHolder1_ckb4" type="checkbox" name="ctl00$ContentPlaceHolder1$ckb4"><label for="ctl00_ContentPlaceHolder1_ckb4">傳送至待審查</label></span>
                     <span class="checkbox checkbox-inline"><input id="ctl00_ContentPlaceHolder1_ckb5" type="checkbox" name="ctl00$ContentPlaceHolder1$ckb5"><label for="ctl00_ContentPlaceHolder1_ckb5">5</label></span>
                     <span class="checkbox checkbox-inline"><input id="ctl00_ContentPlaceHolder1_ckb6" type="checkbox" name="ctl00$ContentPlaceHolder1$ckb6"><label for="ctl00_ContentPlaceHolder1_ckb6">6</label></span>
                     <span class="checkbox checkbox-inline"><input id="ctl00_ContentPlaceHolder1_ckb7" type="checkbox" name="ctl00$ContentPlaceHolder1$ckb7"><label for="ctl00_ContentPlaceHolder1_ckb7">7</label></span>
@@ -89,16 +89,13 @@
                         </div>
                     </div>
                 </div>
-                <div class="td hd">稽查事由：</div>
-                <input id="InspectionReason" name="InspectionReason" type="text" class="form-control">
-            </div>
-            <div class="tb-single-rwd">
                 <div class="td hd">稽查單號：</div>
                 <input id="InspectionNo" name="InspectionNo" type="text" class="form-control">
-                <div class="td hd">市招名稱：</div>
-                <input id="SignboardName" name="SignboardName" type="text" class="form-control">
             </div>
             <div class="tb-single-rwd">
+                
+                <div class="td hd">市招名稱：</div>
+                <input id="SignboardName" name="SignboardName" type="text" class="form-control">
                 <div class="td hd">稽查表單：</div>
                 <div class="td">
                     <select name="ctl00$ContentPlaceHolder1$DropDownList_Dept" id="ctl00_ContentPlaceHolder1_DropDownList_Dept" class="selectpicker" style="display: none;">
@@ -129,8 +126,8 @@
                     </select>
                     <div class="btn-group bootstrap-select"><button type="button" class="btn dropdown-toggle selectpicker btn-default" data-toggle="dropdown" data-id="ctl00_ContentPlaceHolder1_DropDownList_Dept" title="全部"><span class="filter-option pull-left">全部</span>&nbsp;<span class="caret"></span></button><div class="dropdown-menu open"><ul class="dropdown-menu inner selectpicker" role="menu"><li data-original-index="0" class="selected"><a tabindex="0" class="" data-normalized-text="全部"><span class="text">全部</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="1"><a tabindex="0" class="" data-normalized-text="食品藥物管理署"><span class="text">食品藥物管理署</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="2"><a tabindex="0" class="" data-normalized-text="台北市"><span class="text">台北市</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="3"><a tabindex="0" class="" data-normalized-text="高雄市"><span class="text">高雄市</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="4"><a tabindex="0" class="" data-normalized-text="基隆市"><span class="text">基隆市</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="5"><a tabindex="0" class="" data-normalized-text="新竹市"><span class="text">新竹市</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="6"><a tabindex="0" class="" data-normalized-text="台中市"><span class="text">台中市</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="7"><a tabindex="0" class="" data-normalized-text="台南市"><span class="text">台南市</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="8"><a tabindex="0" class="" data-normalized-text="嘉義市"><span class="text">嘉義市</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="9"><a tabindex="0" class="" data-normalized-text="新北市"><span class="text">新北市</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="10"><a tabindex="0" class="" data-normalized-text="桃園市"><span class="text">桃園市</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="11"><a tabindex="0" class="" data-normalized-text="新竹縣"><span class="text">新竹縣</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="12"><a tabindex="0" class="" data-normalized-text="宜蘭縣"><span class="text">宜蘭縣</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="13"><a tabindex="0" class="" data-normalized-text="苗栗縣"><span class="text">苗栗縣</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="14"><a tabindex="0" class="" data-normalized-text="彰化縣"><span class="text">彰化縣</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="15"><a tabindex="0" class="" data-normalized-text="南投縣"><span class="text">南投縣</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="16"><a tabindex="0" class="" data-normalized-text="雲林縣"><span class="text">雲林縣</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="17"><a tabindex="0" class="" data-normalized-text="嘉義縣"><span class="text">嘉義縣</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="18"><a tabindex="0" class="" data-normalized-text="屏東縣"><span class="text">屏東縣</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="19"><a tabindex="0" class="" data-normalized-text="澎湖縣"><span class="text">澎湖縣</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="20"><a tabindex="0" class="" data-normalized-text="花蓮縣"><span class="text">花蓮縣</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="21"><a tabindex="0" class="" data-normalized-text="台東縣"><span class="text">台東縣</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="22"><a tabindex="0" class="" data-normalized-text="金門縣"><span class="text">金門縣</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li><li data-original-index="23"><a tabindex="0" class="" data-normalized-text="連江縣"><span class="text">連江縣</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li></ul></div></div>
                 </div>
-
-
+            </div>
+            <div class="tb-single-rwd">
                 <div class="td hd">稽查單位：</div>
                 <div class="td">
                     <select name="ctl00$ContentPlaceHolder1$DropDownList_Dept" id="ctl00_ContentPlaceHolder1_DropDownList_Dept" class="selectpicker" style="display: none;">
@@ -181,8 +178,6 @@
                         </div>
                     </span>
                 </div>
-            </div>
-            <div class="tb-single-rwd">
                 <div class="td hd">案件建立日期：</div>
                 <div class="td">
                     <div style="display: flex; align-items: center; gap: 5px; flex-wrap: wrap;">
@@ -201,11 +196,14 @@
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="tb-single-rwd">
                 <div class="td hd">稽查員：</div>
-                <input id="Inspector" name="Inspector" type="text" class="form-control">
+                <input id="Inspector" name="Inspector" type="text" class="form-control" style="width:40%">
             </div>
         </span>
     </div>
+
     <div class="btn-area">
         <input type="button" id="btnReset" class="btn btn-primary" value="清除" />
         <input type="button" id="btnSearch" class="btn btn-primary" value="查詢" />

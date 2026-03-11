@@ -140,70 +140,7 @@
 
     <div class="accordion inspection-accordion" id="inspectionFormsAccordion">
 
-        <!-- 第一組 -->
-        <div class="accordion-item inspection-accordion-item">
-            <h2 class="accordion-header" id="headingFormA">
-                <button class="accordion-button collapsed inspection-accordion-btn"
-                        type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#collapseFormA"
-                        aria-expanded="false"
-                        aria-controls="collapseFormA">
-                    <span class="inspection-title-text">
-                        114年度肉類加工食品製造業專案紀錄表
-                    </span>
-                </button>
-            </h2>
-
-            <div id="collapseFormA"
-                 class="accordion-collapse collapse"
-                 aria-labelledby="headingFormA"
-                 data-bs-parent="#inspectionFormsAccordion">
-                <div class="accordion-body inspection-accordion-body">
-                    <ul class="inspection-form-list">
-                        <li><a href="javascript:void(0);" class="inspection-form-link">表單一</a></li>
-                        <li><a href="javascript:void(0);" class="inspection-form-link">表單二</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <!-- 第二組 -->
-        <div class="accordion-item inspection-accordion-item">
-            <h2 class="accordion-header" id="headingFormB">
-                <button class="accordion-button collapsed inspection-accordion-btn"
-                        type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#collapseFormB"
-                        aria-expanded="false"
-                        aria-controls="collapseFormB">
-                    <span class="inspection-title-text">
-                        餐飲業食品良好衛生規範準則稽查紀錄表
-                    </span>
-                </button>
-            </h2>
-
-            <div id="collapseFormB"
-                 class="accordion-collapse collapse"
-                 aria-labelledby="headingFormB"
-                 data-bs-parent="#inspectionFormsAccordion">
-                <div class="accordion-body inspection-accordion-body">
-                    <ul class="inspection-form-list">
-                        <li>
-                            <a asp-controller="Inspection"
-                               asp-action="InspectionFormContent"
-                               class="inspection-form-link">
-                               餐飲業 食品良好衛生規範準則 稽查記錄表
-                           </a>
-                        </li>
-                        <li><a href="javascript:void(0);" class="inspection-form-link">表單一</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
         <!-- 廠商資訊 -->
-
         <div class="vendor-info-panel mt-4">
             <h2 class="table-tit">
                 <span>廠商資訊</span>
@@ -273,6 +210,71 @@
 
                     </tbody>
                 </table>
+            </div>
+        </div>
+
+        <h2 class="table-tit">
+            <span>表單列表</span>
+        </h2>
+        <!-- 第一組 -->
+        <div class="accordion-item inspection-accordion-item">
+            <h2 class="accordion-header" id="headingFormA">
+                <button class="accordion-button collapsed inspection-accordion-btn"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#collapseFormA"
+                        aria-expanded="false"
+                        aria-controls="collapseFormA">
+                    <span class="inspection-title-text">
+                        114年度肉類加工食品製造業專案紀錄表
+                    </span>
+                </button>
+            </h2>
+
+            <div id="collapseFormA"
+                 class="accordion-collapse collapse"
+                 aria-labelledby="headingFormA"
+                 data-bs-parent="#inspectionFormsAccordion">
+                <div class="accordion-body inspection-accordion-body">
+                    <ul class="inspection-form-list">
+                        <li><a href="javascript:void(0);" class="inspection-form-link">表單一</a></li>
+                        <li><a href="javascript:void(0);" class="inspection-form-link">表單二</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 第二組 -->
+        <div class="accordion-item inspection-accordion-item">
+            <h2 class="accordion-header" id="headingFormB">
+                <button class="accordion-button collapsed inspection-accordion-btn"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#collapseFormB"
+                        aria-expanded="false"
+                        aria-controls="collapseFormB">
+                    <span class="inspection-title-text">
+                        餐飲業食品良好衛生規範準則稽查紀錄表
+                    </span>
+                </button>
+            </h2>
+
+            <div id="collapseFormB"
+                 class="accordion-collapse collapse"
+                 aria-labelledby="headingFormB"
+                 data-bs-parent="#inspectionFormsAccordion">
+                <div class="accordion-body inspection-accordion-body">
+                    <ul class="inspection-form-list">
+                        <li>
+                            <a asp-controller="Inspection"
+                               asp-action="InspectionFormContent"
+                               class="inspection-form-link">
+                                餐飲業 食品良好衛生規範準則 稽查記錄表
+                            </a>
+                        </li>
+                        <li><a href="javascript:void(0);" class="inspection-form-link">表單一</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
 

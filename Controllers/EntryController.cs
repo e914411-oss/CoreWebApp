@@ -178,7 +178,7 @@ namespace CoreWebApp.Controllers
                 // TODO: 這裡做你系統的登入簽發（cookie/jwt），並保存 token
                 // e.g. HttpContext.Session.SetString("GSP_Token", finalToken);
 
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "Entry");
             }
 
             // (B) 如果 gsp 回傳的是 code（授權碼），你就要用 HttpClient 換 token
