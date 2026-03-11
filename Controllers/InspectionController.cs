@@ -21,10 +21,10 @@ namespace CoreWebApp.Controllers
 
         public IActionResult Index()
         {
-            //// ¥u­n¥¼µn¤J¡A´N·|³Q Cookie middleware ¾É¦V /Account/Login
+            //// åªè¦æœªç™»å…¥ï¼Œå°±æœƒè¢« Cookie middleware å°å‘ /Account/Login
             //return View();
 
-            // ...²Õ model¡A¥i©¿²¤
+            // ...çµ„ modelï¼Œå¯å¿½ç•¥
             if (Request.Headers["X-Requested-With"] == "XMLHttpRequest")
                 return PartialView("Index" /*, model */);
 
@@ -40,13 +40,31 @@ namespace CoreWebApp.Controllers
             return View();
         }
 
-        public async Task<IActionResult> Fquery()
+        public IActionResult InspectionForms()
+        {
+            //return View();
+            if (Request.Headers["X-Requested-With"] == "XMLHttpRequest")
+                return PartialView("InspectionForms");
+
+            return View();
+        }
+
+        public IActionResult InspectionFormContent()
+        {
+            //return View();
+            if (Request.Headers["X-Requested-With"] == "XMLHttpRequest")
+                return PartialView("InspectionFormContent");
+
+            return View();
+        }
+
+        public IActionResult Fquery()
         {
             //return View();
             if (Request.Headers["X-Requested-With"] == "XMLHttpRequest")
                 return PartialView("Fquery");
 
-            var DeptDt = await Get_¨t²Î_³¡ªùªí(string.Empty);//string.Empty
+            var DeptDt = await Get_ç³»çµ±_éƒ¨é–€è¡¨(string.Empty);//string.Empty
             ViewBag.DeptList = DeptDt;
             return View();
         }
@@ -56,6 +74,15 @@ namespace CoreWebApp.Controllers
             //return View();
             if (Request.Headers["X-Requested-With"] == "XMLHttpRequest")
                 return PartialView("FormQuery");
+
+            return View();
+        }
+
+        public IActionResult FormContent()
+        {
+            //return View();
+            if (Request.Headers["X-Requested-With"] == "XMLHttpRequest")
+                return PartialView("FormContent");
 
             return View();
         }
@@ -90,13 +117,13 @@ namespace CoreWebApp.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-        public async Task<List<¨t²Î_³¡ªùªí>> Get_¨t²Î_³¡ªùªí(string cities)
+        public async Task<List<ç³»çµ±_éƒ¨é–€è¡¨>> Get_ç³»çµ±_éƒ¨é–€è¡¨(string cities)
         {
-            //var deptDt = await _api.Query_¨t²Î_³¡ªùªí(cities);
+            //var deptDt = await _api.Query_ç³»çµ±_éƒ¨é–€è¡¨(cities);
 
             try
             {
-                return await _api.Query_¨t²Î_³¡ªùªí(cities);
+                return await _api.Query_ç³»çµ±_éƒ¨é–€è¡¨(cities);
             }
             catch (Exception ex)
             {
@@ -106,13 +133,13 @@ namespace CoreWebApp.Controllers
             //return deptDt;
         }
 
-        public async Task<List<PMDS_¾÷ºc_¿¤¥«¤Ç°t>> GetAreaByCity(string cityId)
+        public async Task<List<PMDS_æ©Ÿæ§‹_ç¸£å¸‚åŒ¹é…>> GetAreaByCity(string cityId)
         {
-            //var deptDt = await _api.Query_PMDS_¾÷ºc_¿¤¥«¤Ç°t(cityId);
+            //var deptDt = await _api.Query_PMDS_æ©Ÿæ§‹_ç¸£å¸‚åŒ¹é…(cityId);
 
             try
             {
-                return await _api.Query_PMDS_¾÷ºc_¿¤¥«¤Ç°t(cityId);
+                return await _api.Query_PMDS_æ©Ÿæ§‹_ç¸£å¸‚åŒ¹é…(cityId);
             }
             catch (Exception ex)
             {
