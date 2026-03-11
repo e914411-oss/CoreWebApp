@@ -58,15 +58,22 @@ namespace CoreWebApp.Controllers
             return View();
         }
 
-        public IActionResult Fquery()
+        public async Task<IActionResult> Fquery()
         {
             //return View();
             if (Request.Headers["X-Requested-With"] == "XMLHttpRequest")
                 return PartialView("Fquery");
 
-            var DeptDt = await Get_系統_部門表(string.Empty);//string.Empty
-            ViewBag.DeptList = DeptDt;
-            return View();
+            try
+            {
+                var DeptDt = await Get_系統_部門表(string.Empty);
+                ViewBag.DeptList = DeptDt;
+                return View();
+            }
+            catch (UnauthorizedAccessException)
+            {
+                return RedirectToAction("Login", "Auth");
+            }
         }
 
         public IActionResult FormQuery()
