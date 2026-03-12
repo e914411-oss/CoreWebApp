@@ -1,9 +1,11 @@
 using CoreWebApp.Models;
-using CoreWebApp.Services;
 using CoreWebApp.Models.ECRS;
+using CoreWebApp.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using System.Reflection;
+using static CoreWebApp.Controllers.InspectionController;
 
 namespace CoreWebApp.Controllers
 {
@@ -40,16 +42,51 @@ namespace CoreWebApp.Controllers
             return View();
         }
 
-        public async Task<IActionResult> Fquery()
+        public class Supplier
         {
-            //return View();
-            if (Request.Headers["X-Requested-With"] == "XMLHttpRequest")
-                return PartialView("Fquery");
-
-            var DeptDt = await Get_系統_部門表(string.Empty);//string.Empty
-            ViewBag.DeptList = DeptDt;
-            return View();
+            public int? Id { get; set; }
+            public string? 業者編號 { get; set; }
+            public string? 業者名稱 { get; set; }
+            public string? 食品登錄字號 { get; set; }
+            public string? 統一編號 { get; set; }
+            public string? 電話號碼 { get; set; }
+            public string? 業者地址 { get; set; }
+            public DateTime 案件建立日期 { get; set; }
         }
+
+
+        public async Task<IActionResult> Fquery(Supplier supplierQ)
+        {
+            ViewData.Clear();
+            ModelState.Clear();
+            
+            //return View();
+            Supplier supplierQ1 = new Supplier();
+            supplierQ1.業者名稱 = supplierQ.業者名稱;
+
+            var supplier = await Get_Supplier(supplierQ1);
+            if (supplier.Count == 0)
+            {
+                //supplierQ1.業者名稱 = "百鮮";
+                //supplier = await Get_Supplier(supplierQ1);
+            }
+            var DeptDt = await Get_系統_部門表(string.Empty);
+            ViewBag.DeptList = DeptDt;
+
+            if (Request.Headers["X-Requested-With"] == "XMLHttpRequest")
+            {
+                return PartialView("_FqueryPartial", supplier);
+                //    return RedirectToAction("Fquery", "Inspection", new
+                //    {
+                //        業者名稱 = supplierQ.業者名稱
+                //    }); //
+            }
+
+            return View("Fquery", supplier);
+            //return View(supplier);
+
+        }
+
 
         public IActionResult FormQuery()
         {
@@ -92,7 +129,6 @@ namespace CoreWebApp.Controllers
 
         public async Task<List<系統_部門表>> Get_系統_部門表(string cities)
         {
-            //var deptDt = await _api.Query_系統_部門表(cities);
 
             try
             {
@@ -103,7 +139,6 @@ namespace CoreWebApp.Controllers
                 throw;
             }
 
-            //return deptDt;
         }
 
         public async Task<List<PMDS_機構_縣市匹配>> GetAreaByCity(string cityId)
@@ -121,6 +156,21 @@ namespace CoreWebApp.Controllers
 
             //return deptDt;
         }
+
+        public async Task<List<Supplier>> Get_Supplier(Supplier supplierQ)
+        {
+
+            try
+            {
+                return await _api.Query_Supplier(supplierQ);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+
+        }
+
 
     }
 }

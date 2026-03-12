@@ -1,0 +1,40 @@
+﻿@model List<CoreWebApp.Controllers.InspectionController.Supplier>
+
+                    @{
+                        int ii = 1;
+                    }
+
+                @if (Model == null || Model.Count == 0)
+                {
+                    <tr>
+                        <td colspan="8" class="text-center text-danger">
+                            查無資料
+                        </td>
+                    </tr>
+                }
+                else
+                {
+
+                    @foreach (var item in Model)
+                    {
+
+                        <tr>
+                            <td class="lt">@ii</td>
+                            <td class="lt">@item.業者編號</td>
+                            <td class="lt">
+                                <a class="nav-link text-black ajax-link" asp-controller="Inspection" asp-action="Flist">@item.業者名稱</a>
+                            
+                            </td>
+                            <td class="lt">@item.食品登錄字號</td>
+                            <td>@item.統一編號</td>
+                            <td class="lt">@item.電話號碼</td>
+                            <td class="lt">@item.業者地址</td>
+                            <td class="lt">@item.案件建立日期.ToString("yyyy-MM-dd")</td>
+
+
+                        </tr>
+                        ii++;
+                    }                                
+
+                }
+

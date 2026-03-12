@@ -27,9 +27,43 @@ function openModalF() {
     
 }
 
+function preSearch() {
+    var Company = $("#txtCompany_Name").val();
+    //alert(Company);
+    var supplier1 = {
+        Id: null,
+        業者編號: null,
+        業者名稱: Company,
+        食品登錄字號: null,
+        統一編號: null,
+        電話號碼: null,
+        業者地址: null,
+        案件建立日期: null,
+    };
+
+    //window.location.href = '/Inspection/Fquery?' + $.param(supplier1);
+
+
+    $.ajax({
+        url: '/Inspection/Fquery',
+        type: 'GET',
+        cache: false, 
+        data: supplier1,
+        success: function (result) {
+            //alert("後端傳回的長度是：" + result.length);
+            $("#resultDiv").html(result);
+            //alert(result);
+
+            //window.location.href = '/Inspection/Fquery?' + $.param(supplier1);
+
+            // 如果使用 bootstrap-select
+            //areaSelect.selectpicker('refresh');
+        }
+    });
+}
 
 $(document).ready(function () {
-
+    
     $("#citySelect").change(function () {
 
         var cityId = $(this).val();
