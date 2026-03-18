@@ -1,7 +1,8 @@
-﻿using System.Net.Http.Headers;
-using System.Net.Http.Json;
-using CoreWebApp.Models;
+﻿using CoreWebApp.Models;
 using CoreWebApp.Models.ECRS;
+using System.Net;
+using System.Net.Http.Json;
+using static CoreWebApp.Controllers.InspectionController;
 
 namespace CoreWebApp.Services
 {
@@ -74,5 +75,27 @@ namespace CoreWebApp.Services
             var result = await resp.Content.ReadFromJsonAsync<List<PMDS_機構_縣市匹配>>(cancellationToken: ct);
             return result ?? new List<PMDS_機構_縣市匹配>();
         }
+
+
+        public async Task<List<Supplier>> Query_Supplier(Supplier supplierQ, CancellationToken ct = default)
+        {
+            var action = Uri.EscapeDataString("Suppliers");
+            var url = $"/Api/FormManage/{action}";
+
+            var resp = await _http.PostAsJsonAsync(url, supplierQ, ct);
+
+            if (!resp.IsSuccessStatusCode)
+            {
+                var raw = await resp.Content.ReadAsStringAsync(ct);
+                throw new Exception(
+                    $"API {(int)resp.StatusCode} {resp.ReasonPhrase}: {raw}"
+                );
+            }
+
+            var body = await resp.Content.ReadFromJsonAsync<List<Supplier>>(cancellationToken: ct);
+            return body ?? new List<Supplier>();
+
+        }
+
     }
 }
