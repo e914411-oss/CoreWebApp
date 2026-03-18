@@ -1,5 +1,8 @@
 ﻿@{
     ViewData["Title"] = "稽查管理-稽查作業-表單查詢";
+
+    bool isCompleted = TempData["IsCompleted"] != null && TempData["IsCompleted"] is bool b && b;
+    string FormName = TempData["FormName"]?.ToString() ?? string.Empty;
 }
 
 @section Styles {
@@ -41,7 +44,6 @@
                 font-size: 18px;
             }
 
-        /* 左右標題欄：改成淺灰色 */
         .vendor-label {
             width: 160px;
             background: #e6e6e6;
@@ -56,7 +58,6 @@
             color: #222;
         }
 
-        /* 中間日期欄不要撐滿整格 */
         .vendor-date-wrap {
             width: 360px;
             max-width: 100%;
@@ -106,11 +107,83 @@
             background: #e9ecef;
         }
 
-        /* 日期欄在不同瀏覽器的 icon 保持可用 */
         input[type="date"]::-webkit-calendar-picker-indicator {
             cursor: pointer;
             opacity: 1;
         }
+
+        /* ===== 表單列表標題列 + 按鈕列 ===== */
+        .form-list-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 12px;
+        }
+
+            .form-list-header .table-tit {
+                margin-bottom: 0;
+            }
+
+        .form-toolbar {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .form-toolbar-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            min-width: 120px;
+            height: 44px;
+            padding: 0 18px;
+            /* border: 2px solid #8dc7c7; */
+            border: 2px solid;
+            border-radius: 999px;
+            background: linear-gradient(to bottom, #f9ffff, #edf8f9 );
+            /* color: #fff; */
+            color: forestgreen;
+            font-size: 18px;
+            font-weight: 700;
+            text-decoration: none;
+            box-shadow: inset 0 1px 0 rgba(255,255,255,.25);
+            transition: all .2s ease-in-out;
+            white-space: nowrap;
+            cursor: pointer;
+        }
+
+            .form-toolbar-btn:hover {
+                background: linear-gradient(to bottom, #F0FFF0, #CEFFCE);
+                color: forestgreen;
+                transform: translateY(-1px);
+            }
+
+            .form-toolbar-btn:focus {
+                color: forestgreen;
+                outline: none;
+                box-shadow: 0 0 0 0.2rem rgba(13, 148, 166, .25);
+            }
+
+            .form-toolbar-btn .toolbar-icon {
+                font-size: 16px;
+                line-height: 1;
+            }
+
+        /* .form-toolbar-btn.btn-delete {
+                                                background: linear-gradient(to bottom, #ffffe6, #ffffcc);
+                                                border-color: #d1b53f;
+                                                color: #4f4313;
+                                            }
+
+                                                .form-toolbar-btn.btn-delete:hover {
+                                                    color: #4f4313;
+                                                    background: linear-gradient(to bottom, #f8e27f, #ffffcc);
+                                                } */
 
         @@media (max-width: 1200px) {
             .vendor-label {
@@ -128,9 +201,334 @@
             .vendor-date-wrap {
                 width: 280px;
             }
+
+            .form-toolbar-btn {
+                min-width: 105px;
+                height: 40px;
+                font-size: 16px;
+                padding: 0 14px;
+            }
+        }
+
+        @@media (max-width: 768px) {
+            .form-list-header {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .form-toolbar {
+                justify-content: flex-start;
+            }
+        }
+
+        /* ===== 稽查結果彈窗 ===== */
+        .inspect-result-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.28);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 3000;
+            padding: 20px;
+        }
+
+            .inspect-result-overlay.show {
+                display: flex;
+            }
+
+        .inspect-result-modal {
+            width: 100%;
+            max-width: 760px;
+            background: #f2ffe5;
+            border: 4px solid #e5fff2;
+            border-radius: 22px;
+            box-shadow: 0 10px 30px rgba(0,0,0,.18);
+            overflow: hidden;
+        }
+
+        .inspect-result-header {
+            padding: 22px 28px 14px 28px;
+            /* background: #c8e0e4;
+                    border-bottom: 1px solid #b8d0d4; */
+            background: linear-gradient(to bottom, forestgreen, darkgreen);
+            border-bottom: 1px solid forestgreen;
+        }
+
+        .inspect-result-title {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 34px;
+            font-weight: 800;
+            /* color: #1a1a1a; */
+            color: white;
+            line-height: 1.2;
+        }
+
+            .inspect-result-title .title-icon {
+                font-size: 34px;
+                /* color: #4d8e99; */
+                color: white;
+            }
+
+        .inspect-result-body {
+            padding: 18px 28px 28px 28px;
+        }
+
+        .inspect-result-select {
+            width: 100%;
+            height: 62px;
+            font-size: 24px;
+            color: #333;
+            border: 1px solid #cfcfcf;
+            border-radius: 12px;
+            background: #fff;
+            padding: 0 18px;
+            margin-bottom: 22px;
+        }
+
+        .inspect-result-remark {
+            width: 100%;
+            min-height: 140px;
+            font-size: 22px;
+            border: 1px solid #cfcfcf;
+            border-radius: 12px;
+            background: #fff;
+            padding: 16px 18px;
+            resize: vertical;
+        }
+
+        .inspect-result-actions {
+            display: flex;
+            justify-content: center;
+            gap: 18px;
+            margin-top: 24px;
+            flex-wrap: wrap;
+        }
+
+        .inspect-result-btn {
+            min-width: 140px;
+            height: 48px;
+            border: none;
+            border-radius: 10px;
+            font-size: 20px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: .2s ease;
+        }
+
+        .inspect-result-btn-confirm {
+            background: #2f9e44;
+            color: #fff;
+        }
+
+            .inspect-result-btn-confirm:hover {
+                background: #28863a;
+            }
+
+        .inspect-result-btn-cancel {
+            background: #d9d9d9;
+            color: #222;
+        }
+
+            .inspect-result-btn-cancel:hover {
+                background: #c8c8c8;
+            }
+
+        @@media (max-width: 768px) {
+            .inspect-result-title {
+                font-size: 28px;
+            }
+
+                .inspect-result-title .title-icon {
+                    font-size: 28px;
+                }
+
+            .inspect-result-select {
+                height: 52px;
+                font-size: 18px;
+            }
+
+            .inspect-result-remark {
+                min-height: 110px;
+                font-size: 18px;
+            }
+        }
+
+
+        /* ===== 業者簽名欄位選擇彈窗 ===== */
+        .vendor-sign-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.28);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 3100;
+            padding: 20px;
+        }
+
+            .vendor-sign-overlay.show {
+                display: flex;
+            }
+
+        .vendor-sign-modal {
+            width: 100%;
+            max-width: 1500px;
+            background: #f2ffe5;
+            border: 1px solid #e5fff2;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 12px 32px rgba(0,0,0,.22);
+        }
+
+        .vendor-sign-header {
+            height: 96px;
+            background: linear-gradient(to bottom, forestgreen, darkgreen);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 28px;
+        }
+
+        .vendor-sign-title {
+            font-size: 28px;
+            font-weight: 800;
+            color: #fff;
+            letter-spacing: 1px;
+        }
+
+        .vendor-sign-close {
+            border: none;
+            background: transparent;
+            color: #fff;
+            font-size: 44px;
+            line-height: 1;
+            cursor: pointer;
+            padding: 0;
+        }
+
+        .vendor-sign-body {
+            padding: 34px 34px 26px 34px;
+            /* background: #f3f3f3; */
+            background: #f2ffe5;
+        }
+
+        .vendor-sign-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(280px, 1fr));
+            gap: 22px 32px;
+            align-items: center;
+            justify-items: center;
+            margin-bottom: 34px;
+        }
+
+        .vendor-sign-item {
+            width: 100%;
+            max-width: 360px;
+            height: 78px;
+            border: 1px solid #d8d8d8;
+            border-radius: 999px;
+            background: #fff;
+            box-shadow: 0 2px 8px rgba(0,0,0,.08);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            font-size: 26px;
+            font-weight: 700;
+            color: #111;
+            cursor: pointer;
+            transition: all .2s ease;
+            text-decoration: none;
+        }
+
+            .vendor-sign-item:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 6px 14px rgba(0,0,0,.12);
+                background: #f9ffff;
+            }
+
+        .vendor-sign-icon {
+            font-size: 28px;
+            color: #6ccfd8;
+            line-height: 1;
+        }
+
+        .vendor-sign-bottom {
+            display: flex;
+            justify-content: center;
+        }
+
+        .vendor-sign-none {
+            width: 100%;
+            max-width: 420px;
+            height: 78px;
+            border: 1px solid #d8d8d8;
+            border-radius: 999px;
+            background: #fff;
+            box-shadow: 0 2px 8px rgba(0,0,0,.08);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            font-size: 26px;
+            font-weight: 700;
+            color: #111;
+            cursor: pointer;
+            transition: all .2s ease;
+        }
+
+            .vendor-sign-none:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 6px 14px rgba(0,0,0,.12);
+                background: #f9ffff;
+            }
+
+        @@media (max-width: 1200px) {
+            .vendor-sign-grid {
+                grid-template-columns: repeat(2, minmax(260px, 1fr));
+            }
+        }
+
+        @@media (max-width: 768px) {
+            .vendor-sign-header {
+                height: auto;
+                padding: 18px 20px;
+            }
+
+            .vendor-sign-title {
+                font-size: 22px;
+            }
+
+            .vendor-sign-close {
+                font-size: 36px;
+            }
+
+            .vendor-sign-body {
+                padding: 20px;
+            }
+
+            .vendor-sign-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .vendor-sign-item,
+            .vendor-sign-none {
+                max-width: 100%;
+                height: 64px;
+                font-size: 20px;
+            }
+
+            .vendor-sign-icon {
+                font-size: 22px;
+            }
         }
     </style>
 }
+
 
 <h1 class="main-title">
     <span id="ctl00_ContentPlaceHolder1_UC_NodeName_lblNodeName">@ViewData["Title"]</span>
@@ -213,9 +611,51 @@
             </div>
         </div>
 
-        <h2 class="table-tit">
-            <span>表單列表</span>
-        </h2>
+        <!-- 表單列表標題 + 功能按鈕 -->
+        <div class="form-list-header">
+            <h2 class="table-tit">
+                <span>表單列表</span>
+            </h2>
+
+            @{
+                if (isCompleted)
+                {
+                    <div class="form-toolbar">
+                        <a href="javascript:void(0);" class="form-toolbar-btn" id="btnOpenInspectResult">
+                            <span class="toolbar-icon">💾</span>
+                            <span>儲存</span>
+                        </a>
+
+                        <a href="javascript:void(0);" class="form-toolbar-btn" id="btnVendorSign">
+                            <span class="toolbar-icon">✎</span>
+                            <span>業者簽名</span>
+                        </a>
+
+                        <a href="javascript:void(0);" class="form-toolbar-btn">
+                            <span class="toolbar-icon">⇩</span>
+                            <span>下載</span>
+                        </a>
+
+                        <a href="javascript:void(0);" class="form-toolbar-btn">
+                            <span class="toolbar-icon">✎</span>
+                            <span>確認業者簽名</span>
+                        </a>
+
+                        <a href="javascript:void(0);" class="form-toolbar-btn">
+                            <span class="toolbar-icon">✎</span>
+                            <span>送審</span>
+                        </a>
+
+                        @*<a href="javascript:void(0);" class="form-toolbar-btn btn-delete">*@
+                        <a href="javascript:void(0);" class="form-toolbar-btn">
+                            <span class="toolbar-icon">🗑</span>
+                            <span>刪除表單</span>
+                        </a>
+                    </div>
+                }
+            }
+        </div>
+
         <!-- 第一組 -->
         <div class="accordion-item inspection-accordion-item">
             <h2 class="accordion-header" id="headingFormA">
@@ -291,3 +731,219 @@
 
 </div>
 
+<!-- 稽查結果彈窗 -->
+<div id="inspectResultOverlay" class="inspect-result-overlay">
+    <div class="inspect-result-modal">
+        <div class="inspect-result-header">
+            <div class="inspect-result-title">
+                <span class="title-icon">◎</span>
+                <span>稽查結果</span>
+            </div>
+        </div>
+
+        <div class="inspect-result-body">
+            <select id="inspectResultSelect" class="inspect-result-select">
+                <option value="">未選擇</option>
+                <option value="合格">合格</option>
+                <option value="不合格">不合格</option>
+                <option value="限期改正">限期改正</option>
+                <option value="待補件">待補件</option>
+            </select>
+
+            <textarea id="inspectResultRemark"
+                      class="inspect-result-remark"
+                      placeholder="備註描述"></textarea>
+
+            <div class="inspect-result-actions">
+                <button type="button" class="inspect-result-btn inspect-result-btn-confirm" id="btnConfirmInspectResult">
+                    確定
+                </button>
+                <button type="button" class="inspect-result-btn inspect-result-btn-cancel" id="btnCancelInspectResult">
+                    取消
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 業者簽名欄位選擇彈窗 -->
+<div id="vendorSignOverlay" class="vendor-sign-overlay">
+    <div class="vendor-sign-modal">
+        <div class="vendor-sign-header">
+            <div class="vendor-sign-title">簽名欄位選擇</div>
+            <button type="button" class="vendor-sign-close" id="btnCloseVendorSignOverlay">×</button>
+        </div>
+
+        <div class="vendor-sign-body">
+            <div class="vendor-sign-grid">
+                <button type="button" class="vendor-sign-item" data-sign-field="業者簽名">
+                    <span class="vendor-sign-icon">✎</span>
+                    <span>業者簽名</span>
+                </button>
+
+                <button type="button" class="vendor-sign-item" data-sign-field="稽查單位簽名(1)">
+                    <span class="vendor-sign-icon">✎</span>
+                    <span>稽查單位簽名(1)</span>
+                </button>
+
+                <button type="button" class="vendor-sign-item" data-sign-field="稽查單位簽名(2)">
+                    <span class="vendor-sign-icon">✎</span>
+                    <span>稽查單位簽名(2)</span>
+                </button>
+
+                <button type="button" class="vendor-sign-item" data-sign-field="稽查單位簽名(3)">
+                    <span class="vendor-sign-icon">✎</span>
+                    <span>稽查單位簽名(3)</span>
+                </button>
+
+                <button type="button" class="vendor-sign-item" data-sign-field="稽查單位簽名(4)">
+                    <span class="vendor-sign-icon">✎</span>
+                    <span>稽查單位簽名(4)</span>
+                </button>
+
+                <button type="button" class="vendor-sign-item" data-sign-field="稽查單位簽名(5)">
+                    <span class="vendor-sign-icon">✎</span>
+                    <span>稽查單位簽名(5)</span>
+                </button>
+
+                <button type="button" class="vendor-sign-item" data-sign-field="稽查單位簽名(6)">
+                    <span class="vendor-sign-icon">✎</span>
+                    <span>稽查單位簽名(6)</span>
+                </button>
+            </div>
+
+            <div class="vendor-sign-bottom">
+                <button type="button" class="vendor-sign-none" data-sign-field="不簽名">
+                    <span class="vendor-sign-icon">✎</span>
+                    <span>不簽名</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    <script>
+        (function () {
+            const btnOpenInspectResult = document.getElementById('btnOpenInspectResult');
+            const btnVendorSign = document.getElementById('btnVendorSign');
+
+            const inspectResultOverlay = document.getElementById('inspectResultOverlay');
+            const btnCancelInspectResult = document.getElementById('btnCancelInspectResult');
+            const btnConfirmInspectResult = document.getElementById('btnConfirmInspectResult');
+            const inspectResultSelect = document.getElementById('inspectResultSelect');
+
+            const vendorSignOverlay = document.getElementById('vendorSignOverlay');
+            const btnCloseVendorSignOverlay = document.getElementById('btnCloseVendorSignOverlay');
+            const vendorSignFieldButtons = document.querySelectorAll('[data-sign-field]');
+
+            if (!inspectResultOverlay || !inspectResultSelect) return;
+
+            function openInspectResultOverlay() {
+                inspectResultOverlay.classList.add('show');
+            }
+
+            function closeInspectResultOverlay() {
+                inspectResultOverlay.classList.remove('show');
+            }
+
+            function openVendorSignOverlay() {
+                if (vendorSignOverlay) {
+                    vendorSignOverlay.classList.add('show');
+                }
+            }
+
+            function closeVendorSignOverlay() {
+                if (vendorSignOverlay) {
+                    vendorSignOverlay.classList.remove('show');
+                }
+            }
+
+            function canVendorSign() {
+                const inspectResultValue = inspectResultSelect.value.trim();
+                return inspectResultValue !== '';
+            }
+
+            // 開啟稽查結果彈窗（儲存）
+            if (btnOpenInspectResult) {
+                btnOpenInspectResult.addEventListener('click', function () {
+                    openInspectResultOverlay();
+                });
+            }
+
+            // 稽查結果 - 取消
+            if (btnCancelInspectResult) {
+                btnCancelInspectResult.addEventListener('click', function () {
+                    closeInspectResultOverlay();
+                });
+            }
+
+            // 稽查結果 - 確定
+            if (btnConfirmInspectResult) {
+                btnConfirmInspectResult.addEventListener('click', function () {
+                    closeInspectResultOverlay();
+                    alert('儲存成功');
+                });
+            }
+
+            // 點擊稽查結果遮罩外部關閉
+            inspectResultOverlay.addEventListener('click', function (e) {
+                if (e.target === inspectResultOverlay) {
+                    closeInspectResultOverlay();
+                }
+            });
+
+            // 業者簽名按鈕
+            if (btnVendorSign) {
+                btnVendorSign.addEventListener('click', function () {
+                    if (!canVendorSign()) {
+                        alert('請確認稽查結果，如果稽查結果為「未選擇」無法進行業者簽名');
+                        return;
+                    }
+
+                    openVendorSignOverlay();
+                });
+            }
+
+            // 關閉簽名欄位彈窗
+            if (btnCloseVendorSignOverlay) {
+                btnCloseVendorSignOverlay.addEventListener('click', function () {
+                    closeVendorSignOverlay();
+                });
+            }
+
+            // 點擊簽名遮罩外部關閉
+            if (vendorSignOverlay) {
+                vendorSignOverlay.addEventListener('click', function (e) {
+                    if (e.target === vendorSignOverlay) {
+                        closeVendorSignOverlay();
+                    }
+                });
+            }
+
+            // 點擊某個簽名欄位
+            vendorSignFieldButtons.forEach(function (btn) {
+                btn.addEventListener('click', function () {
+                    const selectedField = this.getAttribute('data-sign-field') || '';
+
+                    closeVendorSignOverlay();
+
+                    if (selectedField === '不簽名') {
+                        alert('已選擇：不簽名');
+                        return;
+                    }
+
+                    alert('已選擇簽名欄位：' + selectedField);
+
+                    // TODO:
+                    // 這裡接真正的簽名流程
+                    // 例如：
+                    // 1. 開啟簽名板 modal
+                    // 2. 導頁到簽名頁
+                    // 3. 呼叫 API 並把 selectedField 傳到後端
+                });
+            });
+        })();
+    </script>
+}
