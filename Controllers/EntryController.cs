@@ -35,8 +35,11 @@ namespace CoreWebApp.Controllers
             ViewBag.Message = @"
 這裡放三個登入方式，由左至右分別為：
 1、帳號密碼（點擊後導入Login頁面）
-2、實體自然人憑證（點擊後導到自然人憑證登入頁面，帳密驗證成功後回傳相關信息回來再導到稽查首頁。）
-3、行動自然人憑證（點擊後導到自然人憑證登入頁面，帳密驗證成功後回傳相關信息回來再導到稽查首頁。）";
+2、E政府帳號登入（點擊後導到E政府登入頁面，帳密驗證成功後回傳相關信息回來再導到稽查首頁。）
+3、實體自然人憑證登入（點擊後導到實體自然人憑證登入頁面，驗證成功後回傳相關信息回來再導到稽查首頁。）
+4、行動自然人憑證登入（待確認登入流程。）
+5、醫事憑證登入（點擊後導到醫事憑證登入頁面，驗證成功後回傳相關信息回來再導到稽查首頁。）
+";
             return View();
         }
 
@@ -45,32 +48,32 @@ namespace CoreWebApp.Controllers
         public IActionResult AfterLogin(string? returnUrl = null)
         {
             // 站內回跳（避免 open redirect）
-    if (!string.IsNullOrWhiteSpace(returnUrl) && Url.IsLocalUrl(returnUrl))
-        return Redirect(returnUrl);
+            if (!string.IsNullOrWhiteSpace(returnUrl) && Url.IsLocalUrl(returnUrl))
+                return Redirect(returnUrl);
 
-    const string CookieName = "pmds_layout_mode";
+            const string CookieName = "pmds_layout_mode";
 
-    // 1) 先看 Cookie（使用者手動選擇優先）
-    var cookieMode = Request.Cookies[CookieName];
-    string mode;
+            // 1) 先看 Cookie（使用者手動選擇優先）
+            var cookieMode = Request.Cookies[CookieName];
+            string mode;
 
-    if (string.Equals(cookieMode, "Mobile", StringComparison.OrdinalIgnoreCase) ||
-        string.Equals(cookieMode, "Desktop", StringComparison.OrdinalIgnoreCase))
-    {
-        mode = cookieMode!;
-    }
-    else
-    {
-        // 2) 沒 Cookie 才自動偵測
-        var isMobile = _device.IsMobile(HttpContext);
-        mode = isMobile ? "Mobile" : "Desktop";
-    }
+            if (string.Equals(cookieMode, "Mobile", StringComparison.OrdinalIgnoreCase) ||
+                string.Equals(cookieMode, "Desktop", StringComparison.OrdinalIgnoreCase))
+            {
+                mode = cookieMode!;
+            }
+            else
+            {
+                // 2) 沒 Cookie 才自動偵測
+                var isMobile = _device.IsMobile(HttpContext);
+                mode = isMobile ? "Mobile" : "Desktop";
+            }
 
-    // 3) 寫入 Session 給 _ViewStart.cshtml 使用
-    HttpContext.Session.SetString("LayoutMode", mode);
+            // 3) 寫入 Session 給 _ViewStart.cshtml 使用
+            HttpContext.Session.SetString("LayoutMode", mode);
 
-    // 4) 首頁固定導到 Inspection/Index
-    return RedirectToAction("Index", "Inspection");
+            // 4) 首頁固定導到 Inspection/Index
+            return RedirectToAction("Index", "Inspection");
         }
 
 
@@ -89,7 +92,7 @@ namespace CoreWebApp.Controllers
                 controller: "Entry",
                 values: new { state },
                 protocol: Request.Scheme
-            );
+            ) ?? string.Empty;
 
             var loginUrl = "https://www.cp.gov.tw/portal/Clogin.aspx"
             + "?ver=Simple"
@@ -122,7 +125,7 @@ namespace CoreWebApp.Controllers
         // 外部成功後，你要讓它回到：/Entry/LoginBCallback?code=...&ver=...&Level=...
         [HttpGet]
         [AllowAnonymous]
-        public async Task<IActionResult> LoginBCallback(string state, CancellationToken ct)
+        public Task<IActionResult> LoginBCallback(string state, CancellationToken ct)
         {
             //var expected = HttpContext.Session.GetString("LoginB_State");
             //if (string.IsNullOrWhiteSpace(state) || expected != state)
@@ -134,7 +137,7 @@ namespace CoreWebApp.Controllers
                 controller: "Entry",
                 values: new { state },
                 protocol: Request.Scheme
-            );
+            ) ?? string.Empty;
 
             // 指定固定要打這支
             var gspUrl =
@@ -145,8 +148,7 @@ namespace CoreWebApp.Controllers
                 // ★這個參數名要以 gsp 規格為準：可能叫 ReturnUrl / redirect_uri / callback...
                 + "&ReturnUrl=" + Uri.EscapeDataString(myOauthCallback);
 
-            return Redirect(gspUrl);
-
+            return Task.FromResult<IActionResult>(Redirect(gspUrl));
         }
 
 

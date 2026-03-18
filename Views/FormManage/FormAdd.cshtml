@@ -1,9 +1,41 @@
 ﻿@{
     ViewData["Title"] = "新增/編輯表單";
-    string strFormName = string.IsNullOrEmpty(ViewData["FormName"] as string) ? string.Empty : ViewData["FormName"].ToString();
+    string? formName = ViewData["FormName"] as string;
+    string strFormName = string.IsNullOrEmpty(formName) ? string.Empty : formName;
 
     @Html.AntiForgeryToken()
     ;
+}
+
+@section Styles {
+    <style>
+        .pmds-radio-group {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+            .pmds-radio-group .radio-inline-item {
+                display: inline-flex;
+                align-items: center;
+                gap: 4px;
+                margin-top: 6px;
+                white-space: nowrap;
+                font-weight: normal;
+            }
+
+                .pmds-radio-group .radio-inline-item input[type="radio"] {
+                    margin: 0;
+                }
+
+        .btn-primary-line {
+            height: 24px;
+            /* line-height: 18px; */
+            padding: 1px 8px 0 8px;
+            box-sizing: border-box;
+        }
+    </style>
 }
 
 <div class="content" style="min-height: 561px;">
@@ -19,247 +51,130 @@
             <div class="td">
             </div>
         </div>
-        <div class="tb-single-rwd">
-            <div class="td hd">稽查事由及內容：</div>
-            <div class="td">
-                <textarea name="ctl00$ContentPlaceHolder1$txtMemo" rows="2" cols="20" id="ctl00_ContentPlaceHolder1_txtMemo" class="form-control" style="height:100px;width:100%;"></textarea>
-            </div>
-        </div>
+
         <div class="tb-single-rwd">
             <div class="td hd"><span id="span_Testing_Weight" style="color: Red;"></span>專案截止日期：</div>
             <div class="td">
                 <div class="input-group date">
-                    <input name="ctl00$ContentPlaceHolder1$txt_ProjectYear" type="text" id="ctl00_ContentPlaceHolder1_txt_ProjectYear" class="datepicker form-control pull-right">
+                    <input name="ctl00$ContentPlaceHolder1$txt_ProjectYear" type="text" id="ctl00_ContentPlaceHolder1_txt_ProjectYear" class="datepicker form-control">
                     <div class="input-group-addon" onclick="$(this).prev().focus()">
                         <i class="icon-calendar-full"></i>
                     </div>
                 </div>
             </div>
-            <div class="td hd"></div>
-            <div class="td"></div>
-            <div class="td"></div>
         </div>
-        <div class="tb-single-rwd">
-            <div class="td hd">附件上傳：</div>
-            <div class="td">
 
-                <input type="file" name="ctl00$ContentPlaceHolder1$fileAtt" id="ctl00_ContentPlaceHolder1_fileAtt" onchange="檢查上傳檔案(this);">
-            </div>
-        </div>
         <div class="tb-single-rwd" ui-id="CheckMenu">
             <div class="td hd"><span style="color: Red">＊</span>稽查項目：</div>
             <div class="td">
-                <table id="t_Chkitems">
-                    <tbody>
-                        <tr>
-                            <td colspan="4">
-                                食品稽查項目:
-                            </td>
-                        </tr>
-                        <tr>
-                            <td width="20px"></td>
-                            <td colspan="3">
-                                <span class="checkbox" style="display: inline;"><input id="ctl00_ContentPlaceHolder1_CheckBox_GHP" type="checkbox" name="ctl00$ContentPlaceHolder1$CheckBox_GHP"><label for="ctl00_ContentPlaceHolder1_CheckBox_GHP">GHP</label></span>(<span class="checkbox" style="display: inline;"><input id="ctl00_ContentPlaceHolder1_CheckBox_GHP_PE" type="checkbox" name="ctl00$ContentPlaceHolder1$CheckBox_GHP_PE" disabled=""><label for="ctl00_ContentPlaceHolder1_CheckBox_GHP_PE">體檢情形</label></span>、<span class="checkbox" style="display: inline;"><input id="ctl00_ContentPlaceHolder1_CheckBox_Label_Conform" type="checkbox" name="ctl00$ContentPlaceHolder1$CheckBox_Label_Conform" disabled=""><label for="ctl00_ContentPlaceHolder1_CheckBox_Label_Conform">標示符合性稽查</label></span>)
-                            </td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td colspan="3">
-                                <span class="checkbox" style="display: inline;"><input id="ctl00_ContentPlaceHolder1_CheckBox_HACCP" type="checkbox" name="ctl00$ContentPlaceHolder1$CheckBox_HACCP"><label for="ctl00_ContentPlaceHolder1_CheckBox_HACCP">HACCP</label></span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td colspan="3">
-                                <span class="checkbox" style="display: inline;"><input id="ctl00_ContentPlaceHolder1_CheckBox_Dispose" type="checkbox" name="ctl00$ContentPlaceHolder1$CheckBox_Dispose"><label for="ctl00_ContentPlaceHolder1_CheckBox_Dispose">抽驗</label></span>
-                                <span class="checkbox" style="display: inline;"><input id="ctl00_ContentPlaceHolder1_CheckBox_Label" type="checkbox" name="ctl00$ContentPlaceHolder1$CheckBox_Label"><label for="ctl00_ContentPlaceHolder1_CheckBox_Label">標示</label></span>
-                                <span class="checkbox" style="display: inline;"><input id="ctl00_ContentPlaceHolder1_CheckBox_Cook" type="checkbox" name="ctl00$ContentPlaceHolder1$CheckBox_Cook"><label for="ctl00_ContentPlaceHolder1_CheckBox_Cook">熟食</label></span>
-                                <span class="checkbox" style="display: inline;"><input id="ctl00_ContentPlaceHolder1_CheckBox_Dispose_Oil" type="checkbox" name="ctl00$ContentPlaceHolder1$CheckBox_Dispose_Oil"><label for="ctl00_ContentPlaceHolder1_CheckBox_Dispose_Oil">油炸油</label></span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td colspan="3">
-                                <span class="checkbox" style="display: inline;"><input id="ctl00_ContentPlaceHolder1_CheckBox_VPF" type="checkbox" name="ctl00$ContentPlaceHolder1$CheckBox_VPF"><label for="ctl00_ContentPlaceHolder1_CheckBox_VPF">真空包裝(GHP,標示)</label></span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td colspan="3">
-                                <span class="checkbox" style="display: inline;"><input id="ctl00_ContentPlaceHolder1_CheckBox_REG" type="checkbox" name="ctl00$ContentPlaceHolder1$CheckBox_REG"><label for="ctl00_ContentPlaceHolder1_CheckBox_REG">登錄查核</label></span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td colspan="3">
-                                <span class="checkbox" style="display: inline;"><input id="ctl00_ContentPlaceHolder1_CheckBox_TRACE" type="checkbox" name="ctl00$ContentPlaceHolder1$CheckBox_TRACE"><label for="ctl00_ContentPlaceHolder1_CheckBox_TRACE">追溯追蹤</label></span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td colspan="3">
-                                <span class="checkbox" style="display: inline;"><input id="ctl00_ContentPlaceHolder1_CheckBox_ENFORCE" type="checkbox" name="ctl00$ContentPlaceHolder1$CheckBox_ENFORCE"><label for="ctl00_ContentPlaceHolder1_CheckBox_ENFORCE">一級品管</label></span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td colspan="3">
-                                <span class="checkbox" style="display: inline;"><input id="ctl00_ContentPlaceHolder1_CheckBox_FoodOrder" type="checkbox" name="ctl00$ContentPlaceHolder1$CheckBox_FoodOrder"><label for="ctl00_ContentPlaceHolder1_CheckBox_FoodOrder">食品或餐飲通訊交易定型化契約</label></span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td colspan="3">
-                                <span class="checkbox" style="display: inline;"><input id="ctl00_ContentPlaceHolder1_CheckBox_Voucher" type="checkbox" name="ctl00$ContentPlaceHolder1$CheckBox_Voucher"><label for="ctl00_ContentPlaceHolder1_CheckBox_Voucher">餐飲業等商品(服務)禮券定型化契約</label></span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td colspan="3">
-                                <span class="checkbox" style="display: inline;"><input id="ctl00_ContentPlaceHolder1_CheckBox_Banquets" type="checkbox" name="ctl00$ContentPlaceHolder1$CheckBox_Banquets"><label for="ctl00_ContentPlaceHolder1_CheckBox_Banquets">訂席、外燴(辦桌)服務定型化契約</label></span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td colspan="3">
-                                <span class="checkbox" style="display: inline;"><input id="ctl00_ContentPlaceHolder1_CheckBox_Insurance" type="checkbox" name="ctl00$ContentPlaceHolder1$CheckBox_Insurance"><label for="ctl00_ContentPlaceHolder1_CheckBox_Insurance">產品責任保險</label></span>
-                                <input type="button" class="btn btn-primary-line" id="FormAdd_Note" value="備註" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td colspan="3">
-                                <span class="checkbox" style="display: inline;"><input id="ctl00_ContentPlaceHolder1_CheckBox_SourceDoc" type="checkbox" name="ctl00$ContentPlaceHolder1$CheckBox_SourceDoc"><label for="ctl00_ContentPlaceHolder1_CheckBox_SourceDoc">來源文件保存</label></span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td colspan="3">
-                                <span class="checkbox" style="display: inline;"><input id="ctl00_ContentPlaceHolder1_CheckBox_ExpiredFood" type="checkbox" name="ctl00$ContentPlaceHolder1$CheckBox_ExpiredFood"><label for="ctl00_ContentPlaceHolder1_CheckBox_ExpiredFood">逾期食品</label></span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td colspan="3">
-                                <span class="checkbox" style="display: inline;"><input id="ctl00_ContentPlaceHolder1_CheckBox_HealthManager" type="checkbox" name="ctl00$ContentPlaceHolder1$CheckBox_HealthManager"><label for="ctl00_ContentPlaceHolder1_CheckBox_HealthManager">衛生管理人員查核</label></span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td colspan="3">
-                                <span class="checkbox" style="display: inline;"><input id="ctl00_ContentPlaceHolder1_CheckBox_ProTechCert" type="checkbox" name="ctl00$ContentPlaceHolder1$CheckBox_ProTechCert"><label for="ctl00_ContentPlaceHolder1_CheckBox_ProTechCert">專門職業或技術證照人員查核</label></span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td>查驗登記工廠</td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td colspan="3">
-                                <span class="checkbox" style="display: inline;"><input id="ctl00_ContentPlaceHolder1_CheckBox_irf" type="checkbox" name="ctl00$ContentPlaceHolder1$CheckBox_irf"><label for="ctl00_ContentPlaceHolder1_CheckBox_irf">健康食品工廠</label></span>
-                                <span class="checkbox" style="display: inline;"><input id="ctl00_ContentPlaceHolder1_CheckBox_irf_Additives" type="checkbox" name="ctl00$ContentPlaceHolder1$CheckBox_irf_Additives"><label for="ctl00_ContentPlaceHolder1_CheckBox_irf_Additives">食品添加物工廠</label></span>
-                                <span class="checkbox" style="display: inline;"><input id="ctl00_ContentPlaceHolder1_CheckBox_irf_Vitamins" type="checkbox" name="ctl00$ContentPlaceHolder1$CheckBox_irf_Vitamins"><label for="ctl00_ContentPlaceHolder1_CheckBox_irf_Vitamins">國產維生素錠狀膠囊狀食品工廠</label></span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td colspan="3">查驗登記產品</td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td>
-                                <span class="checkbox" style="display: inline;"><input id="ctl00_ContentPlaceHolder1_CheckBox_irp" type="checkbox" name="ctl00$ContentPlaceHolder1$CheckBox_irp"><label for="ctl00_ContentPlaceHolder1_CheckBox_irp">健康食品</label></span>
-                            </td>
-                            <td>
-                                <span class="checkbox" style="display: inline;"><input id="ctl00_ContentPlaceHolder1_CheckBox_irp_Additives" type="checkbox" name="ctl00$ContentPlaceHolder1$CheckBox_irp_Additives"><label for="ctl00_ContentPlaceHolder1_CheckBox_irp_Additives">食品添加物</label></span>
-                            </td>
-                            <td>
-                                <span class="checkbox" style="display: inline;"><input id="ctl00_ContentPlaceHolder1_CheckBox_irp_MIT" type="checkbox" name="ctl00$ContentPlaceHolder1$CheckBox_irp_MIT"><label for="ctl00_ContentPlaceHolder1_CheckBox_irp_MIT">國產維生素錠狀膠囊狀食品</label></span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td>
-                                <span class="checkbox" style="display: inline;"><input id="ctl00_ContentPlaceHolder1_CheckBox_irp_Import" type="checkbox" name="ctl00$ContentPlaceHolder1$CheckBox_irp_Import"><label for="ctl00_ContentPlaceHolder1_CheckBox_irp_Import">輸入錠狀膠囊狀食品</label></span>
-                            </td>
-                            <td>
-                                <span class="checkbox" style="display: inline;"><input id="ctl00_ContentPlaceHolder1_CheckBox_irp_Patient" type="checkbox" name="ctl00$ContentPlaceHolder1$CheckBox_irp_Patient"><label for="ctl00_ContentPlaceHolder1_CheckBox_irp_Patient">病人用特殊營養食品</label></span>
-                            </td>
-                            <td>
-                                <span class="checkbox" style="display: inline;"><input id="ctl00_ContentPlaceHolder1_CheckBox_irp_Baby" type="checkbox" name="ctl00$ContentPlaceHolder1$CheckBox_irp_Baby"><label for="ctl00_ContentPlaceHolder1_CheckBox_irp_Baby">嬰兒配方食品及較大嬰兒配方輔助食品</label></span>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-                <table id="t_Chkitems">
-                    <tbody>
-                        <tr>
-                            <td colspan="5">
-                                藥物稽查項目:
-                            </td>
-                        </tr>
-                        <tr>
-                            <td width="20px"></td>
-                            <td>
-                                <span class="checkbox" style="display: inline;"><input id="ctl00_ContentPlaceHolder1_CheckBox_MDE" type="checkbox" name="ctl00$ContentPlaceHolder1$CheckBox_MDE"><label for="ctl00_ContentPlaceHolder1_CheckBox_MDE">醫療器材\醫療器材商</label></span>
-                            </td>
-                            <td>
-                                <span class="checkbox" style="display: inline;"><input id="ctl00_ContentPlaceHolder1_CheckBox_COS" type="checkbox" name="ctl00$ContentPlaceHolder1$CheckBox_COS"><label for="ctl00_ContentPlaceHolder1_CheckBox_COS">化粧品</label></span>
-                            </td>
-                            <td>
-                                <span class="checkbox" style="display: inline;"><input id="ctl00_ContentPlaceHolder1_CheckBox_COF" type="checkbox" name="ctl00$ContentPlaceHolder1$CheckBox_COF"><label for="ctl00_ContentPlaceHolder1_CheckBox_COF">化粧品工廠</label></span>
-                            </td>
-                            <td>
-                                <span class="checkbox" style="display: inline;"><input id="ctl00_ContentPlaceHolder1_CheckBox_COB" type="checkbox" name="ctl00$ContentPlaceHolder1$CheckBox_COB"><label for="ctl00_ContentPlaceHolder1_CheckBox_COB">瘦身美容業稽查</label></span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td width="20px"></td>
-                            <td>
-                                <span class="checkbox" style="display: inline;"><input id="ctl00_ContentPlaceHolder1_CheckBox_DRG" type="checkbox" name="ctl00$ContentPlaceHolder1$CheckBox_DRG"><label for="ctl00_ContentPlaceHolder1_CheckBox_DRG">藥品</label></span>
-                            </td>
-                            <td>
-                                <span class="checkbox" style="display: inline;"><input id="ctl00_ContentPlaceHolder1_CheckBox_DRF" type="checkbox" name="ctl00$ContentPlaceHolder1$CheckBox_DRF"><label for="ctl00_ContentPlaceHolder1_CheckBox_DRF">藥商\藥局\醫療機構</label></span>
-                            </td>
-                            <td>
-                                <span class="checkbox" target-id="DRR" style="display: inline;"><input id="ctl00_ContentPlaceHolder1_CheckBox_DRR" type="checkbox" name="ctl00$ContentPlaceHolder1$CheckBox_DRR"><label for="ctl00_ContentPlaceHolder1_CheckBox_DRR">通路藥品回收稽查</label></span>
-                            </td>
-                            <td>
-                                <span class="checkbox" style="display: inline;"><input id="ctl00_ContentPlaceHolder1_CheckBox_CosVender" type="checkbox" name="ctl00$ContentPlaceHolder1$CheckBox_CosVender"><label for="ctl00_ContentPlaceHolder1_CheckBox_CosVender">化粧品業者</label></span>
-                            </td>
-                            <td>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                <div class="pmds-radio-group">
+                    <label class="radio-inline-item" for="ctl00_ContentPlaceHolder1_rbtnListProjectStatus_0">
+                        <input id="chk1" type="checkbox" value="Y">
+                        <span>GHP</span>
+                    </label>
+
+                    <label class="radio-inline-item" for="ctl00_ContentPlaceHolder1_rbtnListProjectStatus_0">
+                        <input id="chk2" type="checkbox" value="Y">
+                        <span>食品業者登錄</span>
+                    </label>
+
+                    <label class="radio-inline-item" for="ctl00_ContentPlaceHolder1_rbtnListProjectStatus_0">
+                        <input id="chk3" type="checkbox" value="Y">
+                        <span>產品責任險</span>
+                    </label>
+
+                    <label class="radio-inline-item" for="ctl00_ContentPlaceHolder1_rbtnListProjectStatus_0">
+                        <input id="chk4" type="checkbox" value="Y">
+                        <span>HACCP</span>
+                    </label>
+
+                    <label class="radio-inline-item" for="ctl00_ContentPlaceHolder1_rbtnListProjectStatus_0">
+                        <input id="chk5" type="checkbox" value="Y">
+                        <span>保存來源文件</span>
+                    </label>
+                </div>
+                <div class="pmds-radio-group">
+                    <label class="radio-inline-item" for="ctl00_ContentPlaceHolder1_rbtnListProjectStatus_0">
+                        <input id="chk6" type="checkbox" value="Y">
+                        <span>追溯追蹤</span>
+                    </label>
+
+                    <label class="radio-inline-item" for="ctl00_ContentPlaceHolder1_rbtnListProjectStatus_0">
+                        <input id="chk7" type="checkbox" value="Y">
+                        <span>一級品管</span>
+                    </label>
+
+                    <label class="radio-inline-item" for="ctl00_ContentPlaceHolder1_rbtnListProjectStatus_0">
+                        <input id="chk8" type="checkbox" value="Y">
+                        <span>逾期食品</span>
+                    </label>
+
+                    <label class="radio-inline-item" for="ctl00_ContentPlaceHolder1_rbtnListProjectStatus_0">
+                        <input id="chk9" type="checkbox" value="Y">
+                        <span>衛生管理人員</span>
+                    </label>
+
+                    <label class="radio-inline-item" for="ctl00_ContentPlaceHolder1_rbtnListProjectStatus_0">
+                        <input id="chk10" type="checkbox" value="Y">
+                        <span>專門職業或技術證照人員查核</span>
+                    </label>
+                </div>
+                <div class="pmds-radio-group">
+                    <label class="radio-inline-item" for="ctl00_ContentPlaceHolder1_rbtnListProjectStatus_0">
+                        <input id="chk11" type="checkbox" value="Y">
+                        <span>定型化契約</span>
+                    </label>
+
+                    <label class="radio-inline-item" for="ctl00_ContentPlaceHolder1_rbtnListProjectStatus_0">
+                        <input id="chk12" type="checkbox" value="Y">
+                        <span>標示</span>
+                    </label>
+
+                    <label class="radio-inline-item" for="ctl00_ContentPlaceHolder1_rbtnListProjectStatus_0">
+                        <input id="chk13" type="checkbox" value="Y">
+                        <span>抽驗</span>
+                    </label>
+
+                    <label class="radio-inline-item" for="ctl00_ContentPlaceHolder1_rbtnListProjectStatus_0">
+                        <input id="chk14" type="checkbox" value="Y">
+                        <span>查驗登記工廠</span>
+                    </label>
+
+                    <label class="radio-inline-item" for="ctl00_ContentPlaceHolder1_rbtnListProjectStatus_0">
+                        <input id="chk15" type="checkbox" value="Y">
+                        <span>查驗登記產品</span>
+                    </label>
+                </div>
             </div>
         </div>
         <div class="tb-single-rwd">
             <div class="td hd"><span style="color: Red">＊</span>自訂欄位：</div>
             <div class="td">
-                <table id="ctl00_ContentPlaceHolder1_optl_IsSet" border="0">
-                    <tbody>
-                        <tr>
-                            <td><span class="radio radio-inline"><input id="rdoSelfSetYes" type="radio" name="IsSelfSet" value="Y" checked="checked"><label for="rdoSelfSetYes">是</label></span></td>
-                            <td><span class="radio radio-inline"><input id="rdoSelfSetNo" type="radio" name="IsSelfSet" value="N"><label for="rdoSelfSetNo">否</label></span></td>
-                            <td><input type="button" class="btn btn-primary-line" id="btnSetItem" value="設定" /></td>
-                        </tr>
-                    </tbody>
-                </table>
+                <div class="pmds-radio-group">
+                    <label class="radio-inline-item" for="ctl00_ContentPlaceHolder1_rbtnListProjectStatus_0">
+                        <input id="rdoSelfSetYes" type="radio" name="IsSelfSet" value="Y" checked="checked">
+                        <span>是</span>
+                    </label>
+                    <label class="radio-inline-item" for="ctl00_ContentPlaceHolder1_rbtnListProjectStatus_0">
+                        <input id="rdoSelfSetYes" type="radio" name="IsSelfSet" value="N">
+                        <span>否</span>
+                    </label>
+                </div>
             </div>
         </div>
         <div class="tb-single-rwd">
             <div class="td hd">狀態：</div>
             <div class="td">
-                <table id="ctl00_ContentPlaceHolder1_optl_Status" border="0">
-                    <tbody>
-                        <tr>
-                            <td><span class="radio radio-inline"><input id="ctl00_ContentPlaceHolder1_optl_Status_0" type="radio" name="ctl00$ContentPlaceHolder1$optl_Status" value="Y" checked="checked"><label for="ctl00_ContentPlaceHolder1_optl_Status_0">啟用</label></span></td>
-                            <td><span class="radio radio-inline"><input id="ctl00_ContentPlaceHolder1_optl_Status_1" type="radio" name="ctl00$ContentPlaceHolder1$optl_Status" value="N"><label for="ctl00_ContentPlaceHolder1_optl_Status_1">停用</label></span></td>
-                        </tr>
-                    </tbody>
-                </table>
+                <div class="pmds-radio-group">
+                    <label class="radio-inline-item" for="ctl00_ContentPlaceHolder1_rbtnListProjectStatus_0">
+                        <input id="rdoSelfSetStatus" type="radio" name="IsSetStatus" value="Y" checked="checked">
+                        <span>是</span>
+                    </label>
+                    <label class="radio-inline-item" for="ctl00_ContentPlaceHolder1_rbtnListProjectStatus_0">
+                        <input id="rdoSelfSetStatus" type="radio" name="IsSetStatus" value="N">
+                        <span>否</span>
+                    </label>
+                </div>
             </div>
         </div>
     </div>

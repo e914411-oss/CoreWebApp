@@ -22,20 +22,7 @@ body {
 }
 
 
-/*FormManage/FormEditer 裡的CSS*/
-/* FormEditer 狀態 radio group：避免 table 內再包 table 造成跑版 */
-.pmds-radio-group {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    flex-wrap: wrap; /* 螢幕變窄時自然換行 */
-}
 
-    .pmds-radio-group .radio-inline {
-        margin-top: 0; /* cf-layout 已有，但這裡再保險 */
-        padding-right: 0;
-        white-space: nowrap; /* 單一選項不要被切成兩行 */
-    }
 
 
 /*inspection/inspectionQry 裡的CSS*/
