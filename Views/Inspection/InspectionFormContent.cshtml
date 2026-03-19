@@ -133,6 +133,78 @@
                 max-width: 100%;
             }
         }
+
+        .inspection-group {
+            width: 100%;
+        }
+
+        .inspection-row {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 1px;
+            white-space: normal;
+        }
+
+        .check-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin: 0;
+            white-space: normal;
+            font-weight: normal;
+        }
+
+            .check-item input[type="checkbox"] {
+                margin: 0;
+            }
+
+        .date-input {
+            width: 80px;
+            display: inline-block;
+        }
+
+        .note-input {
+            width: 240px;
+            display: inline-block;
+        }
+
+        .rule-text {
+            display: block;
+            width: 100%;
+            margin-bottom: 8px;
+            line-height: 1.8;
+            word-break: break-word;
+            overflow-wrap: break-word;
+            white-space: pre-line;
+        }
+
+        .pmds-radio-group {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+            .pmds-radio-group .radio-inline-item {
+                display: inline-flex;
+                align-items: center;
+                gap: 4px;
+                margin-top: 6px;
+                white-space: nowrap;
+                font-weight: normal;
+            }
+
+                .pmds-radio-group .radio-inline-item input[type="radio"] {
+                    margin: 0;
+                }
+
+        .btn-primary-line {
+            height: 24px;
+            padding: 1px 8px 0 8px;
+            box-sizing: border-box;
+        }
     </style>
 }
 
@@ -147,101 +219,1386 @@
     <!-- 題目 1 -->
     <div class="inspection-question-card">
         <div class="inspection-question-title">
-            餐飲業－【三十（一）】洗滌場所所有符合飲用水水質標準之流動水，並具有洗滌、沖洗及有效殺菌功能之餐具清洗設施；水龍頭高度高於水槽滿水位高度，防水逆流污染；無充足之符合飲用水水質標準之流動水者，使用用畢即行丟棄之餐具。
+            1.	GHP
         </div>
-
         <div class="inspection-question-body">
-            <div class="inspection-result-row">
-                <select class="form-select inspection-result-select">
-                    <option value="">請選擇稽查結果</option>
-                    <option>符合規定</option>
-                    <option selected>不符合規定</option>
-                    <option>不適用</option>
-                </select>
-            </div>
 
-            <div class="inspection-upload-row">
-                <button type="button" class="btn inspection-upload-btn" onclick="triggerUpload('evidenceUpload1')">
-                    上傳佐證/附件
-                </button>
-                <input type="file" id="evidenceUpload1" class="d-none" multiple onchange="renderFiles(this, 'evidenceFileList1')" />
-            </div>
+            <div class="pmds-radio-group inspection-group">
+                <div class="inspection-row">
+                    <label class="radio-inline-item" for="chk1_1">
+                        <input id="chk1_1" type="checkbox" value="Y">
+                        <span>符合</span>
+                    </label>
 
-            <div class="inspection-file-list" id="evidenceFileList1">
-                <div class="inspection-file-chip">
-                    <span class="inspection-file-icon">🖼</span>
-                    <span class="inspection-file-name">c738a344ec0c4b87ab020d0c59051165.png</span>
-                    <button type="button" class="inspection-file-remove" onclick="removeFileChip(this)">×</button>
-                </div>
-
-                <div class="inspection-file-chip">
-                    <span class="inspection-file-icon">🖼</span>
-                    <span class="inspection-file-name">5ea211be46474d4db8bcbc87e72e7a794c.png</span>
-                    <button type="button" class="inspection-file-remove" onclick="removeFileChip(this)">×</button>
-                </div>
-
-                <div class="inspection-file-chip">
-                    <span class="inspection-file-icon">🖼</span>
-                    <span class="inspection-file-name">8b301509d0fa4d3d8cf770c4ddd1cbaf.png</span>
-                    <button type="button" class="inspection-file-remove" onclick="removeFileChip(this)">×</button>
+                    <label class="radio-inline-item" for="chk1_2">
+                        <input id="chk1_2" type="checkbox" value="Y">
+                        <span>不適用</span>，原因：<input id="txtReason1" type="text" class="form-control" />
+                    </label>
                 </div>
             </div>
+
+            <!-- 限期改正 -->
+            <div class="pmds-radio-group inspection-group">
+                <div class="inspection-row">
+                    <label for="chk1_3" class="check-item">
+                        <input id="chk1_3" type="checkbox" value="Y" />
+                        <span>限期改正，不符合事項限於：</span>
+                    </label>
+
+                    <input id="txtYear1" type="text" class="form-control date-input" />年
+                    <input id="txtMonth1" type="text" class="form-control date-input" />月
+                    <input id="txtDay1" type="text" class="form-control date-input" />日前改善完竣，稽查不合格項目：
+                </div>
+            </div>
+
+            <!-- 違規法條說明 -->
+            <div class="rule-text">
+                1. 違規法條【備註:說明實際違規情形】（以下為範例）
+                〔五（一）1〕進用食品從業人員時，經醫療機構檢查Ａ型肝炎、傷寒、出疹、膿瘡、外傷、手部皮膚病等合格後，始得聘僱；雇主每年應主動辦理食品從業人員前述檢查至少一次。【備註:未辦理食品從業人員體檢】
+            </div>
+
+            <div class="pmds-radio-group inspection-group">
+                <label for="chk1_4" class="check-item">
+                    <input id="chk1_4" type="checkbox" value="Y" />
+                    <span>資料待補，說明</span><input id="txtExplan1" type="text" class="form-control note-input" />
+                    <span>備註：</span><input id="txtNote1" type="text" class="form-control note-input" /><span>(可讓現場稽查人員依需求填寫)</span>
+                </label>
+
+                <label class="check-item">
+                    <span>●查核提醒事項:</span><input id="txtNote1" type="text" class="form-control note-input" /><span>(表單設計者依需求填寫填寫，倘無則不顯示)</span>
+                </label>
+            </div>
+            @* <div class="pmds-radio-group inspection-group">
+                
+            </div> *@
         </div>
     </div>
 
     <!-- 題目 2 -->
     <div class="inspection-question-card">
         <div class="inspection-question-title">
-            餐飲業－【三十（二）、三十（三）、三十（四）】餐飲作業場所之截油設施，經常清理乾淨。油煙有適當之處理措施，避免造成油污及油煙污染作業場所及用餐環境。廚房有維持適當空氣壓力及室溫之措施。
+            2.	食品業者登錄
         </div>
-
         <div class="inspection-question-body">
-            <div class="inspection-result-row">
-                <select class="form-select inspection-result-select">
-                    <option value="">請選擇稽查結果</option>
-                    <option>符合規定</option>
-                    <option selected>不符合規定</option>
-                    <option>不適用</option>
-                </select>
+            <div class="pmds-radio-group inspection-group">
+                <div class="inspection-row">
+                    <span class="fw-bold rule-text">1.	是否已登錄食品業者登錄平台：</span>
+                    <label class="radio-inline-item" for="chk2_1">
+                        <input id="chk2_1" type="checkbox" value="Y">
+                        <span>是，食品業者登錄字號：</span><input type="text" class="form-control" />
+                    </label>
+                </div>
             </div>
 
-            <div class="inspection-upload-row">
-                <button type="button" class="btn inspection-upload-btn" onclick="triggerUpload('evidenceUpload2')">
-                    上傳佐證/附件
-                </button>
-                <input type="file" id="evidenceUpload2" class="d-none" multiple onchange="renderFiles(this, 'evidenceFileList2')" />
+            <div class="pmds-radio-group inspection-group">
+                <div class="inspection-row">
+                    <label class="radio-inline-item" for="chk2_2">
+                        <input id="chk1_2" type="checkbox" value="N">
+                        <span>否，限於</span>
+                        <input id="txtYear1" type="text" class="form-control date-input" />年
+                        <input id="txtMonth1" type="text" class="form-control date-input" />月
+                        <input id="txtDay1" type="text" class="form-control date-input" />日前改善完竣
+                    </label>
+                </div>
             </div>
 
-            <div class="inspection-file-list" id="evidenceFileList2"></div>
+            <div class="pmds-radio-group inspection-group">
+                <div class="inspection-row">
+                    <label class="radio-inline-item" for="chk2_3">
+                        <input id="chk1_2" type="checkbox" value="N">
+                        <span>不適用，原因</span><input id="txtReason2" type="text" class="form-control" style="width:270px;" />
+                    </label>
+                </div>
+            </div>
+
+            <div class="pmds-radio-group inspection-group">
+                <div class="inspection-row">
+                    <span class="fw-bold rule-text">2.	登錄資料是否完整及已更新符合現況:</span>
+                    <label for="chk2_4" class="check-item">
+                        <input id="chk2_4" type="checkbox" value="Y" />
+                        <span>是</span>
+                    </label>
+                    <label for="chk2_5" class="check-item">
+                        <input id="chk2_5" type="checkbox" value="N" />
+                        <span>否，說明：</span><input id="txtExplan2" type="text" class="form-control note-input" />
+                        ，限於
+                        <input id="txtYear1" type="text" class="form-control date-input" />年
+                        <input id="txtMonth1" type="text" class="form-control date-input" />月
+                        <input id="txtDay1" type="text" class="form-control date-input" />日前改善完竣
+                    </label>
+                </div>
+            </div>
+
+            <div class="pmds-radio-group inspection-group">
+                <div class="inspection-row">
+                    <span class="fw-bold rule-text">3.	業者登錄資料是否如實：</span>
+                    <label for="chk2_4" class="check-item">
+                        <input id="chk2_4" type="checkbox" value="Y" />
+                        <span>是</span>
+                    </label>
+                    <label for="chk2_5" class="check-item">
+                        <input id="chk2_5" type="checkbox" value="N" />
+                        <span>否，依法處辦，說明：</span><input id="txtExplan2" type="text" class="form-control note-input" />
+                    </label>
+                </div>
+            </div>
+
+            <div class="pmds-radio-group inspection-group">
+                <label for="chk1_4" class="check-item">
+                    <input id="chk1_4" type="checkbox" value="Y" />
+                    <span>資料待補，說明</span><input id="txtExplan1" type="text" class="form-control note-input" />
+                    <span>備註：</span><input id="txtNote1" type="text" class="form-control note-input" /><span>(可讓現場稽查人員依需求填寫)</span>
+                </label>
+
+                <label class="check-item">
+                    <span>●查核提醒事項:</span><input id="txtNote1" type="text" class="form-control note-input" /><span>(表單設計者依需求填寫填寫，倘無則不顯示)</span>
+                </label>
+            </div>
+
+
         </div>
     </div>
 
     <!-- 題目 3 -->
     <div class="inspection-question-card">
         <div class="inspection-question-title">
-            餐飲業－【三十（五）】販賣櫃臺與調理、加工及操作之場所，予以有效區隔。
+            3.	產品責任險
         </div>
-
         <div class="inspection-question-body">
-            <div class="inspection-result-row">
-                <select class="form-select inspection-result-select">
-                    <option value="">請選擇稽查結果</option>
-                    <option selected>符合規定</option>
-                    <option>不符合規定</option>
-                    <option>不適用</option>
-                </select>
+            <div class="pmds-radio-group inspection-group">
+                <div class="inspection-row">
+                    <label class="radio-inline-item" for="chk3_1">
+                        <input id="chk3_1" type="checkbox" value="Y">
+                        <span>合格，保險公司：</span>
+                        <input type="text" class="form-control" />
+                        <span>/保險期間：</span>
+                        <input type="text" class="form-control" />
+                    </label>
+                </div>
             </div>
 
-            <div class="inspection-upload-row">
-                <button type="button" class="btn inspection-upload-btn" onclick="triggerUpload('evidenceUpload3')">
-                    上傳佐證/附件
-                </button>
-                <input type="file" id="evidenceUpload3" class="d-none" multiple onchange="renderFiles(this, 'evidenceFileList3')" />
+            <div class="pmds-radio-group inspection-group">
+                <div class="inspection-row">
+                    <label class="radio-inline-item" for="chk3_2">
+                        <input id="chk3_2" type="checkbox" value="N">
+                        <span>不合格，依法處辦，說明:</span>
+                        <input type="text" class="form-control" />
+                    </label>
+                </div>
             </div>
 
-            <div class="inspection-file-list" id="evidenceFileList3"></div>
+            <div class="pmds-radio-group inspection-group">
+                <div class="inspection-row">
+                    <label class="radio-inline-item" for="chk3_3">
+                        <input id="chk3_3" type="checkbox" value="N">
+                        <span>不適用，原因</span><input id="txtReason3" type="text" class="form-control" style="width:270px;" />
+                    </label>
+                </div>
+            </div>
+
+            <div class="pmds-radio-group inspection-group">
+                <label for="chk1_4" class="check-item">
+                    <input id="chk1_4" type="checkbox" value="Y" />
+                    <span>資料待補，說明</span><input id="txtExplan1" type="text" class="form-control note-input" />
+                    <span>備註：</span><input id="txtNote1" type="text" class="form-control note-input" /><span>(可讓現場稽查人員依需求填寫)</span>
+                </label>
+
+                <label class="check-item">
+                    <span>●查核提醒事項:</span><input id="txtNote1" type="text" class="form-control note-input" /><span>(表單設計者依需求填寫填寫，倘無則不顯示)</span>
+                </label>
+            </div>
+
         </div>
     </div>
+
+    <!-- 題目 4 -->
+    <div class="inspection-question-card">
+        <div class="inspection-question-title">
+            4.	HACCP
+        </div>
+        <div class="inspection-question-body">
+
+            <div class="pmds-radio-group inspection-group">
+                <div class="inspection-row">
+                    <label class="radio-inline-item" for="chk1_1">
+                        <input id="chk1_1" type="checkbox" value="Y">
+                        <span>符合</span>
+                    </label>
+
+                    <label class="radio-inline-item" for="chk1_2">
+                        <input id="chk1_2" type="checkbox" value="Y">
+                        <span>不適用</span>，原因：<input id="txtReason1" type="text" class="form-control" />
+                    </label>
+                </div>
+            </div>
+
+            <!-- 限期改正 -->
+            <div class="pmds-radio-group inspection-group">
+                <div class="inspection-row">
+                    <label for="chk1_3" class="check-item">
+                        <input id="chk1_3" type="checkbox" value="Y" />
+                        <span>限期改正，不符合事項限於：</span>
+                    </label>
+
+                    <input id="txtYear1" type="text" class="form-control date-input" />年
+                    <input id="txtMonth1" type="text" class="form-control date-input" />月
+                    <input id="txtDay1" type="text" class="form-control date-input" />日前改善完竣，稽查不合格項目：
+                </div>
+            </div>
+
+            <!-- 違規法條說明 -->
+            <div class="rule-text">
+                1.	違規法條【備註:說明實際違規情形】  (以下為範例)
+                條文：11.1.1.危害分析重要管制點計畫文件是否為最新版本？
+                【備註：最後一版為109年非最新版本】
+            </div>
+
+            <div class="pmds-radio-group inspection-group">
+                <label for="chk1_4" class="check-item">
+                    <input id="chk1_4" type="checkbox" value="Y" />
+                    <span>資料待補，說明</span><input id="txtExplan1" type="text" class="form-control note-input" />
+                    <span>備註：</span><input id="txtNote1" type="text" class="form-control note-input" /><span>(可讓現場稽查人員依需求填寫)</span>
+                </label>
+
+                <label class="check-item">
+                    <span>●查核提醒事項:</span><input id="txtNote1" type="text" class="form-control note-input" /><span>(表單設計者依需求填寫填寫，倘無則不顯示)</span>
+                </label>
+            </div>
+            @* <div class="pmds-radio-group inspection-group">
+                
+            </div> *@
+        </div>
+    </div>
+
+    <!-- 題目 5 -->
+    <div class="inspection-question-card">
+        <div class="inspection-question-title">
+            5.	保存來源文件
+        </div>
+        <div class="inspection-question-body">
+            <div class="pmds-radio-group inspection-group">
+                <div class="inspection-row">
+                    <label class="radio-inline-item" for="chk3_1">
+                        <input id="chk3_1" type="checkbox" value="Y">
+                        <span>合格</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="pmds-radio-group inspection-group">
+                <div class="inspection-row">
+                    <label class="radio-inline-item" for="chk3_2">
+                        <input id="chk3_2" type="checkbox" value="N">
+                        <span>限期改正，不符合事項限於</span>
+                        <input id="txtYear1" type="text" class="form-control date-input" />年
+                        <input id="txtMonth1" type="text" class="form-control date-input" />月
+                        <input id="txtDay1" type="text" class="form-control date-input" />日前改善完竣
+                    </label>
+                </div>
+            </div>
+
+            <div class="pmds-radio-group inspection-group">
+                <label for="chk1_4" class="check-item">
+                    <input id="chk1_4" type="checkbox" value="Y" />
+                    <span>資料待補，說明</span><input id="txtExplan1" type="text" class="form-control note-input" />
+                    <span>備註：</span><input id="txtNote1" type="text" class="form-control note-input" /><span>(可讓現場稽查人員依需求填寫)</span>
+                </label>
+
+                <label class="check-item">
+                    <span>●查核提醒事項:</span><input id="txtNote1" type="text" class="form-control note-input" /><span>(表單設計者依需求填寫填寫，倘無則不顯示)</span>
+                </label>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- 題目 6 -->
+    <div class="inspection-question-card">
+        <div class="inspection-question-title">
+            6.	追溯追蹤
+        </div>
+        <div class="inspection-question-body">
+            <div class="pmds-radio-group inspection-group">
+                <div class="inspection-row">
+                    <span class="fw-bold rule-text">▷	建立食品及相關產品追溯追蹤系統：</span>
+                    <label class="radio-inline-item" for="chk2_1">
+                        <input id="chk2_1" type="checkbox" value="Y">
+                        <span>符合</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="pmds-radio-group inspection-group">
+                <div class="inspection-row">
+                    <label class="radio-inline-item" for="chk2_2">
+                        <input id="chk1_2" type="checkbox" value="N">
+                        <span>不符合</span>
+                    </label>
+                    <div class="inspection-group">
+                        <div class="inspection-row" style="margin:24px;">
+                            <label class="radio-inline-item" for="chk2_2">
+                                <input id="chk1_2" type="checkbox" value="N">
+                                <span>無法追溯</span>
+                            </label>
+                            <label class="radio-inline-item" for="chk2_2">
+                                <input id="chk1_2" type="checkbox" value="N">
+                                <span>無法追蹤</span>
+                            </label>
+                            <label class="radio-inline-item" for="chk2_2">
+                                <input id="chk1_2" type="checkbox" value="N">
+                                <span>其他，說明：</span><input id="txtExplan1" type="text" class="form-control note-input" />
+                                <span>，限於</span>
+                                <input id="txtYear1" type="text" class="form-control date-input" />年
+                                <input id="txtMonth1" type="text" class="form-control date-input" />月
+                                <input id="txtDay1" type="text" class="form-control date-input" />日前改善完竣。
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="inspection-group">
+                        <div class="inspection-row" style="margin:24px;">
+                            <label class="radio-inline-item" for="chk2_2">
+                                <input id="chk1_2" type="checkbox" value="N">
+                                <span>建立資料不實，後續將依法處辦</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pmds-radio-group inspection-group">
+                <div class="inspection-row">
+                    <label class="radio-inline-item" for="chk2_3">
+                        <input id="chk1_2" type="checkbox" value="N">
+                        <span>不適用，原因</span><input id="txtReason2" type="text" class="form-control" style="width:270px;" />
+                    </label>
+                </div>
+            </div>
+
+            <div class="pmds-radio-group inspection-group">
+                <div class="inspection-row">
+                    <span class="fw-bold rule-text">▷	業者依法應以電子申報非追不可，申報結果:</span>
+                    <label for="chk2_4" class="check-item">
+                        <input id="chk2_4" type="checkbox" value="Y" />
+                        <span>符合</span>
+                    </label>
+                    <label for="chk2_5" class="check-item">
+                        <input id="chk2_5" type="checkbox" value="N" />
+                        <span>不符合</span>
+                    </label>
+                    <div class="inspection-group">
+                        <div class="inspection-row" style="margin:24px;">
+                            <label class="radio-inline-item" for="chk2_2">
+                                <input id="chk1_2" type="checkbox" value="N">
+                                <span>未申報</span>
+                            </label>
+                            <label class="radio-inline-item" for="chk2_2">
+                                <input id="chk1_2" type="checkbox" value="N">
+                                <span>未更新</span>
+                            </label>
+                            <label class="radio-inline-item" for="chk2_2">
+                                <input id="chk1_2" type="checkbox" value="N">
+                                <span>其他，說明：</span><input id="txtExplan1" type="text" class="form-control note-input" />
+                                <span>，限於</span>
+                                <input id="txtYear1" type="text" class="form-control date-input" />年
+                                <input id="txtMonth1" type="text" class="form-control date-input" />月
+                                <input id="txtDay1" type="text" class="form-control date-input" />日前改善完竣。
+                            </label>
+                        </div>
+                        <div class="inspection-row" style="margin:24px;">
+                            <label class="radio-inline-item" for="chk2_2">
+                                <input id="chk1_2" type="checkbox" value="N">
+                                <span>報資料不實，後續將依法處辦</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pmds-radio-group inspection-group">
+                <div class="inspection-row">
+                    <label class="radio-inline-item" for="chk2_3">
+                        <input id="chk1_2" type="checkbox" value="N">
+                        <span>不適用，原因</span><input id="txtReason2" type="text" class="form-control" style="width:270px;" />
+                    </label>
+                </div>
+            </div>
+
+            <div class="pmds-radio-group inspection-group">
+                <div class="inspection-row">
+                    <span class="fw-bold rule-text">▷	業者有無依法開立電子發票：</span>
+                    <label for="chk2_4" class="check-item">
+                        <input id="chk2_4" type="checkbox" value="Y" />
+                        <span>有</span>
+                    </label>
+                    <label for="chk2_5" class="check-item">
+                        <input id="chk2_5" type="checkbox" value="N" />
+                        <span>無，說明：</span><input id="txtExplan2" type="text" class="form-control note-input" />
+                    </label>
+                </div>
+            </div>
+
+            <div class="pmds-radio-group inspection-group">
+                <div class="inspection-row">
+                    <label class="radio-inline-item" for="chk2_3">
+                        <input id="chk1_2" type="checkbox" value="N">
+                        <span>不適用，原因</span><input id="txtReason2" type="text" class="form-control" style="width:270px;" />
+                    </label>
+                </div>
+            </div>
+
+            <div class="pmds-radio-group inspection-group">
+                <label for="chk1_4" class="check-item">
+                    <input id="chk1_4" type="checkbox" value="Y" />
+                    <span>資料待補，說明</span><input id="txtExplan1" type="text" class="form-control note-input" />
+                    <span>備註：</span><input id="txtNote1" type="text" class="form-control note-input" /><span>(可讓現場稽查人員依需求填寫)</span>
+                </label>
+
+                <label class="check-item">
+                    <span>●查核提醒事項:</span><input id="txtNote1" type="text" class="form-control note-input" /><span>(表單設計者依需求填寫填寫，倘無則不顯示)</span>
+                </label>
+            </div>
+
+
+        </div>
+    </div>
+
+    <!-- 題目 7 -->
+    <div class="inspection-question-card">
+        <div class="inspection-question-title">
+            7.	一級品管
+        </div>
+        <div class="inspection-question-body">
+            <div class="pmds-radio-group inspection-group">
+                <div class="inspection-row">
+                    <span class="fw-bold rule-text">▷	是否建立食品安全監測計畫</span>
+                    <label class="radio-inline-item" for="chk2_1">
+                        <input id="chk2_1" type="checkbox" value="Y">
+                        <span>符合</span>
+                    </label>
+                    <label class="radio-inline-item" for="chk2_2">
+                        <input id="chk1_2" type="checkbox" value="N">
+                        <span>不符合</span>
+                    </label>
+                    <label class="radio-inline-item" for="chk2_2">
+                        <input id="chk1_2" type="checkbox" value="N">
+                        <span>不適用，原因：</span><input id="txtReason1" type="text" class="form-control" />
+                    </label>
+                </div>
+            </div>
+
+            <div class="pmds-radio-group inspection-group">
+                <div class="inspection-row">
+                    <span class="fw-bold rule-text">▷	是否設置實驗室</span>
+                    <label for="chk2_4" class="check-item">
+                        <input id="chk2_4" type="checkbox" value="Y" />
+                        <span>符合</span>
+                    </label>
+                    <label for="chk2_5" class="check-item">
+                        <input id="chk2_5" type="checkbox" value="N" />
+                        <span>不符合</span>
+                    </label>
+                    <label class="radio-inline-item" for="chk2_2">
+                        <input id="chk1_2" type="checkbox" value="N">
+                        <span>不適用，原因：</span><input id="txtReason1" type="text" class="form-control" />
+                    </label>
+                </div>
+            </div>
+
+            <div class="pmds-radio-group inspection-group">
+                <div class="inspection-row">
+                    <span class="fw-bold rule-text">▷	是否符合強制性檢驗</span>
+                    <label for="chk2_4" class="check-item">
+                        <input id="chk2_4" type="checkbox" value="Y" />
+                        <span>符合</span>
+                    </label>
+                    <label for="chk2_5" class="check-item">
+                        <input id="chk2_5" type="checkbox" value="N" />
+                        <span>不符合(</span>
+                    </label>
+                    <label class="radio-inline-item" for="chk2_2">
+                        <input id="chk1_2" type="checkbox" value="N">
+                        <span>未檢驗</span>
+                        <input id="chk1_2" type="checkbox" value="N">
+                        <span>未符合檢驗頻率</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="pmds-radio-group inspection-group">
+                <div class="inspection-row">
+                    <label class="radio-inline-item" for="chk2_3">
+                        <input id="chk1_2" type="checkbox" value="N">
+                        <span>不適用，原因</span><input id="txtReason2" type="text" class="form-control" style="width:270px;" />
+                    </label>
+                </div>
+            </div>
+
+            <div class="pmds-radio-group inspection-group">
+                <div class="inspection-row">
+                    <label for="chk1_3" class="check-item">
+                        <input id="chk1_3" type="checkbox" value="Y" />
+                        <span>上述不符事項，限於</span>
+                    </label>
+                    <input id="txtYear1" type="text" class="form-control date-input" />年
+                    <input id="txtMonth1" type="text" class="form-control date-input" />月
+                    <input id="txtDay1" type="text" class="form-control date-input" />日前改善完竣，稽查不合格項目：
+                </div>
+            </div>
+
+            <div class="pmds-radio-group inspection-group">
+                <label for="chk1_4" class="check-item">
+                    <input id="chk1_4" type="checkbox" value="Y" />
+                    <span>資料待補，說明</span><input id="txtExplan1" type="text" class="form-control note-input" />
+                    <span>備註：</span><input id="txtNote1" type="text" class="form-control note-input" /><span>(可讓現場稽查人員依需求填寫)</span>
+                </label>
+
+                <label class="check-item">
+                    <span>●查核提醒事項:</span><input id="txtNote1" type="text" class="form-control note-input" /><span>(表單設計者依需求填寫填寫，倘無則不顯示)</span>
+                </label>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- 題目 8 -->
+    <div class="inspection-question-card">
+        <div class="inspection-question-title">
+            8.	逾期食品
+        </div>
+        <div class="inspection-question-body">
+            <div class="rule-text">
+                現場是否查獲逾有效日期食品?(倘查獲逾有效日期食品，請記錄該等違規產品名稱、包裝型態、有效日期、數量及逾有效日期後是否有作成產品等事項)
+            </div>
+
+            <div class="pmds-radio-group inspection-group">
+                <div class="inspection-row">
+                    <label class="radio-inline-item" for="chk3_1">
+                        <input id="chk3_1" type="checkbox" value="Y">
+                        <span>否</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="pmds-radio-group inspection-group">
+                <div class="inspection-row">
+                    <label class="radio-inline-item" for="chk3_2">
+                        <input id="chk3_2" type="checkbox" value="N">
+                        <span>是，原因：</span><input id="txtReason1" type="text" class="form-control" />
+                    </label>
+                </div>
+            </div>
+
+            <div class="pmds-radio-group inspection-group">
+                <label for="chk1_4" class="check-item">
+                    <input id="chk1_4" type="checkbox" value="Y" />
+                    <span>資料待補，說明</span><input id="txtExplan1" type="text" class="form-control note-input" />
+                    <span>備註：</span><input id="txtNote1" type="text" class="form-control note-input" /><span>(可讓現場稽查人員依需求填寫)</span>
+                </label>
+
+                <label class="check-item">
+                    <span>●查核提醒事項:</span><input id="txtNote1" type="text" class="form-control note-input" /><span>(表單設計者依需求填寫填寫，倘無則不顯示)</span>
+                </label>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- 題目 9 -->
+    <div class="inspection-question-card">
+        <div class="inspection-question-title">
+            9.	衛生管理人員
+        </div>
+        <div class="inspection-question-body">
+            <div class="rule-text">
+                現場是否查獲逾有效日期食品?(倘查獲逾有效日期食品，請記錄該等違規產品名稱、包裝型態、有效日期、數量及逾有效日期後是否有作成產品等事項)
+            </div>
+
+            <div class="pmds-radio-group inspection-group">
+                <div class="inspection-row">
+                    <label class="radio-inline-item" for="chk3_1">
+                        <input id="chk3_1" type="checkbox" value="Y">
+                        <span>符合</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="pmds-radio-group inspection-group">
+                <div class="inspection-row">
+                    <label class="radio-inline-item" for="chk3_1">
+                        <input id="chk3_1" type="checkbox" value="Y">
+                        <span>不符合</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="pmds-radio-group inspection-group">
+                <div class="inspection-row">
+                    <span>不適用，原因</span><input id="txtReason2" type="text" class="form-control" style="width:270px;" />
+                </div>
+            </div>
+
+            <div class="pmds-radio-group inspection-group">
+                <label for="chk1_4" class="check-item">
+                    <input id="chk1_4" type="checkbox" value="Y" />
+                    <span>資料待補，說明</span><input id="txtExplan1" type="text" class="form-control note-input" />
+                    <span>備註：</span><input id="txtNote1" type="text" class="form-control note-input" /><span>(可讓現場稽查人員依需求填寫)</span>
+                </label>
+
+                <label class="check-item">
+                    <span>●查核提醒事項:</span><input id="txtNote1" type="text" class="form-control note-input" /><span>(表單設計者依需求填寫填寫，倘無則不顯示)</span>
+                </label>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- 題目 10 -->
+    <div class="inspection-question-card">
+        <div class="inspection-question-title">
+            10.	專門職業或技術證照人員查核
+        </div>
+        <div class="inspection-question-body">
+            <div class="pmds-radio-group inspection-group">
+                <div class="inspection-row">
+                    <label class="radio-inline-item" for="chk3_1">
+                        <input id="chk3_1" type="checkbox" value="Y">
+                        <span>符合</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="pmds-radio-group inspection-group">
+                <div class="inspection-row">
+                    <label class="radio-inline-item" for="chk3_1">
+                        <input id="chk3_1" type="checkbox" value="Y">
+                        <span>不符合</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="pmds-radio-group inspection-group">
+                <div class="inspection-row">
+                    <span>不適用，原因</span><input id="txtReason2" type="text" class="form-control" style="width:270px;" />
+                </div>
+            </div>
+
+            <div class="pmds-radio-group inspection-group">
+                <label for="chk1_4" class="check-item">
+                    <input id="chk1_4" type="checkbox" value="Y" />
+                    <span>資料待補，說明</span><input id="txtExplan1" type="text" class="form-control note-input" />
+                    <span>備註：</span><input id="txtNote1" type="text" class="form-control note-input" /><span>(可讓現場稽查人員依需求填寫)</span>
+                </label>
+
+                <label class="check-item">
+                    <span>●查核提醒事項:</span><input id="txtNote1" type="text" class="form-control note-input" /><span>(表單設計者依需求填寫填寫，倘無則不顯示)</span>
+                </label>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- 題目 11 -->
+    <div class="inspection-question-card">
+        <div class="inspection-question-title">
+            11.	定型化契約
+        </div>
+        <div class="inspection-question-body">
+            <div class="pmds-radio-group inspection-group">
+                <div class="inspection-row">
+                    <span class="fw-bold rule-text">▷	業者提供禮劵是否符合商品（服務）禮券定型化契約應記載及不得記載事項。</span>
+                    <label class="radio-inline-item" for="chk2_1">
+                        <input id="chk2_1" type="checkbox" value="Y">
+                        <span>是</span>
+                        <input id="chk2_1" type="checkbox" value="Y">
+                        <span>不適用（無提供商品或服務禮劵）</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="pmds-radio-group inspection-group">
+                <div class="inspection-row">
+                    <label class="radio-inline-item" for="chk2_2">
+                        <input id="chk1_2" type="checkbox" value="N">
+                        <span>否，簡述違規情形：</span><input id="txtReason2" type="text" class="form-control" style="width:270px;" />
+                    </label>
+                </div>
+            </div>
+
+            <div class="pmds-radio-group inspection-group">
+                <div class="inspection-row">
+                    <span class="fw-bold rule-text">▷	企業經營者以傳真、型錄、傳單或其他類似之方法販售及訂購產品，是否符合以通訊交易方式訂定之食品或餐飲服務定型化契約應記載及不得記載事項。</span>
+                    <label for="chk2_4" class="check-item">
+                        <input id="chk2_1" type="checkbox" value="Y">
+                        <span>是</span>
+                        <input id="chk2_1" type="checkbox" value="Y">
+                        <span>不適用（無提供通訊交易方式服務）</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="pmds-radio-group inspection-group">
+                <div class="inspection-row">
+                    <label class="radio-inline-item" for="chk2_3">
+                        <input id="chk1_2" type="checkbox" value="N">
+                        <span>否，簡述違規情形：</span><input id="txtReason2" type="text" class="form-control" style="width:270px;" />
+                    </label>
+                </div>
+            </div>
+
+            <div class="pmds-radio-group inspection-group">
+                <div class="inspection-row">
+                    <span class="fw-bold rule-text">▷	訂席、外燴（辦桌）服務定型化契約應記載及不得記載事項。</span>
+                    <label for="chk2_4" class="check-item">
+                        <input id="chk2_1" type="checkbox" value="Y">
+                        <span>是</span>
+                        <input id="chk2_1" type="checkbox" value="Y">
+                        <span>不適用（無提供訂席、外燴及辦桌服務）</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="pmds-radio-group inspection-group">
+                <div class="inspection-row">
+                    <label class="radio-inline-item" for="chk2_3">
+                        <input id="chk1_2" type="checkbox" value="N">
+                        <span>否，簡述違規情形：</span><input id="txtReason2" type="text" class="form-control" style="width:270px;" />
+                        <span>以上不符合事項，限於</span>
+                        <input id="txtYear1" type="text" class="form-control date-input" />年
+                        <input id="txtMonth1" type="text" class="form-control date-input" />月
+                        <input id="txtDay1" type="text" class="form-control date-input" />日前改善完竣
+                    </label>
+                </div>
+            </div>
+
+            <div class="pmds-radio-group inspection-group">
+                <label for="chk1_4" class="check-item">
+                    <input id="chk1_4" type="checkbox" value="Y" />
+                    <span>資料待補，說明</span><input id="txtExplan1" type="text" class="form-control note-input" />
+                    <span>備註：</span><input id="txtNote1" type="text" class="form-control note-input" /><span>(可讓現場稽查人員依需求填寫)</span>
+                </label>
+
+                <label class="check-item">
+                    <span>●查核提醒事項:</span><input id="txtNote1" type="text" class="form-control note-input" /><span>(表單設計者依需求填寫填寫，倘無則不顯示)</span>
+                </label>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- 題目 12 -->
+    <div class="inspection-question-card">
+        <div class="inspection-question-title">
+            12.	標示(每件產品查核需填報之資訊如下，每次查核視專案件數需求可自行增列件數)
+        </div>
+        <div class="inspection-question-body">
+            <div class="pmds-radio-group inspection-group">
+                <div class="inspection-row">
+                    <span>查核品項1，品名：</span>
+                    <input id="txtProductName" type="text" class="form-control note-input" />
+                </div>
+            </div>
+
+            <div class="pmds-radio-group inspection-group">
+                <div class="inspection-row">
+                    <label class="radio-inline-item" for="chk2_2">
+                        <span>(1)	產品類別</span>
+                        <input id="chk1_2" type="checkbox" value="N">
+                        <span>包裝</span>
+                        <input id="chk1_2" type="checkbox" value="N">
+                        <span>散裝</span>
+                        <input id="chk1_2" type="checkbox" value="N">
+                        <span>直接供應飲食之場所</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="pmds-radio-group inspection-group">
+                <div class="inspection-row" style="margin-left:91px;">
+                    <label class="radio-inline-item" for="chk2_2">
+                        <input id="chk1_2" type="checkbox" value="N">
+                        <span>食品添加物</span>
+                        <input id="chk1_2" type="checkbox" value="N">
+                        <span>食品用容器具</span>
+                        <input id="chk1_2" type="checkbox" value="N">
+                        <span>食品用洗潔劑</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="pmds-radio-group inspection-group">
+                <div class="inspection-row">
+                    <label class="radio-inline-item" for="chk2_2">
+                        <span>(2)	產品標示是否符合規定</span>
+                        <input id="chk1_2" type="checkbox" value="N">
+                        <span>符合</span>
+                        <input id="chk1_2" type="checkbox" value="N">
+                        <span>不符合，依法處辦，說明</span>
+                        <input id="txtExplan1" type="text" class="form-control note-input" />
+                    </label>
+                </div>
+            </div>
+
+            <hr />
+
+            <div class="pmds-radio-group inspection-group">
+                <div class="inspection-row" style="margin-left:24px;">
+                    <span class="fw-bold rule-text">▷	包裝(倘(1)點選「包裝」才顯示)</span>
+                </div>
+            </div>
+
+            <div class="pmds-radio-group inspection-group">
+                <div class="inspection-row" style="margin-left:42px;">
+                    <label class="radio-inline-item" for="chk2_1">
+                        <input id="chk2_1" type="checkbox" value="Y">
+                        <span>牛肉及牛可食部位原料之原產地（國）</span>
+                        <input id="chk2_1" type="checkbox" value="Y">
+                        <span>符合</span>
+                        <input id="chk2_1" type="checkbox" value="Y">
+                        <span>不符合</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="pmds-radio-group inspection-group">
+                <div class="inspection-row" style="margin-left:42px;">
+                    <label class="radio-inline-item" for="chk2_1">
+                        <input id="chk2_1" type="checkbox" value="Y">
+                        <span>豬肉及豬可食部位原料之原產地（國）</span>
+                        <input id="chk2_1" type="checkbox" value="Y">
+                        <span>符合</span>
+                        <input id="chk2_1" type="checkbox" value="Y">
+                        <span>不符合</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="pmds-radio-group inspection-group">
+                <div class="inspection-row" style="margin-left:42px;">
+                    <label class="radio-inline-item" for="chk2_1">
+                        <input id="chk2_1" type="checkbox" value="Y">
+                        <span>重組肉及注脂肉食品標示規定</span>
+                        <input id="chk2_1" type="checkbox" value="Y">
+                        <span>符合</span>
+                        <input id="chk2_1" type="checkbox" value="Y">
+                        <span>不符合</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="pmds-radio-group inspection-group">
+                <div class="inspection-row" style="margin-left:42px;">
+                    <label class="radio-inline-item" for="chk2_1">
+                        <input id="chk2_1" type="checkbox" value="Y">
+                        <span>食品過敏原標示</span>
+                        <input id="chk2_1" type="checkbox" value="Y">
+                        <span>符合</span>
+                        <input id="chk2_1" type="checkbox" value="Y">
+                        <span>不符合</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="pmds-radio-group inspection-group">
+                <div class="inspection-row" style="margin-left:24px;">
+                    <span class="fw-bold rule-text">▷	散裝(倘(1)點選「散裝」才顯示))</span>
+                </div>
+            </div>
+
+            <div class="pmds-radio-group inspection-group">
+                <div class="inspection-row" style="margin-left:42px;">
+                    <label class="radio-inline-item" for="chk2_1">
+                        <input id="chk2_1" type="checkbox" value="Y">
+                        <span>品名</span>
+                        <input id="chk2_1" type="checkbox" value="Y">
+                        <span>符合</span>
+                        <input id="chk2_1" type="checkbox" value="Y">
+                        <span>不符合</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="pmds-radio-group inspection-group">
+                <div class="inspection-row" style="margin-left:42px;">
+                    <label class="radio-inline-item" for="chk2_1">
+                        <input id="chk2_1" type="checkbox" value="Y">
+                        <span>原產地(國)</span>
+                        <input id="chk2_1" type="checkbox" value="Y">
+                        <span>符合</span>
+                        <input id="chk2_1" type="checkbox" value="Y">
+                        <span>不符合</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="pmds-radio-group inspection-group">
+                <div class="inspection-row" style="margin-left:42px;">
+                    <label class="radio-inline-item" for="chk2_1">
+                        <input id="chk2_1" type="checkbox" value="Y">
+                        <span>牛肉及牛可食部位原料之原產地（國）</span>
+                        <input id="chk2_1" type="checkbox" value="Y">
+                        <span>符合</span>
+                        <input id="chk2_1" type="checkbox" value="Y">
+                        <span>不符合</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="pmds-radio-group inspection-group">
+                <div class="inspection-row" style="margin-left:42px;">
+                    <label class="radio-inline-item" for="chk2_1">
+                        <input id="chk2_1" type="checkbox" value="Y">
+                        <span>豬肉及豬可食部位原料之原產地（國）</span>
+                        <input id="chk2_1" type="checkbox" value="Y">
+                        <span>符合</span>
+                        <input id="chk2_1" type="checkbox" value="Y">
+                        <span>不符合</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="pmds-radio-group inspection-group">
+                <div class="inspection-row" style="margin-left:42px;">
+                    <label class="radio-inline-item" for="chk2_1">
+                        <input id="chk2_1" type="checkbox" value="Y">
+                        <span>重組肉及注脂肉食品標示規定</span>
+                        <input id="chk2_1" type="checkbox" value="Y">
+                        <span>符合</span>
+                        <input id="chk2_1" type="checkbox" value="Y">
+                        <span>不符合</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="pmds-radio-group inspection-group">
+                <div class="inspection-row" style="margin-left:42px;">
+                    <label class="radio-inline-item" for="chk2_1">
+                        <input id="chk2_1" type="checkbox" value="Y">
+                        <span>基因改造食品原料標示</span>
+                        <input id="chk2_1" type="checkbox" value="Y">
+                        <span>符合</span>
+                        <input id="chk2_1" type="checkbox" value="Y">
+                        <span>不符合</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="pmds-radio-group inspection-group">
+                <div class="inspection-row" style="margin-left:24px;">
+                    <span class="fw-bold rule-text">▷	直接供應飲食之場所(倘(1)點選「直接供應飲食之場所」才顯示)</span>
+                </div>
+            </div>
+
+            <div class="pmds-radio-group inspection-group">
+                <div class="inspection-row" style="margin-left:42px;">
+                    <label class="radio-inline-item" for="chk2_1">
+                        <input id="chk2_1" type="checkbox" value="Y">
+                        <span>牛肉及牛可食部位原料之原產地（國）</span>
+                        <input id="chk2_1" type="checkbox" value="Y">
+                        <span>符合</span>
+                        <input id="chk2_1" type="checkbox" value="Y">
+                        <span>不符合</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="pmds-radio-group inspection-group">
+                <div class="inspection-row" style="margin-left:42px;">
+                    <label class="radio-inline-item" for="chk2_1">
+                        <input id="chk2_1" type="checkbox" value="Y">
+                        <span>豬肉及豬可食部位原料之原產地（國）</span>
+                        <input id="chk2_1" type="checkbox" value="Y">
+                        <span>符合</span>
+                        <input id="chk2_1" type="checkbox" value="Y">
+                        <span>不符合</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="pmds-radio-group inspection-group">
+                <div class="inspection-row" style="margin-left:42px;">
+                    <label class="radio-inline-item" for="chk2_1">
+                        <input id="chk2_1" type="checkbox" value="Y">
+                        <span>基因改造食品原料標示</span>
+                        <input id="chk2_1" type="checkbox" value="Y">
+                        <span>符合</span>
+                        <input id="chk2_1" type="checkbox" value="Y">
+                        <span>不符合</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="pmds-radio-group inspection-group">
+                <div class="inspection-row" style="margin-left:42px;">
+                    <label class="radio-inline-item" for="chk2_1">
+                        <input id="chk2_1" type="checkbox" value="Y">
+                        <span>重組肉及注脂肉標示</span>
+                        <input id="chk2_1" type="checkbox" value="Y">
+                        <span>符合</span>
+                        <input id="chk2_1" type="checkbox" value="Y">
+                        <span>不符合</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="pmds-radio-group inspection-group">
+                <div class="inspection-row" style="margin-left:42px;">
+                    <label class="radio-inline-item" for="chk2_1">
+                        <input id="chk2_1" type="checkbox" value="Y">
+                        <span>鱈魚料理標示</span>
+                        <input id="chk2_1" type="checkbox" value="Y">
+                        <span>符合</span>
+                        <input id="chk2_1" type="checkbox" value="Y">
+                        <span>不符合</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="pmds-radio-group inspection-group">
+                <div class="inspection-row" style="margin-left:42px;">
+                    <label class="radio-inline-item" for="chk2_1">
+                        <input id="chk2_1" type="checkbox" value="Y">
+                        <span>火鍋類食品之湯底標示</span>
+                        <input id="chk2_1" type="checkbox" value="Y">
+                        <span>符合</span>
+                        <input id="chk2_1" type="checkbox" value="Y">
+                        <span>不符合</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="pmds-radio-group inspection-group">
+                <div class="inspection-row" style="margin-left:42px;">
+                    <label class="radio-inline-item" for="chk2_1">
+                        <input id="chk2_1" type="checkbox" value="Y">
+                        <span>連鎖飲料便利商店及速食業之現場調製標示規定</span>
+                        <input id="chk2_1" type="checkbox" value="Y">
+                        <span>符合</span>
+                        <input id="chk2_1" type="checkbox" value="Y">
+                        <span>不符合</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="pmds-radio-group inspection-group">
+                <div class="inspection-row" style="margin-left:42px;">
+                    <label class="radio-inline-item" for="chk2_1">
+                        <input id="chk2_1" type="checkbox" value="Y">
+                        <span>自動販賣機販售食品之標示</span>
+                        <input id="chk2_1" type="checkbox" value="Y">
+                        <span>符合</span>
+                        <input id="chk2_1" type="checkbox" value="Y">
+                        <span>不符合</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="pmds-radio-group inspection-group">
+                <div class="inspection-row">
+                    <span>(3)	產品別分類：</span>
+                    <input id="txtProductClass1" type="text" class="form-control note-input" />
+                    <span>(依PMDS所列類別做成下拉式選單)</span>
+                </div>
+            </div>
+
+            <div class="pmds-radio-group inspection-group">
+                <div class="inspection-row">
+                    <span>(5)	產品原料(豬/牛)原產地：</span>
+                    <input id="txtProductFrom" type="text" class="form-control note-input" />
+                </div>
+            </div>
+
+            <div class="pmds-radio-group inspection-group">
+                <div class="inspection-row">
+                    <span>(3)	產品別分類：</span>
+                    <input id="txtProductClass1" type="text" class="form-control note-input" />
+                    <span>(依PMDS所列類別做成下拉式選單)</span>
+                    <input id="chk2_1" type="checkbox" value="Y">
+                    <span>不適用</span>
+                </div>
+            </div>
+
+            <div class="pmds-radio-group inspection-group">
+                <div class="inspection-row">
+                    <span>(6)	產品來源/製造商：</span>
+                    <input id="txtProductClass1" type="text" class="form-control note-input" />
+                </div>
+            </div>
+
+            <div class="pmds-radio-group inspection-group">
+                <div class="inspection-row">
+                    <span>(7)	產品來源/製造商地址：</span>
+                    <input id="txtProductClass1" type="text" class="form-control note-input" />
+                    <span>要有增加標示稽查件數功能(可不只查核1件)</span>
+                </div>
+            </div>
+
+            <div class="pmds-radio-group inspection-group">
+                <div class="inspection-row">
+                    <input id="chk2_1" type="checkbox" value="Y">
+                    <span>無產品可供查核標示</span>
+                </div>
+            </div>
+
+            <div class="pmds-radio-group inspection-group">
+                <label for="chk1_4" class="check-item">
+                    <input id="chk1_4" type="checkbox" value="Y" />
+                    <span>資料待補，說明</span><input id="txtExplan1" type="text" class="form-control note-input" />
+                    <span>備註：</span><input id="txtNote1" type="text" class="form-control note-input" /><span>(可讓現場稽查人員依需求填寫)</span>
+                </label>
+
+                <label class="check-item">
+                    <span>●查核提醒事項:</span><input id="txtNote1" type="text" class="form-control note-input" /><span>(表單設計者依需求填寫填寫，倘無則不顯示)</span>
+                </label>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- 題目 13 -->
+    <div class="inspection-question-card">
+        <div class="inspection-question-title">
+            13.	抽驗(每件產品抽驗需填報之資訊如下，每次查核視專案件數需求可自行增列件數)
+        </div>
+        <div class="inspection-question-body">
+            <div class="pmds-radio-group inspection-group">
+                <div class="inspection-row">
+                    <span>抽驗品項1，品名：</span>
+                    <input id="txtProductName" type="text" class="form-control note-input" />
+                </div>
+            </div>
+
+            <div class="pmds-radio-group inspection-group">
+                <div class="inspection-row" style="margin-left:25px;">
+                    <label class="radio-inline-item" for="chk2_2">
+                        <span>●包裝樣態</span>
+                        <input id="chk1_2" type="checkbox" value="N">
+                        <span>包裝</span>
+                        <input id="chk1_2" type="checkbox" value="N">
+                        <span>散裝</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="pmds-radio-group inspection-group">
+                <div class="inspection-row" style="margin-left:25px;">
+                    <label class="radio-inline-item" for="chk2_2">
+                        <span>●產品別分類</span>
+                        <input id="txtNote1" type="text" class="form-control note-input" />
+                        <span>(依PMDS所列類別做成下拉式選單)</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="pmds-radio-group inspection-group">
+                <div class="inspection-row" style="margin-left:25px;">
+                    <label class="radio-inline-item" for="chk2_2">
+                        <span>●檢驗項目</span>
+                        <input id="txtNote1" type="text" class="form-control note-input" />
+                        <span>(依PMDS所列類別做成下拉式選單)</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="pmds-radio-group inspection-group">
+                <div class="inspection-row" style="margin-left:25px;">
+                    要有增加抽驗件數功能(可不只抽驗1件)
+                </div>
+            </div>
+
+            <div class="pmds-radio-group inspection-group">
+                <div class="inspection-row">
+                    <label for="chk1_4" class="check-item">
+                        <input id="chk1_4" type="checkbox" value="Y" />
+                        <span>現場未抽驗</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="pmds-radio-group inspection-group">
+                <label for="chk1_4" class="check-item">
+                    <input id="chk1_4" type="checkbox" value="Y" />
+                    <span>資料待補，說明</span><input id="txtExplan1" type="text" class="form-control note-input" />
+                    <span>備註：</span><input id="txtNote1" type="text" class="form-control note-input" /><span>(可讓現場稽查人員依需求填寫)</span>
+                </label>
+
+                <label class="check-item">
+                    <span>●查核提醒事項:</span><input id="txtNote1" type="text" class="form-control note-input" /><span>(表單設計者依需求填寫填寫，倘無則不顯示)</span>
+                </label>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- 題目 14 -->
+    <div class="inspection-question-card">
+        <div class="inspection-question-title">
+            14.	查驗登記工廠
+        </div>
+        <div class="inspection-question-body">
+            <div class="pmds-radio-group inspection-group">
+                <div class="inspection-row">
+                    <span>▷  業者類型：</span>
+                    <input id="txtProductName" type="text" class="form-control note-input" />
+                    <span>(依PMDS所列類別做成下拉式選單)</span>
+                </div>
+            </div>
+
+            <div class="pmds-radio-group inspection-group">
+                <div class="inspection-row">
+                    <span>▷ 「健康食品製造良好作業規範標準」查核結果：</span>
+                    <input id="chk1_2" type="checkbox" value="N">
+                    <span>符合</span>
+                    <input id="chk1_2" type="checkbox" value="N">
+                    <span>不適用</span>
+                    <input id="chk1_2" type="checkbox" value="N">
+                    <span>不符合，依法處辦，稽查不合格項目:</span>
+                </div>
+            </div>
+
+            <!-- 違規法條說明 -->
+            <div class="rule-text">
+                1.	違規法條【備註:說明實際違規情形】
+            </div>
+
+            <div class="pmds-radio-group inspection-group">
+                <label for="chk1_4" class="check-item">
+                    <input id="chk1_4" type="checkbox" value="Y" />
+                    <span>資料待補，說明</span><input id="txtExplan1" type="text" class="form-control note-input" />
+                    <span>備註：</span><input id="txtNote1" type="text" class="form-control note-input" /><span>(可讓現場稽查人員依需求填寫)</span>
+                </label>
+
+                <label class="check-item">
+                    <span>●查核提醒事項:</span><input id="txtNote1" type="text" class="form-control note-input" /><span>(表單設計者依需求填寫填寫，倘無則不顯示)</span>
+                </label>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- 題目 15 -->
+    <div class="inspection-question-card">
+        <div class="inspection-question-title">
+            15.	查驗登記產品
+        </div>
+        <div class="inspection-question-body">
+            <div class="pmds-radio-group inspection-group">
+                <div class="inspection-row">
+                    <span>查核產品原料成分規格含量表、保健功效成分含量、製程概要及相關生產、品管紀錄、標示符合性</span>
+                    <span class="fw-bold">(生產產品未達3項者，全部查核)</span>
+                </div>
+            </div>
+
+            <div class="pmds-radio-group inspection-group">
+                <div class="inspection-row">
+                    <span>1.查核品項</span>
+                    <span class="fw-bold">1.</span>
+                    <input id="txtProductName" type="text" class="form-control note-input" />
+                    <span class="fw-bold">(許可證字號：</span>
+                    <input id="txtProductName" type="text" class="form-control note-input" />
+                    <span class="fw-bold">)</span>
+                </div>
+            </div>
+
+            <div class="pmds-radio-group inspection-group">
+                <div class="inspection-row" style="margin-left:25px;">
+                    <span>●類別：</span>
+                    <input id="chk3_1" type="checkbox" value="Y">
+                    <span>健康食品</span>
+                    <input id="chk3_1" type="checkbox" value="Y">
+                    <span>特殊營養食品</span>
+                    <input id="chk3_1" type="checkbox" value="Y">
+                    <span>國產維生素錠狀膠囊狀食品</span>
+                </div>
+            </div>
+
+            <div class="pmds-radio-group inspection-group">
+                <div class="inspection-row" style="margin-left:25px;">
+                    <span>●原料成分及含量是否與查驗登記許可內容相符：</span>
+                </div>
+            </div>
+
+            <div class="pmds-radio-group inspection-group">
+                <div class="inspection-row" style="margin-left:25px;">
+                    <input id="chk3_1" type="checkbox" value="Y">
+                    <span>符合</span>
+                    <input id="chk3_1" type="checkbox" value="Y">
+                    <span>不符合，說明：</span>
+                    <input id="txtNote1" type="text" class="form-control note-input" />
+                </div>
+            </div>
+
+            <div class="pmds-radio-group inspection-group">
+                <div class="inspection-row" style="margin-left:25px;">
+                    <span>●保健功效成分含量是否與查驗登記許可內容相符(健康食品)：</span>
+                </div>
+            </div>
+
+            <div class="pmds-radio-group inspection-group">
+                <div class="inspection-row" style="margin-left:25px;">
+                    <input id="chk3_1" type="checkbox" value="Y">
+                    <span>符合</span>
+                    <input id="chk3_1" type="checkbox" value="Y">
+                    <span>不適用，說明：</span>
+                    <input id="txtNote1" type="text" class="form-control note-input" />
+                </div>
+            </div>
+
+            <div class="pmds-radio-group inspection-group">
+                <div class="inspection-row" style="margin-left:25px;">
+                    <input id="chk3_1" type="checkbox" value="Y">
+                    <span>不符合，說明：</span>
+                    <input id="txtNote1" type="text" class="form-control note-input" />
+                </div>
+            </div>
+
+            <div class="pmds-radio-group inspection-group">
+                <div class="inspection-row" style="margin-left:25px;">
+                    <span>●包裝標示是否符合規定：</span>
+                </div>
+            </div>
+
+            <div class="pmds-radio-group inspection-group">
+                <div class="inspection-row" style="margin-left:25px;">
+                    <span>符合</span>
+                </div>
+            </div>
+
+            <div class="pmds-radio-group inspection-group">
+                <div class="inspection-row" style="margin-left:25px;">
+                    <input id="chk3_1" type="checkbox" value="Y">
+                    <span>不符合，依法處辦，說明：</span>
+                    <input id="txtNote1" type="text" class="form-control note-input" />
+                </div>
+            </div>
+
+            <!-- 違規法條說明 -->
+            <div class="rule-text">
+                要有增加查驗登記產品稽查件數功能(可不只查核1件)
+            </div>
+
+            <div class="pmds-radio-group inspection-group">
+                <div class="inspection-row" style="margin-left:25px;">
+                    <input id="chk1_4" type="checkbox" value="Y" />
+                    <span>無產品可供查核</span>
+                </div>
+            </div>
+
+            <div class="pmds-radio-group inspection-group">
+                <label for="chk1_4" class="check-item">
+                    <input id="chk1_4" type="checkbox" value="Y" />
+                    <span>資料待補，說明</span><input id="txtExplan1" type="text" class="form-control note-input" />
+                    <span>備註：</span><input id="txtNote1" type="text" class="form-control note-input" /><span>(可讓現場稽查人員依需求填寫)</span>
+                </label>
+
+                <label class="check-item">
+                    <span>●查核提醒事項:</span><input id="txtNote1" type="text" class="form-control note-input" /><span>(表單設計者依需求填寫填寫，倘無則不顯示)</span>
+                </label>
+            </div>
+
+        </div>
+    </div>
+
 
     <!-- 功能列 - 確定 -->
     <div class="rounded p-1 d-flex mt-3 align-items-center justify-content-center w-100">
