@@ -1,4 +1,4 @@
-﻿@model List<CoreWebApp.Controllers.InspectionController.Supplier>
+﻿@model CoreWebApp.Controllers.InspectionController.SupplierPageViewModel
 
 @{
     var isAjax = Context.Request.Headers["X-Requested-With"] == "XMLHttpRequest";
@@ -191,7 +191,7 @@ else
         
         <h2 class="table-tit"><span>查詢清單​</span>
             <div class="btn-group">
-                <a href="javascript:;" class="btn btn-default"  id="btn_IMShowDialog" ><i class="icon-inbox"></i>匯出​</a>
+                <a class="btn btn-default" id="btn_FExcel"><i class="icon-inbox"></i>匯出​</a>
             </div>
             <input onclick="__doPostBack('ctl00$ContentPlaceHolder1$btn_IndustryMerge','')" name="ctl00$ContentPlaceHolder1$btn_IndustryMerge" type="button" id="ctl00_ContentPlaceHolder1_btn_IndustryMerge" style="display: none" />
         </h2>
@@ -206,7 +206,7 @@ else
         <div class="table-responsive mt15">
 
 
-                <table class="table table-bordered table-striped tb-multi">
+                <table id="supplierTable" class="table table-bordered table-striped tb-multi">
                 <thead>
 
 
@@ -230,34 +230,12 @@ else
             </table>
 
         </div>
-        <!-- table-responsive -->
-
-        <div class="paginator div-tb">
-            <div class="td wid_80px">
-                <div class="btn-group">
-                    <button id="FirstPage" type="button" name="firstPage" class="btn btn-sm" disabled="disabled" data-page="1"><i class="icon-first-page"></i></button>
-                    <button id="PrevPage" type="button" name="prevPage" class="btn btn-sm" disabled="disabled" data-page="1"><i class=" icon-chevron-left"></i></button>
-                </div>
-            </div>
-            <div class="td ct">
-                <div id="Params" style="display:none">{"LogNo":"M-200000001-00000-2","Busin":"0","AName":"拿鐵","Affix":"0"}</div>
-                <span class="hidden-xs">第</span>
-                <select id="PageNum" name="Page" class="form-control" data-width="auto" data-container="body" style="display:inline-block;width:auto;vertical-align:middle"><option value="1" selected="selected">1</option></select>
-                <span class="hidden-xs">/</span> <span class="p-info hidden-xs">1</span>
-                <span class="hidden-xs">頁，每頁</span>
-                <select id="PageSize" name="Size" class="form-control hidden-xs" data-width="auto" data-container="body" style="display:inline-block;width:auto;vertical-align:middle"><option value="10" selected="selected">10</option><option value="20">20</option><option value="30">30</option><option value="40">40</option></select>
-                <span class="hidden-xs">筆，共 1 筆</span>
-            </div>
-            <div class="td rt wid_80px">
-                <div class="btn-group">
-                    <button id="NextPage" type="button" name="nextPage" class="btn btn-sm" disabled="disabled" data-page="1"><i class="icon-chevron-right"></i></button>
-                    <button id="LastPage" type="button" name="lastPage" class="btn btn-sm" disabled="disabled" data-page="1"><i class="icon-last-page"></i></button>
-                </div>
-            </div>
-        </div>
 
 
-</div>
+
+
+
+    </div>
     </div>
     <input type="hidden" name="ctl00$ContentPlaceHolder1$hidIndMergeID" id="ctl00_ContentPlaceHolder1_hidIndMergeID" />
     <input type="hidden" name="ctl00$ContentPlaceHolder1$hidSIndustryID" id="ctl00_ContentPlaceHolder1_hidSIndustryID" />

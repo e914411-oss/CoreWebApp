@@ -52,7 +52,32 @@ function preSearch() {
         success: function (result) {
             //alert("後端傳回的長度是：" + result.length);
             $("#resultDiv").html(result);
-            //alert(result);
+
+            var totalPages = $("#totalPages").val();
+            var currentPage = $("#currentPage").val();
+
+            if ($.fn.DataTable.isDataTable('#supplierTable')) {
+                $('#supplierTable').DataTable().destroy();
+                $("#resultDiv").html(result);
+            }
+
+            $('#supplierTable').DataTable({
+                pageLength: 10,
+                language: {
+                    lengthMenu: "顯示 _MENU_ 筆資料",
+                    zeroRecords: "沒有符合的資料",
+                    info: "顯示第 _START_ 到 _END_ 筆，共 _TOTAL_ 筆",
+                    infoEmpty: "沒有資料",
+                    infoFiltered: "(從 _MAX_ 筆資料中篩選)",
+                    search: "搜尋:",
+                    paginate: {
+                        first: "首頁",
+                        last: "末頁",
+                        next: "下一頁",
+                        previous: "上一頁"
+                    }
+                }
+            });
 
             //window.location.href = '/Inspection/Fquery?' + $.param(supplier1);
 
@@ -62,8 +87,46 @@ function preSearch() {
     });
 }
 
+
 $(document).ready(function () {
-    
+
+    $('#checkRecTable').DataTable({
+        pageLength: 10,
+        language: {
+            lengthMenu: "顯示 _MENU_ 筆資料",
+            zeroRecords: "沒有符合的資料",
+            info: "顯示第 _START_ 到 _END_ 筆，共 _TOTAL_ 筆",
+            infoEmpty: "沒有資料",
+            infoFiltered: "(從 _MAX_ 筆資料中篩選)",
+            search: "搜尋:",
+            paginate: {
+                first: "首頁",
+                last: "末頁",
+                next: "下一頁",
+                previous: "上一頁"
+            }
+        }
+    });
+
+    document.getElementById("btn_FExcel").addEventListener("click", function () {
+
+        var Company = $("#txtCompany_Name").val();
+        //alert(Company);
+        var supplier1 = {
+            Id: null,
+            業者編號: null,
+            業者名稱: Company,
+            食品登錄字號: null,
+            統一編號: null,
+            電話號碼: null,
+            業者地址: null,
+            案件建立日期: null,
+        };
+
+        window.location.href = '/Inspection/ExportExcelF?' + $.param(supplier1);
+
+    });
+ 
     $("#citySelect").change(function () {
 
         var cityId = $(this).val();
