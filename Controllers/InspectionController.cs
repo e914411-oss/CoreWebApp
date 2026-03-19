@@ -45,11 +45,33 @@ namespace CoreWebApp.Controllers
             return View();
         }
 
-        public IActionResult InspectionForms()
+        //public IActionResult InspectionForms()
+        //{
+        //    //return View();
+        //    if (Request.Headers["X-Requested-With"] == "XMLHttpRequest")
+        //        return PartialView("InspectionForms");
+
+        //    return View();
+        //}
+
+        public IActionResult InspectionForms(string? _IsCompleted, string? _FormName)
         {
-            //return View();
-            if (Request.Headers["X-Requested-With"] == "XMLHttpRequest")
-                return PartialView("InspectionForms");
+            if (!string.IsNullOrEmpty(_IsCompleted) || !string.IsNullOrEmpty(_FormName))
+            {
+                TempData["IsCompleted"] = (_IsCompleted == "1");
+                TempData["FormName"] = _FormName;
+
+                return RedirectToAction(nameof(InspectionForms));
+            }
+
+            bool isCompleted = false;
+            if (TempData["IsCompleted"] != null)
+            {
+                isCompleted = Convert.ToBoolean(TempData["IsCompleted"]);
+            }
+
+            ViewBag.IsCompletedForm = isCompleted;
+            ViewBag.FormName = TempData["FormName"]?.ToString();
 
             return View();
         }

@@ -33,29 +33,32 @@ builder.Services.AddSession(options =>
 });
 
 // HttpClient: AuthApiClient 註冊連接資料庫的CoreAPI
+// Auth API Client
 builder.Services.AddHttpClient<AuthApiClient>((sp, client) =>
 {
     var cfg = sp.GetRequiredService<IConfiguration>();
-    var baseUrl = cfg["Api:BaseUrl"] ?? throw new InvalidOperationException("Api:BaseUrl not set");
+    var baseUrl = cfg["Api:BaseUrl"]
+        ?? throw new InvalidOperationException("Api:BaseUrl not set");
+
     client.BaseAddress = new Uri(baseUrl);
+    client.Timeout = TimeSpan.FromSeconds(30);
 });
+
+// ReadDTApiClient
+builder.Services.AddHttpClient<ReadDTApiClient>((sp, client) =>
+{
+    var cfg = sp.GetRequiredService<IConfiguration>();
+    var baseUrl = cfg["Api:BaseUrl"]
+        ?? throw new InvalidOperationException("Api:BaseUrl not set");
+
+    client.BaseAddress = new Uri(baseUrl);
+    client.Timeout = TimeSpan.FromSeconds(30);
+});
+
 
 //註冊裝置偵測服務（用於判斷行動裝置或桌面裝置）
 builder.Services.AddSingleton<IDeviceDetector, DeviceDetector>();
 
-//註冊讀取資料都API
-builder.Services.AddSingleton(sp =>
-{
-    var cfg = sp.GetRequiredService<IConfiguration>();
-    var baseUrl = cfg["Api:BaseUrl"] ?? throw new InvalidOperationException("Api:BaseUrl not set");
-
-    return new HttpClient
-    {
-        BaseAddress = new Uri(baseUrl),
-        Timeout = TimeSpan.FromSeconds(30)
-    };
-});
-builder.Services.AddScoped<ReadDTApiClient>();
 
 //註冊政府網站登入的網址以及用於回傳Token的服務器
 builder.Services.Configure<GovLoginOptions>(
