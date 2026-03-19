@@ -1,6 +1,7 @@
 ﻿using CoreWebApp.Models;
 using CoreWebApp.Models.ECRS;
 using System.Net;
+using System.Net.Http.Headers;
 using System.Net.Http.Json;
 using static CoreWebApp.Controllers.InspectionController;
 
