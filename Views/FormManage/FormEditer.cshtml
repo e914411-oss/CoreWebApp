@@ -23,6 +23,26 @@
                 .pmds-radio-group .radio-inline-item input[type="radio"] {
                     margin: 0;
                 }
+
+        .Formang-question-body {
+            background: #fff;
+            border: 1px solid #e2e7ea;
+            border-radius: 10px;
+            padding: 14px;
+        }
+
+        .Formang-group {
+            width: 100%;
+        }
+
+        .Formang-row {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 12px;
+            white-space: normal;
+        }
     </style>
 }
 
@@ -31,191 +51,181 @@
         <span id="ctl00_ContentPlaceHolder1_UC_NodeName_lblNodeName">@ViewData["Title"] </span>
     </h1>
     <div class="edit-form">
-        <span id="ctl00_ContentPlaceHolder1_UpdatePanel1">
+        <div class="Formang-row">
+            <div class="td hd"> 建立單位：</div>
+            <div class="td">
+                <select name="ctl00$ContentPlaceHolder1$DropDownList_Dept" id="ctl00_ContentPlaceHolder1_DropDownList_Dept" class="selectpicker" style="display: none;">
+                    <option selected="selected" value=""> 全部</option>
+                    <option value="DH"> 食品藥物管理署</option>
+                    <option value="01"> 台北市</option>
+                    <option value="02"> 高雄市</option>
+                    <option value="11"> 基隆市</option>
+                    <option value="12"> 新竹市</option>
+                    <option value="17"> 台中市</option>
+                    <option value="21"> 台南市</option>
+                    <option value="22"> 嘉義市</option>
+                    <option value="31"> 新北市</option>
+                    <option value="32"> 桃園市</option>
+                    <option value="33"> 新竹縣</option>
+                    <option value="34"> 宜蘭縣</option>
+                    <option value="35"> 苗栗縣</option>
+                    <option value="37"> 彰化縣</option>
+                    <option value="38"> 南投縣</option>
+                    <option value="39"> 雲林縣</option>
+                    <option value="40"> 嘉義縣</option>
+                    <option value="43"> 屏東縣</option>
+                    <option value="44"> 澎湖縣</option>
+                    <option value="45"> 花蓮縣</option>
+                    <option value="46"> 台東縣</option>
+                    <option value="90"> 金門縣</option>
+                    <option value="91"> 連江縣</option>
+                </select>
+                <select name="ctl00$ContentPlaceHolder1$DropDownList_業務單位" id="ctl00_ContentPlaceHolder1_DropDownList_業務單位" class="selectpicker" style="display: none;">
+                    <option selected="selected" value=""> 全部</option>
+                    <option value="NR00"> 北區管</option>
+                    <option value="CR00"> 中區管</option>
+                    <option value="SR00"> 南區管</option>
+                    <option value="DS10"> 戰情中心</option>
+                    <option value="FS00"> 食品組</option>
+                    <option value="DN00"> 藥品組</option>
+                    <option value="DC00"> 醫粧組</option>
+                    <option value="RA00"> 研檢組</option>
+                    <option value="PR00"> 企科組</option>
+                    <option value="RM00"> 品質監督管理組</option>
+                </select>
+            </div>
+            <div class="td hd"> 專案名稱：</div>
+            <div class="td">
+                <input name="ctl00$ContentPlaceHolder1$txtProjectName" type="text" id="ctl00_ContentPlaceHolder1_txtProjectName" class="form-control">
+            </div>
+        </div>
+        <div class="Formang-row">
+            <div class="td hd"> 專案截止日期(起)：</div>
+            <div class="td">
+                <div class="input-group date">
+                    <input name="ctl00$ContentPlaceHolder1$txtProjectDeadlineS" type="text" id="ctl00_ContentPlaceHolder1_txtProjectDeadlineS" class="datepicker form-control pull-right">
+                    <div class="input-group-addon" onclick="$(this).prev().focus()">
+                        <i class="icon-calendar-full"> </i>
+                    </div>
+                </div>
+            </div>
+            <div class="td hd" style="margin-left:180px;"> 表單名稱：</div>
+            <div class="td">
+                <input name="FormName" id="FormName" type="text" class="datepicker form-control">
+            </div>
+        </div>
+        <div class="Formang-row">
+            <div class="td hd"> 專案截止日期(迄)：</div>
+            <div class="td">
+                <div class="input-group date">
+                    <input name="ctl00$ContentPlaceHolder1$txtProjectDeadlineE" type="text" id="ctl00_ContentPlaceHolder1_txtProjectDeadlineE" class="datepicker form-control pull-right">
+                    <div class="input-group-addon" onclick="$(this).prev().focus()">
+                        <i class="icon-calendar-full"> </i>
+                    </div>
+                </div>
+            </div>
+            <div class="td hd" style="margin-left:180px;"> 狀態：</div>
+            <div class="td">
+                <div class="pmds-radio-group">
+                    <label class="radio-inline-item" for="ctl00_ContentPlaceHolder1_rbtnListProjectStatus_0">
+                        <input id="ctl00_ContentPlaceHolder1_rbtnListProjectStatus_0" type="radio" name="ctl00$ContentPlaceHolder1$rbtnListProjectStatus" value="">
+                        <span>全部</span>
+                    </label>
+
+                    <label class="radio-inline-item" for="ctl00_ContentPlaceHolder1_rbtnListProjectStatus_1">
+                        <input id="ctl00_ContentPlaceHolder1_rbtnListProjectStatus_1" type="radio" name="ctl00$ContentPlaceHolder1$rbtnListProjectStatus" value="Y" checked="checked">
+                        <span>啟用</span>
+                    </label>
+
+                    <label class="radio-inline-item" for="ctl00_ContentPlaceHolder1_rbtnListProjectStatus_2">
+                        <input id="ctl00_ContentPlaceHolder1_rbtnListProjectStatus_2" type="radio" name="ctl00$ContentPlaceHolder1$rbtnListProjectStatus" value="N">
+                        <span>停用</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="collapse in" id="sub_search">
             <div class="tb-single-rwd">
-                <div class="td hd"> 建立單位：</div>
+                <div class="td hd"> 稽查項目：</div>
                 <div class="td">
-                    <select name="ctl00$ContentPlaceHolder1$DropDownList_Dept" id="ctl00_ContentPlaceHolder1_DropDownList_Dept" class="selectpicker" style="display: none;">
-                        <option selected="selected" value=""> 全部</option>
-                        <option value="DH"> 食品藥物管理署</option>
-                        <option value="01"> 台北市</option>
-                        <option value="02"> 高雄市</option>
-                        <option value="11"> 基隆市</option>
-                        <option value="12"> 新竹市</option>
-                        <option value="17"> 台中市</option>
-                        <option value="21"> 台南市</option>
-                        <option value="22"> 嘉義市</option>
-                        <option value="31"> 新北市</option>
-                        <option value="32"> 桃園市</option>
-                        <option value="33"> 新竹縣</option>
-                        <option value="34"> 宜蘭縣</option>
-                        <option value="35"> 苗栗縣</option>
-                        <option value="37"> 彰化縣</option>
-                        <option value="38"> 南投縣</option>
-                        <option value="39"> 雲林縣</option>
-                        <option value="40"> 嘉義縣</option>
-                        <option value="43"> 屏東縣</option>
-                        <option value="44"> 澎湖縣</option>
-                        <option value="45"> 花蓮縣</option>
-                        <option value="46"> 台東縣</option>
-                        <option value="90"> 金門縣</option>
-                        <option value="91"> 連江縣</option>
-                    </select>
-                    <div class="btn-group bootstrap-select"> <button type="button" class="btn dropdown-toggle selectpicker btn-default" data-toggle="dropdown" data-id="ctl00_ContentPlaceHolder1_DropDownList_Dept" title="全部"> <span class="filter-option pull-left"> 全部</span> &nbsp;<span class="caret"> </span> </button> <div class="dropdown-menu open"> <ul class="dropdown-menu inner selectpicker" role="menu"> <li data-original-index="0" class="selected"> <a tabindex="0" class="" data-normalized-text="全部"> <span class="text"> 全部</span> <span class="glyphicon glyphicon-ok check-mark"> </span> </a> </li> <li data-original-index="1"> <a tabindex="0" class="" data-normalized-text="食品藥物管理署"> <span class="text"> 食品藥物管理署</span> <span class="glyphicon glyphicon-ok check-mark"> </span> </a> </li> <li data-original-index="2"> <a tabindex="0" class="" data-normalized-text="台北市"> <span class="text"> 台北市</span> <span class="glyphicon glyphicon-ok check-mark"> </span> </a> </li> <li data-original-index="3"> <a tabindex="0" class="" data-normalized-text="高雄市"> <span class="text"> 高雄市</span> <span class="glyphicon glyphicon-ok check-mark"> </span> </a> </li> <li data-original-index="4"> <a tabindex="0" class="" data-normalized-text="基隆市"> <span class="text"> 基隆市</span> <span class="glyphicon glyphicon-ok check-mark"> </span> </a> </li> <li data-original-index="5"> <a tabindex="0" class="" data-normalized-text="新竹市"> <span class="text"> 新竹市</span> <span class="glyphicon glyphicon-ok check-mark"> </span> </a> </li> <li data-original-index="6"> <a tabindex="0" class="" data-normalized-text="台中市"> <span class="text"> 台中市</span> <span class="glyphicon glyphicon-ok check-mark"> </span> </a> </li> <li data-original-index="7"> <a tabindex="0" class="" data-normalized-text="台南市"> <span class="text"> 台南市</span> <span class="glyphicon glyphicon-ok check-mark"> </span> </a> </li> <li data-original-index="8"> <a tabindex="0" class="" data-normalized-text="嘉義市"> <span class="text"> 嘉義市</span> <span class="glyphicon glyphicon-ok check-mark"> </span> </a> </li> <li data-original-index="9"> <a tabindex="0" class="" data-normalized-text="新北市"> <span class="text"> 新北市</span> <span class="glyphicon glyphicon-ok check-mark"> </span> </a> </li> <li data-original-index="10"> <a tabindex="0" class="" data-normalized-text="桃園市"> <span class="text"> 桃園市</span> <span class="glyphicon glyphicon-ok check-mark"> </span> </a> </li> <li data-original-index="11"> <a tabindex="0" class="" data-normalized-text="新竹縣"> <span class="text"> 新竹縣</span> <span class="glyphicon glyphicon-ok check-mark"> </span> </a> </li> <li data-original-index="12"> <a tabindex="0" class="" data-normalized-text="宜蘭縣"> <span class="text"> 宜蘭縣</span> <span class="glyphicon glyphicon-ok check-mark"> </span> </a> </li> <li data-original-index="13"> <a tabindex="0" class="" data-normalized-text="苗栗縣"> <span class="text"> 苗栗縣</span> <span class="glyphicon glyphicon-ok check-mark"> </span> </a> </li> <li data-original-index="14"> <a tabindex="0" class="" data-normalized-text="彰化縣"> <span class="text"> 彰化縣</span> <span class="glyphicon glyphicon-ok check-mark"> </span> </a> </li> <li data-original-index="15"> <a tabindex="0" class="" data-normalized-text="南投縣"> <span class="text"> 南投縣</span> <span class="glyphicon glyphicon-ok check-mark"> </span> </a> </li> <li data-original-index="16"> <a tabindex="0" class="" data-normalized-text="雲林縣"> <span class="text"> 雲林縣</span> <span class="glyphicon glyphicon-ok check-mark"> </span> </a> </li> <li data-original-index="17"> <a tabindex="0" class="" data-normalized-text="嘉義縣"> <span class="text"> 嘉義縣</span> <span class="glyphicon glyphicon-ok check-mark"> </span> </a> </li> <li data-original-index="18"> <a tabindex="0" class="" data-normalized-text="屏東縣"> <span class="text"> 屏東縣</span> <span class="glyphicon glyphicon-ok check-mark"> </span> </a> </li> <li data-original-index="19"> <a tabindex="0" class="" data-normalized-text="澎湖縣"> <span class="text"> 澎湖縣</span> <span class="glyphicon glyphicon-ok check-mark"> </span> </a> </li> <li data-original-index="20"> <a tabindex="0" class="" data-normalized-text="花蓮縣"> <span class="text"> 花蓮縣</span> <span class="glyphicon glyphicon-ok check-mark"> </span> </a> </li> <li data-original-index="21"> <a tabindex="0" class="" data-normalized-text="台東縣"> <span class="text"> 台東縣</span> <span class="glyphicon glyphicon-ok check-mark"> </span> </a> </li> <li data-original-index="22"> <a tabindex="0" class="" data-normalized-text="金門縣"> <span class="text"> 金門縣</span> <span class="glyphicon glyphicon-ok check-mark"> </span> </a> </li> <li data-original-index="23"> <a tabindex="0" class="" data-normalized-text="連江縣"> <span class="text"> 連江縣</span> <span class="glyphicon glyphicon-ok check-mark"> </span> </a> </li> </ul> </div> </div>
-                    <span id="show業務單位" style="display: none;">
-                        <select name="ctl00$ContentPlaceHolder1$DropDownList_業務單位" id="ctl00_ContentPlaceHolder1_DropDownList_業務單位" class="selectpicker" style="display: none;">
-                            <option selected="selected" value=""> 全部</option>
-                            <option value="NR00"> 北區管</option>
-                            <option value="CR00"> 中區管</option>
-                            <option value="SR00"> 南區管</option>
-                            <option value="DS10"> 戰情中心</option>
-                            <option value="FS00"> 食品組</option>
-                            <option value="DN00"> 藥品組</option>
-                            <option value="DC00"> 醫粧組</option>
-                            <option value="RA00"> 研檢組</option>
-                            <option value="PR00"> 企科組</option>
-                            <option value="RM00"> 品質監督管理組</option>
-
-                        </select> <div class="btn-group bootstrap-select">
-                            <button type="button" class="btn dropdown-toggle selectpicker btn-default" data-toggle="dropdown" data-id="ctl00_ContentPlaceHolder1_DropDownList_業務單位" title="全部"> <span class="filter-option pull-left"> 全部</span> &nbsp;<span class="caret"> </span> </button> <div class="dropdown-menu open">
-                                <ul class="dropdown-menu inner selectpicker" role="menu"> <li data-original-index="0" class="selected"> <a tabindex="0" class="" data-normalized-text="全部"> <span class="text"> 全部</span> <span class="glyphicon glyphicon-ok check-mark"> </span> </a> </li> <li data-original-index="1"> <a tabindex="0" class="" data-normalized-text="北區管"> <span class="text"> 北區管</span> <span class="glyphicon glyphicon-ok check-mark"> </span> </a> </li> <li data-original-index="2"> <a tabindex="0" class="" data-normalized-text="中區管"> <span class="text"> 中區管</span> <span class="glyphicon glyphicon-ok check-mark"> </span> </a> </li> <li data-original-index="3"> <a tabindex="0" class="" data-normalized-text="南區管"> <span class="text"> 南區管</span> <span class="glyphicon glyphicon-ok check-mark"> </span> </a> </li> <li data-original-index="4"> <a tabindex="0" class="" data-normalized-text="戰情中心"> <span class="text"> 戰情中心</span> <span class="glyphicon glyphicon-ok check-mark"> </span> </a> </li> <li data-original-index="5"> <a tabindex="0" class="" data-normalized-text="食品組"> <span class="text"> 食品組</span> <span class="glyphicon glyphicon-ok check-mark"> </span> </a> </li> <li data-original-index="6"> <a tabindex="0" class="" data-normalized-text="藥品組"> <span class="text"> 藥品組</span> <span class="glyphicon glyphicon-ok check-mark"> </span> </a> </li> <li data-original-index="7"> <a tabindex="0" class="" data-normalized-text="醫粧組"> <span class="text"> 醫粧組</span> <span class="glyphicon glyphicon-ok check-mark"> </span> </a> </li> <li data-original-index="8"> <a tabindex="0" class="" data-normalized-text="研檢組"> <span class="text"> 研檢組</span> <span class="glyphicon glyphicon-ok check-mark"> </span> </a> </li> <li data-original-index="9"> <a tabindex="0" class="" data-normalized-text="企科組"> <span class="text"> 企科組</span> <span class="glyphicon glyphicon-ok check-mark"> </span> </a> </li> <li data-original-index="10"> <a tabindex="0" class="" data-normalized-text="品質監督管理組"> <span class="text"> 品質監督管理組</span> <span class="glyphicon glyphicon-ok check-mark"> </span> </a> </li> </ul>
-                            </div>
-                        </div>
-                    </span>
-                </div>
-                <div class="td hd"> 專案名稱：</div>
-                <div class="td">
-                    <input name="ctl00$ContentPlaceHolder1$txtProjectName" type="text" id="ctl00_ContentPlaceHolder1_txtProjectName" class="form-control">
+                    <table id="ctl00_ContentPlaceHolder1_cbListCheckItem" border="0">
+                        <tbody>
+                            <tr>
+                                <td> <span class="checkbox"> <input id="ctl00_ContentPlaceHolder1_cbListCheckItem_0" type="checkbox" name="ctl00$ContentPlaceHolder1$cbListCheckItem$0"> <label for="ctl00_ContentPlaceHolder1_cbListCheckItem_0"> GHP</label> </span> </td>
+                                <td> <span class="checkbox"> <input id="ctl00_ContentPlaceHolder1_cbListCheckItem_1" type="checkbox" name="ctl00$ContentPlaceHolder1$cbListCheckItem$1"> <label for="ctl00_ContentPlaceHolder1_cbListCheckItem_1"> 標示</label> </span> </td>
+                                <td> <span class="checkbox"> <input id="ctl00_ContentPlaceHolder1_cbListCheckItem_2" type="checkbox" name="ctl00$ContentPlaceHolder1$cbListCheckItem$2"> <label for="ctl00_ContentPlaceHolder1_cbListCheckItem_2"> 抽驗</label> </span> </td>
+                            </tr>
+                            <tr>
+                                <td> <span class="checkbox"> <input id="ctl00_ContentPlaceHolder1_cbListCheckItem_3" type="checkbox" name="ctl00$ContentPlaceHolder1$cbListCheckItem$3"> <label for="ctl00_ContentPlaceHolder1_cbListCheckItem_3"> 熟食</label> </span> </td>
+                                <td> <span class="checkbox"> <input id="ctl00_ContentPlaceHolder1_cbListCheckItem_4" type="checkbox" name="ctl00$ContentPlaceHolder1$cbListCheckItem$4"> <label for="ctl00_ContentPlaceHolder1_cbListCheckItem_4"> 油炸油</label> </span> </td>
+                                <td> <span class="checkbox"> <input id="ctl00_ContentPlaceHolder1_cbListCheckItem_5" type="checkbox" name="ctl00$ContentPlaceHolder1$cbListCheckItem$5"> <label for="ctl00_ContentPlaceHolder1_cbListCheckItem_5"> HACCP</label> </span> </td>
+                            </tr>
+                            <tr>
+                                <td> <span class="checkbox"> <input id="ctl00_ContentPlaceHolder1_cbListCheckItem_6" type="checkbox" name="ctl00$ContentPlaceHolder1$cbListCheckItem$6"> <label for="ctl00_ContentPlaceHolder1_cbListCheckItem_6"> 查驗登記工廠查核(健康食品工廠)</label> </span> </td>
+                                <td> <span class="checkbox"> <input id="ctl00_ContentPlaceHolder1_cbListCheckItem_7" type="checkbox" name="ctl00$ContentPlaceHolder1$cbListCheckItem$7"> <label for="ctl00_ContentPlaceHolder1_cbListCheckItem_7"> 查驗登記產品(健康食品)</label> </span> </td>
+                                <td> <span class="checkbox"> <input id="ctl00_ContentPlaceHolder1_cbListCheckItem_8" type="checkbox" name="ctl00$ContentPlaceHolder1$cbListCheckItem$8"> <label for="ctl00_ContentPlaceHolder1_cbListCheckItem_8"> 體檢情形</label> </span> </td>
+                            </tr>
+                            <tr>
+                                <td> <span class="checkbox"> <input id="ctl00_ContentPlaceHolder1_cbListCheckItem_9" type="checkbox" name="ctl00$ContentPlaceHolder1$cbListCheckItem$9"> <label for="ctl00_ContentPlaceHolder1_cbListCheckItem_9"> 查驗登記工廠查核(食品添加物工廠)</label> </span> </td>
+                                <td> <span class="checkbox"> <input id="ctl00_ContentPlaceHolder1_cbListCheckItem_10" type="checkbox" name="ctl00$ContentPlaceHolder1$cbListCheckItem$10"> <label for="ctl00_ContentPlaceHolder1_cbListCheckItem_10"> 查驗登記工廠查核(國產維生素錠狀膠囊狀食品工廠)</label> </span> </td>
+                                <td> <span class="checkbox"> <input id="ctl00_ContentPlaceHolder1_cbListCheckItem_11" type="checkbox" name="ctl00$ContentPlaceHolder1$cbListCheckItem$11"> <label for="ctl00_ContentPlaceHolder1_cbListCheckItem_11"> 查驗登記產品(食品添加物)</label> </span> </td>
+                            </tr>
+                            <tr>
+                                <td> <span class="checkbox"> <input id="ctl00_ContentPlaceHolder1_cbListCheckItem_12" type="checkbox" name="ctl00$ContentPlaceHolder1$cbListCheckItem$12"> <label for="ctl00_ContentPlaceHolder1_cbListCheckItem_12"> 查驗登記產品(國產維生素錠狀膠囊狀食品)</label> </span> </td>
+                                <td> <span class="checkbox"> <input id="ctl00_ContentPlaceHolder1_cbListCheckItem_13" type="checkbox" name="ctl00$ContentPlaceHolder1$cbListCheckItem$13"> <label for="ctl00_ContentPlaceHolder1_cbListCheckItem_13"> 查驗登記產品(輸入錠狀膠囊狀食品)</label> </span> </td>
+                                <td> <span class="checkbox"> <input id="ctl00_ContentPlaceHolder1_cbListCheckItem_14" type="checkbox" name="ctl00$ContentPlaceHolder1$cbListCheckItem$14"> <label for="ctl00_ContentPlaceHolder1_cbListCheckItem_14"> 查驗登記產品(病人用特殊營養食品)</label> </span> </td>
+                            </tr>
+                            <tr>
+                                <td> <span class="checkbox"> <input id="ctl00_ContentPlaceHolder1_cbListCheckItem_15" type="checkbox" name="ctl00$ContentPlaceHolder1$cbListCheckItem$15"> <label for="ctl00_ContentPlaceHolder1_cbListCheckItem_15"> 查驗登記產品(嬰兒配方食品及較大嬰兒配方輔助食品)</label> </span> </td>
+                                <td> <span class="checkbox"> <input id="ctl00_ContentPlaceHolder1_cbListCheckItem_16" type="checkbox" name="ctl00$ContentPlaceHolder1$cbListCheckItem$16"> <label for="ctl00_ContentPlaceHolder1_cbListCheckItem_16"> 真空包裝(GHP,標示)</label> </span> </td>
+                                <td> <span class="checkbox"> <input id="ctl00_ContentPlaceHolder1_cbListCheckItem_17" type="checkbox" name="ctl00$ContentPlaceHolder1$cbListCheckItem$17"> <label for="ctl00_ContentPlaceHolder1_cbListCheckItem_17"> GHP標示符合稽查</label> </span> </td>
+                            </tr>
+                            <tr>
+                                <td> <span class="checkbox"> <input id="ctl00_ContentPlaceHolder1_cbListCheckItem_18" type="checkbox" name="ctl00$ContentPlaceHolder1$cbListCheckItem$18"> <label for="ctl00_ContentPlaceHolder1_cbListCheckItem_18"> 瘦身美容業稽查</label> </span> </td>
+                                <td> <span class="checkbox"> <input id="ctl00_ContentPlaceHolder1_cbListCheckItem_19" type="checkbox" name="ctl00$ContentPlaceHolder1$cbListCheckItem$19"> <label for="ctl00_ContentPlaceHolder1_cbListCheckItem_19"> 化粧品工廠</label> </span> </td>
+                                <td> <span class="checkbox"> <input id="ctl00_ContentPlaceHolder1_cbListCheckItem_20" type="checkbox" name="ctl00$ContentPlaceHolder1$cbListCheckItem$20"> <label for="ctl00_ContentPlaceHolder1_cbListCheckItem_20"> 化粧品</label> </span> </td>
+                            </tr>
+                            <tr>
+                                <td> <span class="checkbox"> <input id="ctl00_ContentPlaceHolder1_cbListCheckItem_21" type="checkbox" name="ctl00$ContentPlaceHolder1$cbListCheckItem$21"> <label for="ctl00_ContentPlaceHolder1_cbListCheckItem_21"> 藥商\藥局\醫療機構</label> </span> </td>
+                                <td> <span class="checkbox"> <input id="ctl00_ContentPlaceHolder1_cbListCheckItem_22" type="checkbox" name="ctl00$ContentPlaceHolder1$cbListCheckItem$22"> <label for="ctl00_ContentPlaceHolder1_cbListCheckItem_22"> 藥品</label> </span> </td>
+                                <td> <span class="checkbox"> <input id="ctl00_ContentPlaceHolder1_cbListCheckItem_23" type="checkbox" name="ctl00$ContentPlaceHolder1$cbListCheckItem$23"> <label for="ctl00_ContentPlaceHolder1_cbListCheckItem_23"> 通路藥品回收稽查</label> </span> </td>
+                            </tr>
+                            <tr>
+                                <td> <span class="checkbox"> <input id="ctl00_ContentPlaceHolder1_cbListCheckItem_24" type="checkbox" name="ctl00$ContentPlaceHolder1$cbListCheckItem$24"> <label for="ctl00_ContentPlaceHolder1_cbListCheckItem_24"> 醫療器材\醫療器材商</label> </span> </td>
+                                <td> <span class="checkbox"> <input id="ctl00_ContentPlaceHolder1_cbListCheckItem_25" type="checkbox" name="ctl00$ContentPlaceHolder1$cbListCheckItem$25"> <label for="ctl00_ContentPlaceHolder1_cbListCheckItem_25"> 登錄查核</label> </span> </td>
+                                <td> <span class="checkbox"> <input id="ctl00_ContentPlaceHolder1_cbListCheckItem_26" type="checkbox" name="ctl00$ContentPlaceHolder1$cbListCheckItem$26"> <label for="ctl00_ContentPlaceHolder1_cbListCheckItem_26"> 追溯追蹤</label> </span> </td>
+                            </tr>
+                            <tr>
+                                <td> <span class="checkbox"> <input id="ctl00_ContentPlaceHolder1_cbListCheckItem_27" type="checkbox" name="ctl00$ContentPlaceHolder1$cbListCheckItem$27"> <label for="ctl00_ContentPlaceHolder1_cbListCheckItem_27"> 一級品管</label> </span> </td>
+                                <td> <span class="checkbox"> <input id="ctl00_ContentPlaceHolder1_cbListCheckItem_28" type="checkbox" name="ctl00$ContentPlaceHolder1$cbListCheckItem$28"> <label for="ctl00_ContentPlaceHolder1_cbListCheckItem_28"> 以通訊交易方式訂定之食品或餐飲服務</label> </span> </td>
+                                <td> <span class="checkbox"> <input id="ctl00_ContentPlaceHolder1_cbListCheckItem_29" type="checkbox" name="ctl00$ContentPlaceHolder1$cbListCheckItem$29"> <label for="ctl00_ContentPlaceHolder1_cbListCheckItem_29"> 餐飲禮券</label> </span> </td>
+                            </tr>
+                            <tr>
+                                <td> <span class="checkbox"> <input id="ctl00_ContentPlaceHolder1_cbListCheckItem_30" type="checkbox" name="ctl00$ContentPlaceHolder1$cbListCheckItem$30"> <label for="ctl00_ContentPlaceHolder1_cbListCheckItem_30"> 訂席、外燴</label> </span> </td>
+                                <td> <span class="checkbox"> <input id="ctl00_ContentPlaceHolder1_cbListCheckItem_31" type="checkbox" name="ctl00$ContentPlaceHolder1$cbListCheckItem$31"> <label for="ctl00_ContentPlaceHolder1_cbListCheckItem_31"> 化粧品業者</label> </span> </td>
+                                <td> <span class="checkbox"> <input id="ctl00_ContentPlaceHolder1_cbListCheckItem_32" type="checkbox" name="ctl00$ContentPlaceHolder1$cbListCheckItem$32"> <label for="ctl00_ContentPlaceHolder1_cbListCheckItem_32"> 產品責任保險</label> </span> </td>
+                            </tr>
+                            <tr>
+                                <td> <span class="checkbox"> <input id="ctl00_ContentPlaceHolder1_cbListCheckItem_33" type="checkbox" name="ctl00$ContentPlaceHolder1$cbListCheckItem$33"> <label for="ctl00_ContentPlaceHolder1_cbListCheckItem_33"> 來源文件保存</label> </span> </td>
+                                <td> <span class="checkbox"> <input id="ctl00_ContentPlaceHolder1_cbListCheckItem_34" type="checkbox" name="ctl00$ContentPlaceHolder1$cbListCheckItem$34"> <label for="ctl00_ContentPlaceHolder1_cbListCheckItem_34"> 逾期食品</label> </span> </td>
+                                <td> <span class="checkbox"> <input id="ctl00_ContentPlaceHolder1_cbListCheckItem_35" type="checkbox" name="ctl00$ContentPlaceHolder1$cbListCheckItem$35"> <label for="ctl00_ContentPlaceHolder1_cbListCheckItem_35"> 衛生管理人員查核</label> </span> </td>
+                            </tr>
+                            <tr>
+                                <td> <span class="checkbox"> <input id="ctl00_ContentPlaceHolder1_cbListCheckItem_36" type="checkbox" name="ctl00$ContentPlaceHolder1$cbListCheckItem$36"> <label for="ctl00_ContentPlaceHolder1_cbListCheckItem_36"> 專門職業或技術證照人員查核</label> </span> </td>
+                                <td> </td>
+                                <td> </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
-            <div class="tb-single-rwd">
-                <div class="td hd"> 專案截止日期(起)：</div>
-                <div class="td">
-                    <div class="input-group date">
-                        <input name="ctl00$ContentPlaceHolder1$txtProjectDeadlineS" type="text" id="ctl00_ContentPlaceHolder1_txtProjectDeadlineS" class="datepicker form-control pull-right">
-                        <div class="input-group-addon" onclick="$(this).prev().focus()">
-                            <i class="icon-calendar-full"> </i>
-                        </div>
-                    </div>
-                </div>
-                <div class="td hd"> 專案截止日期(迄)：</div>
-                <div class="td">
-                    <div class="input-group date">
-                        <input name="ctl00$ContentPlaceHolder1$txtProjectDeadlineE" type="text" id="ctl00_ContentPlaceHolder1_txtProjectDeadlineE" class="datepicker form-control pull-right">
-                        <div class="input-group-addon" onclick="$(this).prev().focus()">
-                            <i class="icon-calendar-full"> </i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="tb-single-rwd">
-                <div class="td hd"> 狀態：</div>
-                <div class="td">
-                    <div class="pmds-radio-group">
-                        <label class="radio-inline-item" for="ctl00_ContentPlaceHolder1_rbtnListProjectStatus_0">
-                            <input id="ctl00_ContentPlaceHolder1_rbtnListProjectStatus_0" type="radio" name="ctl00$ContentPlaceHolder1$rbtnListProjectStatus" value="">
-                            <span>全部</span>
-                        </label>
-
-                        <label class="radio-inline-item" for="ctl00_ContentPlaceHolder1_rbtnListProjectStatus_1">
-                            <input id="ctl00_ContentPlaceHolder1_rbtnListProjectStatus_1" type="radio" name="ctl00$ContentPlaceHolder1$rbtnListProjectStatus" value="Y" checked="checked">
-                            <span>啟用</span>
-                        </label>
-
-                        <label class="radio-inline-item" for="ctl00_ContentPlaceHolder1_rbtnListProjectStatus_2">
-                            <input id="ctl00_ContentPlaceHolder1_rbtnListProjectStatus_2" type="radio" name="ctl00$ContentPlaceHolder1$rbtnListProjectStatus" value="N">
-                            <span>停用</span>
-                        </label>
-                    </div>
-                </div>
-                <div class="td hd"> 表單名稱：</div>
-                <div class="td">
-                    <input name="FormName" id="FormName" type="text" class="datepicker form-control">
-                </div>
-            </div>
-
-            <div class="collapse in" id="sub_search">
-                <div class="tb-single-rwd">
-                    <div class="td hd"> 稽查項目：</div>
-                    <div class="td">
-                        <table id="ctl00_ContentPlaceHolder1_cbListCheckItem" border="0">
-                            <tbody>
-                                <tr>
-                                    <td> <span class="checkbox"> <input id="ctl00_ContentPlaceHolder1_cbListCheckItem_0" type="checkbox" name="ctl00$ContentPlaceHolder1$cbListCheckItem$0"> <label for="ctl00_ContentPlaceHolder1_cbListCheckItem_0"> GHP</label> </span> </td>
-                                    <td> <span class="checkbox"> <input id="ctl00_ContentPlaceHolder1_cbListCheckItem_1" type="checkbox" name="ctl00$ContentPlaceHolder1$cbListCheckItem$1"> <label for="ctl00_ContentPlaceHolder1_cbListCheckItem_1"> 標示</label> </span> </td>
-                                    <td> <span class="checkbox"> <input id="ctl00_ContentPlaceHolder1_cbListCheckItem_2" type="checkbox" name="ctl00$ContentPlaceHolder1$cbListCheckItem$2"> <label for="ctl00_ContentPlaceHolder1_cbListCheckItem_2"> 抽驗</label> </span> </td>
-                                </tr>
-                                <tr>
-                                    <td> <span class="checkbox"> <input id="ctl00_ContentPlaceHolder1_cbListCheckItem_3" type="checkbox" name="ctl00$ContentPlaceHolder1$cbListCheckItem$3"> <label for="ctl00_ContentPlaceHolder1_cbListCheckItem_3"> 熟食</label> </span> </td>
-                                    <td> <span class="checkbox"> <input id="ctl00_ContentPlaceHolder1_cbListCheckItem_4" type="checkbox" name="ctl00$ContentPlaceHolder1$cbListCheckItem$4"> <label for="ctl00_ContentPlaceHolder1_cbListCheckItem_4"> 油炸油</label> </span> </td>
-                                    <td> <span class="checkbox"> <input id="ctl00_ContentPlaceHolder1_cbListCheckItem_5" type="checkbox" name="ctl00$ContentPlaceHolder1$cbListCheckItem$5"> <label for="ctl00_ContentPlaceHolder1_cbListCheckItem_5"> HACCP</label> </span> </td>
-                                </tr>
-                                <tr>
-                                    <td> <span class="checkbox"> <input id="ctl00_ContentPlaceHolder1_cbListCheckItem_6" type="checkbox" name="ctl00$ContentPlaceHolder1$cbListCheckItem$6"> <label for="ctl00_ContentPlaceHolder1_cbListCheckItem_6"> 查驗登記工廠查核(健康食品工廠)</label> </span> </td>
-                                    <td> <span class="checkbox"> <input id="ctl00_ContentPlaceHolder1_cbListCheckItem_7" type="checkbox" name="ctl00$ContentPlaceHolder1$cbListCheckItem$7"> <label for="ctl00_ContentPlaceHolder1_cbListCheckItem_7"> 查驗登記產品(健康食品)</label> </span> </td>
-                                    <td> <span class="checkbox"> <input id="ctl00_ContentPlaceHolder1_cbListCheckItem_8" type="checkbox" name="ctl00$ContentPlaceHolder1$cbListCheckItem$8"> <label for="ctl00_ContentPlaceHolder1_cbListCheckItem_8"> 體檢情形</label> </span> </td>
-                                </tr>
-                                <tr>
-                                    <td> <span class="checkbox"> <input id="ctl00_ContentPlaceHolder1_cbListCheckItem_9" type="checkbox" name="ctl00$ContentPlaceHolder1$cbListCheckItem$9"> <label for="ctl00_ContentPlaceHolder1_cbListCheckItem_9"> 查驗登記工廠查核(食品添加物工廠)</label> </span> </td>
-                                    <td> <span class="checkbox"> <input id="ctl00_ContentPlaceHolder1_cbListCheckItem_10" type="checkbox" name="ctl00$ContentPlaceHolder1$cbListCheckItem$10"> <label for="ctl00_ContentPlaceHolder1_cbListCheckItem_10"> 查驗登記工廠查核(國產維生素錠狀膠囊狀食品工廠)</label> </span> </td>
-                                    <td> <span class="checkbox"> <input id="ctl00_ContentPlaceHolder1_cbListCheckItem_11" type="checkbox" name="ctl00$ContentPlaceHolder1$cbListCheckItem$11"> <label for="ctl00_ContentPlaceHolder1_cbListCheckItem_11"> 查驗登記產品(食品添加物)</label> </span> </td>
-                                </tr>
-                                <tr>
-                                    <td> <span class="checkbox"> <input id="ctl00_ContentPlaceHolder1_cbListCheckItem_12" type="checkbox" name="ctl00$ContentPlaceHolder1$cbListCheckItem$12"> <label for="ctl00_ContentPlaceHolder1_cbListCheckItem_12"> 查驗登記產品(國產維生素錠狀膠囊狀食品)</label> </span> </td>
-                                    <td> <span class="checkbox"> <input id="ctl00_ContentPlaceHolder1_cbListCheckItem_13" type="checkbox" name="ctl00$ContentPlaceHolder1$cbListCheckItem$13"> <label for="ctl00_ContentPlaceHolder1_cbListCheckItem_13"> 查驗登記產品(輸入錠狀膠囊狀食品)</label> </span> </td>
-                                    <td> <span class="checkbox"> <input id="ctl00_ContentPlaceHolder1_cbListCheckItem_14" type="checkbox" name="ctl00$ContentPlaceHolder1$cbListCheckItem$14"> <label for="ctl00_ContentPlaceHolder1_cbListCheckItem_14"> 查驗登記產品(病人用特殊營養食品)</label> </span> </td>
-                                </tr>
-                                <tr>
-                                    <td> <span class="checkbox"> <input id="ctl00_ContentPlaceHolder1_cbListCheckItem_15" type="checkbox" name="ctl00$ContentPlaceHolder1$cbListCheckItem$15"> <label for="ctl00_ContentPlaceHolder1_cbListCheckItem_15"> 查驗登記產品(嬰兒配方食品及較大嬰兒配方輔助食品)</label> </span> </td>
-                                    <td> <span class="checkbox"> <input id="ctl00_ContentPlaceHolder1_cbListCheckItem_16" type="checkbox" name="ctl00$ContentPlaceHolder1$cbListCheckItem$16"> <label for="ctl00_ContentPlaceHolder1_cbListCheckItem_16"> 真空包裝(GHP,標示)</label> </span> </td>
-                                    <td> <span class="checkbox"> <input id="ctl00_ContentPlaceHolder1_cbListCheckItem_17" type="checkbox" name="ctl00$ContentPlaceHolder1$cbListCheckItem$17"> <label for="ctl00_ContentPlaceHolder1_cbListCheckItem_17"> GHP標示符合稽查</label> </span> </td>
-                                </tr>
-                                <tr>
-                                    <td> <span class="checkbox"> <input id="ctl00_ContentPlaceHolder1_cbListCheckItem_18" type="checkbox" name="ctl00$ContentPlaceHolder1$cbListCheckItem$18"> <label for="ctl00_ContentPlaceHolder1_cbListCheckItem_18"> 瘦身美容業稽查</label> </span> </td>
-                                    <td> <span class="checkbox"> <input id="ctl00_ContentPlaceHolder1_cbListCheckItem_19" type="checkbox" name="ctl00$ContentPlaceHolder1$cbListCheckItem$19"> <label for="ctl00_ContentPlaceHolder1_cbListCheckItem_19"> 化粧品工廠</label> </span> </td>
-                                    <td> <span class="checkbox"> <input id="ctl00_ContentPlaceHolder1_cbListCheckItem_20" type="checkbox" name="ctl00$ContentPlaceHolder1$cbListCheckItem$20"> <label for="ctl00_ContentPlaceHolder1_cbListCheckItem_20"> 化粧品</label> </span> </td>
-                                </tr>
-                                <tr>
-                                    <td> <span class="checkbox"> <input id="ctl00_ContentPlaceHolder1_cbListCheckItem_21" type="checkbox" name="ctl00$ContentPlaceHolder1$cbListCheckItem$21"> <label for="ctl00_ContentPlaceHolder1_cbListCheckItem_21"> 藥商\藥局\醫療機構</label> </span> </td>
-                                    <td> <span class="checkbox"> <input id="ctl00_ContentPlaceHolder1_cbListCheckItem_22" type="checkbox" name="ctl00$ContentPlaceHolder1$cbListCheckItem$22"> <label for="ctl00_ContentPlaceHolder1_cbListCheckItem_22"> 藥品</label> </span> </td>
-                                    <td> <span class="checkbox"> <input id="ctl00_ContentPlaceHolder1_cbListCheckItem_23" type="checkbox" name="ctl00$ContentPlaceHolder1$cbListCheckItem$23"> <label for="ctl00_ContentPlaceHolder1_cbListCheckItem_23"> 通路藥品回收稽查</label> </span> </td>
-                                </tr>
-                                <tr>
-                                    <td> <span class="checkbox"> <input id="ctl00_ContentPlaceHolder1_cbListCheckItem_24" type="checkbox" name="ctl00$ContentPlaceHolder1$cbListCheckItem$24"> <label for="ctl00_ContentPlaceHolder1_cbListCheckItem_24"> 醫療器材\醫療器材商</label> </span> </td>
-                                    <td> <span class="checkbox"> <input id="ctl00_ContentPlaceHolder1_cbListCheckItem_25" type="checkbox" name="ctl00$ContentPlaceHolder1$cbListCheckItem$25"> <label for="ctl00_ContentPlaceHolder1_cbListCheckItem_25"> 登錄查核</label> </span> </td>
-                                    <td> <span class="checkbox"> <input id="ctl00_ContentPlaceHolder1_cbListCheckItem_26" type="checkbox" name="ctl00$ContentPlaceHolder1$cbListCheckItem$26"> <label for="ctl00_ContentPlaceHolder1_cbListCheckItem_26"> 追溯追蹤</label> </span> </td>
-                                </tr>
-                                <tr>
-                                    <td> <span class="checkbox"> <input id="ctl00_ContentPlaceHolder1_cbListCheckItem_27" type="checkbox" name="ctl00$ContentPlaceHolder1$cbListCheckItem$27"> <label for="ctl00_ContentPlaceHolder1_cbListCheckItem_27"> 一級品管</label> </span> </td>
-                                    <td> <span class="checkbox"> <input id="ctl00_ContentPlaceHolder1_cbListCheckItem_28" type="checkbox" name="ctl00$ContentPlaceHolder1$cbListCheckItem$28"> <label for="ctl00_ContentPlaceHolder1_cbListCheckItem_28"> 以通訊交易方式訂定之食品或餐飲服務</label> </span> </td>
-                                    <td> <span class="checkbox"> <input id="ctl00_ContentPlaceHolder1_cbListCheckItem_29" type="checkbox" name="ctl00$ContentPlaceHolder1$cbListCheckItem$29"> <label for="ctl00_ContentPlaceHolder1_cbListCheckItem_29"> 餐飲禮券</label> </span> </td>
-                                </tr>
-                                <tr>
-                                    <td> <span class="checkbox"> <input id="ctl00_ContentPlaceHolder1_cbListCheckItem_30" type="checkbox" name="ctl00$ContentPlaceHolder1$cbListCheckItem$30"> <label for="ctl00_ContentPlaceHolder1_cbListCheckItem_30"> 訂席、外燴</label> </span> </td>
-                                    <td> <span class="checkbox"> <input id="ctl00_ContentPlaceHolder1_cbListCheckItem_31" type="checkbox" name="ctl00$ContentPlaceHolder1$cbListCheckItem$31"> <label for="ctl00_ContentPlaceHolder1_cbListCheckItem_31"> 化粧品業者</label> </span> </td>
-                                    <td> <span class="checkbox"> <input id="ctl00_ContentPlaceHolder1_cbListCheckItem_32" type="checkbox" name="ctl00$ContentPlaceHolder1$cbListCheckItem$32"> <label for="ctl00_ContentPlaceHolder1_cbListCheckItem_32"> 產品責任保險</label> </span> </td>
-                                </tr>
-                                <tr>
-                                    <td> <span class="checkbox"> <input id="ctl00_ContentPlaceHolder1_cbListCheckItem_33" type="checkbox" name="ctl00$ContentPlaceHolder1$cbListCheckItem$33"> <label for="ctl00_ContentPlaceHolder1_cbListCheckItem_33"> 來源文件保存</label> </span> </td>
-                                    <td> <span class="checkbox"> <input id="ctl00_ContentPlaceHolder1_cbListCheckItem_34" type="checkbox" name="ctl00$ContentPlaceHolder1$cbListCheckItem$34"> <label for="ctl00_ContentPlaceHolder1_cbListCheckItem_34"> 逾期食品</label> </span> </td>
-                                    <td> <span class="checkbox"> <input id="ctl00_ContentPlaceHolder1_cbListCheckItem_35" type="checkbox" name="ctl00$ContentPlaceHolder1$cbListCheckItem$35"> <label for="ctl00_ContentPlaceHolder1_cbListCheckItem_35"> 衛生管理人員查核</label> </span> </td>
-                                </tr>
-                                <tr>
-                                    <td> <span class="checkbox"> <input id="ctl00_ContentPlaceHolder1_cbListCheckItem_36" type="checkbox" name="ctl00$ContentPlaceHolder1$cbListCheckItem$36"> <label for="ctl00_ContentPlaceHolder1_cbListCheckItem_36"> 專門職業或技術證照人員查核</label> </span> </td>
-                                    <td> </td>
-                                    <td> </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-            <a href="#sub_search" class="btn btn-default btn-sm collapse-toggle" data-toggle="collapse" aria-expanded="true">
-                <i> </i>
-                <span class="c-open"> 展開全部</span>
-                <span class="c-close"> 收合內容</span>
-            </a>
-        </span>
+        </div>
+        <a href="#sub_search" class="btn btn-default btn-sm collapse-toggle" data-toggle="collapse" aria-expanded="true">
+            <i> </i>
+            <span class="c-open"> 展開全部</span>
+            <span class="c-close"> 收合內容</span>
+        </a>
     </div>
     <div class="btn-area">
         <input type="submit" name="ctl00$ContentPlaceHolder1$btnQuery" value="搜尋" id="ctl00_ContentPlaceHolder1_btnQuery" class="btn btn-primary" style="width:50px;">
