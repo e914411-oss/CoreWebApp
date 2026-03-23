@@ -20,7 +20,7 @@
                 display: inline-flex;
                 align-items: center;
                 gap: 4px;
-                margin-top: 6px;
+                margin-top: 2px;
                 white-space: nowrap;
                 font-weight: normal;
             }
@@ -29,9 +29,13 @@
                     margin: 0;
                 }
 
+        .radio-inline {
+            margin-top:6px;
+        }
+
         .btn-primary-line {
             height: 24px;
-            padding: 1px 8px 0 8px;
+            padding: 0 8px 0 8px;
             box-sizing: border-box;
         }
     </style>
@@ -149,6 +153,9 @@
                         <span>查驗登記產品</span>
                     </label>
                 </div>
+                <div class="pmds-radio-group">
+                    <input type="button" class="btn btn-primary-line" id="FormAdd_Note" value="備註" />
+                </div>
             </div>
         </div>
         <div class="tb-single-rwd">
@@ -163,6 +170,7 @@
                         <input id="rdoSelfSetYes" type="radio" name="IsSelfSet" value="N">
                         <span>否</span>
                     </label>
+                    <input type="button" class="btn btn-primary-line" id="btnSetItem" value="設定" />
                 </div>
             </div>
         </div>
@@ -247,29 +255,23 @@
                             </div>
                         </div>
                         <div class="tb-single-rwd">
-                            <div class="td hd"><span style="color: Red">＊</span>類型：​</div>
+                            <div class="td hd">
+                                <span style="color: Red">＊</span>類型：
+                            </div>
                             <div class="td">
-                                <table id="ctl00_ContentPlaceHolder1_rblReported_Type" reset-type="rbl" ui-id="rblReported_Type" border="0">
-                                    <tbody>
-                                        <tr>
-                                            <td><span class="radio radio-inline"><input id="ctl00_ContentPlaceHolder1_rblReported_Type_0" type="radio" name="ctl00$ContentPlaceHolder1$rblReported_Type" value="int"><label for="ctl00_ContentPlaceHolder1_rblReported_Type_0">數字</label></span></td>
-                                            <td><span class="radio radio-inline"><input id="ctl00_ContentPlaceHolder1_rblReported_Type_1" type="radio" name="ctl00$ContentPlaceHolder1$rblReported_Type" value="txt"><label for="ctl00_ContentPlaceHolder1_rblReported_Type_1">文字</label></span></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                                <div class="pmds-radio-group">
+                                    <span class="radio-inline"><input id="ctl00_ContentPlaceHolder1_rblReported_Type_0" type="radio" name="ctl00$ContentPlaceHolder1$rblReported_Type" value="int"><label for="ctl00_ContentPlaceHolder1_rblReported_Type_0">數字</label></span>
+                                    <span class="radio-inline"><input id="ctl00_ContentPlaceHolder1_rblReported_Type_1" type="radio" name="ctl00$ContentPlaceHolder1$rblReported_Type" value="txt"><label for="ctl00_ContentPlaceHolder1_rblReported_Type_1">文字</label></span>
+                                </div>
                             </div>
                         </div>
                         <div class="tb-single-rwd">
                             <div class="td hd"><span style="color: Red">＊</span>必填：</div>
                             <div class="td">
-                                <table id="ctl00_ContentPlaceHolder1_rblRequired" reset-type="rbl" ui-id="rblRequired" border="0">
-                                    <tbody>
-                                        <tr>
-                                            <td><span class="radio radio-inline"><input id="ctl00_ContentPlaceHolder1_rblRequired_0" type="radio" name="ctl00$ContentPlaceHolder1$rblRequired" value="Y"><label for="ctl00_ContentPlaceHolder1_rblRequired_0">是</label></span></td>
-                                            <td><span class="radio radio-inline"><input id="ctl00_ContentPlaceHolder1_rblRequired_1" type="radio" name="ctl00$ContentPlaceHolder1$rblRequired" value="N"><label for="ctl00_ContentPlaceHolder1_rblRequired_1">否</label></span></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                                <div class="pmds-radio-group">
+                                    <span class="radio-inline"><input id="ctl00_ContentPlaceHolder1_rblReported_Type_0" type="radio" name="ctl00$ContentPlaceHolder1$rblReported_Type" value="int"><label for="ctl00_ContentPlaceHolder1_rblReported_Type_0">數字</label></span>
+                                    <span class="radio-inline"><input id="ctl00_ContentPlaceHolder1_rblReported_Type_1" type="radio" name="ctl00$ContentPlaceHolder1$rblReported_Type" value="txt"><label for="ctl00_ContentPlaceHolder1_rblReported_Type_1">文字</label></span>
+                                </div>
                             </div>
                         </div>
                         <div class="btn-area">
@@ -288,29 +290,9 @@
 
                 </div>
                 <div style="text-align: right">
-                    <input type="button" class="btn btn-primary" name="ctl00$ContentPlaceHolder1$btnShowMenu" value="新增項目" onclick="return false;" id="ctl00_ContentPlaceHolder1_btnShowMenu" class="btn btn-sm btn-default" ui-id="btnShowMenu">
-                </div>
-                <div id="ctl00_ContentPlaceHolder1_Panel_List">
-
-                    <hr>
-                    <table class="table tb-multi" cellspacing="0" border="0" style="width: 100%; border-collapse: collapse;" ui-id="list">
-                        <thead style="display: none;">
-                            <tr>
-                                <th align="center" width="50">序號</th>
-                                <th align="center">標題/說明</th>
-                                <th align="center">動作</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        </tbody>
-                    </table>
-
+                    <input type="button" class="btn btn-primary" name="ctl00$ContentPlaceHolder1$btnShowMenu" value="新增項目" onclick="return false;" id="ctl00_ContentPlaceHolder1_btnShowMenu" ui-id="btnShowMenu">
                 </div>
             </div>
-        </div>
-        <div class="pmds-note-footer">
-            <input type="button" id="btn浮動欄位取消" value="取消" class="btn btn-primary" data-dismiss="modal">
-            <input type="button" id="btn浮動欄位確定" value="確定" class="btn btn-primary" onclick="浮動欄位確定();" data-dismiss="modal">
         </div>
     </div>
 </div>

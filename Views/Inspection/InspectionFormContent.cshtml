@@ -220,6 +220,7 @@
     <div class="inspection-question-card">
         <div class="inspection-question-title">
             1.	GHP
+            <input type="button" id="btnLoadAttachForm" class="btn btn-primary-line" value="載入附件表單" />
         </div>
         <div class="inspection-question-body">
 
@@ -268,9 +269,7 @@
                     <span>●查核提醒事項:</span><input id="txtNote1" type="text" class="form-control note-input" /><span>(表單設計者依需求填寫填寫，倘無則不顯示)</span>
                 </label>
             </div>
-            @* <div class="pmds-radio-group inspection-group">
-                
-            </div> *@
+            
         </div>
     </div>
 
@@ -1617,3 +1616,138 @@
     </div>
 
 </div>
+
+
+
+@section Scripts {
+    <script>
+        $(function () {
+            // 1. 動態建立遮罩與彈窗
+            var modalHtml = `
+                <div id="attachFormMask" class="attach-form-mask" style="display:none;">
+                    <div class="attach-form-dialog">
+                        <div class="attach-form-header">附件表單單號</div>
+
+                        <div class="attach-form-body">
+                            <input type="text" id="attachFormNo" class="form-control" />
+                        </div>
+
+                        <div class="attach-form-footer">
+                            <button type="button" id="btnAttachFormCancel" class="btn btn-success">取消</button>
+                            <button type="button" id="btnAttachFormConfirm" class="btn btn-success">確定</button>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            // 2. 動態加入遮罩樣式
+            var modalStyle = `
+                <style id="attachFormMaskStyle">
+                    .attach-form-mask{
+                        position: fixed;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        background: rgba(0, 0, 0, 0.35);
+                        z-index: 9999;
+                        display: none;
+                    }
+
+                    .attach-form-dialog{
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        width: 840px;
+                        max-width: calc(100% - 30px);
+                        background: #fff;
+                        border: 1px solid #cfcfcf;
+                        box-shadow: 0 6px 18px rgba(0,0,0,.2);
+                    }
+
+                    .attach-form-header{
+                        background: #eef5ef;
+                        color: #2ca24c;
+                        font-size: 20px;
+                        font-weight: 700;
+                        padding: 12px 16px;
+                        border-bottom: 1px solid #dcdcdc;
+                    }
+
+                    .attach-form-body{
+                        padding: 22px 14px 28px 14px;
+                        min-height: 100px;
+                    }
+
+                    .attach-form-body input.form-control{
+                        height: 40px;
+                        font-size: 16px;
+                    }
+
+                    .attach-form-footer{
+                        border-top: 1px solid #e5e5e5;
+                        padding: 14px 16px;
+                        display: flex;
+                        justify-content: flex-end;
+                        gap: 10px;
+                    }
+
+                    .attach-form-footer .btn{
+                        min-width: 70px;
+                    }
+                </style>
+            `;
+
+            if ($('#attachFormMask').length === 0) {
+                $('body').append(modalHtml);
+            }
+
+            if ($('#attachFormMaskStyle').length === 0) {
+                $('head').append(modalStyle);
+            }
+
+            // 3. 綁定「載入附件表單」按鈕
+            $(document).on('click', 'input[type="button"][value="載入附件表單"]', function () {
+                $('#attachFormMask').fadeIn(150);
+                $('#attachFormNo').focus();
+            });
+
+            // 4. 關閉遮罩
+            $(document).on('click', '#btnAttachFormCancel', function () {
+                $('#attachFormMask').fadeOut(150);
+            });
+
+            // 5. 按確定
+            $(document).on('click', '#btnAttachFormConfirm', function () {
+                var attachFormNo = $.trim($('#attachFormNo').val());
+
+                if (attachFormNo === '') {
+                    alert('請輸入附件表單單號');
+                    $('#attachFormNo').focus();
+                    return;
+                }
+
+                // 這裡先示範：可先確認輸入值
+                console.log('附件表單單號：' + attachFormNo);
+
+                // 你後續若要帶去 API / Ajax / 指定欄位，可接在這裡
+                $('#attachFormMask').fadeOut(150);
+            });
+
+            // 6. 點遮罩背景可關閉
+            $(document).on('click', '#attachFormMask', function (e) {
+                if (e.target.id === 'attachFormMask') {
+                    $('#attachFormMask').fadeOut(150);
+                }
+            });
+
+            // 7. Esc 關閉
+            $(document).on('keydown', function (e) {
+                if (e.key === 'Escape') {
+                    $('#attachFormMask').fadeOut(150);
+                }
+            });
+        });
+    </script>
+}
